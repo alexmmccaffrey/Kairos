@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project -- I uncommented it
+platform :ios, '9.0'
+
+target 'Kairos' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Kairos
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+  end 
+
+  target 'KairosTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'KairosUITests' do
+    # Pods for testing
+  end

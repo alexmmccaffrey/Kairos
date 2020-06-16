@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		748DE040DB4ED69F2CBF3364 /* libPods-KairosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81625AAC4D831A83F8A86F6E /* libPods-KairosUITests.a */; };
+		90F205A5D05AFFB4191480F9 /* Pods_Kairos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10E55DC47D9BFDF6960B90F /* Pods_Kairos.framework */; };
 		DC390850242C6ABA00506DA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39084F242C6ABA00506DA3 /* AppDelegate.swift */; };
 		DC390852242C6ABA00506DA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390851242C6ABA00506DA3 /* SceneDelegate.swift */; };
 		DC390854242C6ABA00506DA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390853242C6ABA00506DA3 /* ContentView.swift */; };
@@ -14,13 +16,44 @@
 		DC39085C242C6ABB00506DA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC39085A242C6ABB00506DA3 /* LaunchScreen.storyboard */; };
 		DC390867242C6ABB00506DA3 /* KairosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390866242C6ABB00506DA3 /* KairosTests.swift */; };
 		DC390872242C6ABB00506DA3 /* KairosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390871242C6ABB00506DA3 /* KairosUITests.swift */; };
-		DC390881242C7C1400506DA3 /* ReviewFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390880242C7C1400506DA3 /* ReviewFlowView.swift */; };
-		DC390883242C7C2400506DA3 /* SpotFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390882242C7C2400506DA3 /* SpotFinderView.swift */; };
-		DC390885242C7CC700506DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC390884242C7CC700506DA3 /* Assets.xcassets */; };
+		DC390881242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390880242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift */; };
 		DC390887242C7CE300506DA3 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390886242C7CE300506DA3 /* ReviewData.swift */; };
-		DC390889242C7D1500506DA3 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390888242C7D1500506DA3 /* ReviewHandler.swift */; };
-		DC39088D242C7E1C00506DA3 /* Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC39088C242C7E1C00506DA3 /* Storyboard */; };
-		DC390891242C7E6600506DA3 /* ViewController in Resources */ = {isa = PBXBuildFile; fileRef = DC390890242C7E6600506DA3 /* ViewController */; };
+		DC46E27724942C7100F4C92D /* BuildReviewLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */; };
+		DC46E27D2495174700F4C92D /* BuildReviewTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */; };
+		DC4BBE322443AC680034328A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE312443AC680034328A /* Storyboard.storyboard */; };
+		DC4BBE382443AD420034328A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE372443AD420034328A /* Assets.xcassets */; };
+		DC4BBE3B2443AF440034328A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4BBE3A2443AF440034328A /* MapViewController.swift */; };
+		DC4BBE502443AF890034328A /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE3D2443AF890034328A /* Montserrat-LightItalic.ttf */; };
+		DC4BBE512443AF890034328A /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE3E2443AF890034328A /* Montserrat-Medium.ttf */; };
+		DC4BBE522443AF890034328A /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE3F2443AF890034328A /* Montserrat-BoldItalic.ttf */; };
+		DC4BBE532443AF890034328A /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE402443AF890034328A /* Montserrat-Light.ttf */; };
+		DC4BBE542443AF890034328A /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE412443AF890034328A /* Montserrat-ThinItalic.ttf */; };
+		DC4BBE552443AF890034328A /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE422443AF890034328A /* Montserrat-ExtraLight.ttf */; };
+		DC4BBE562443AF890034328A /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE432443AF890034328A /* Montserrat-Thin.ttf */; };
+		DC4BBE572443AF890034328A /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE442443AF890034328A /* Montserrat-Bold.ttf */; };
+		DC4BBE582443AF890034328A /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE452443AF890034328A /* Montserrat-MediumItalic.ttf */; };
+		DC4BBE592443AF890034328A /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE462443AF890034328A /* Montserrat-BlackItalic.ttf */; };
+		DC4BBE5A2443AF890034328A /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE472443AF890034328A /* Montserrat-SemiBold.ttf */; };
+		DC4BBE5B2443AF890034328A /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE482443AF890034328A /* Montserrat-ExtraLightItalic.ttf */; };
+		DC4BBE5C2443AF890034328A /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE492443AF890034328A /* Montserrat-ExtraBold.ttf */; };
+		DC4BBE5F2443AF890034328A /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4C2443AF890034328A /* Montserrat-Regular.ttf */; };
+		DC4BBE602443AF890034328A /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4D2443AF890034328A /* Montserrat-Italic.ttf */; };
+		DC4BBE612443AF890034328A /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4E2443AF890034328A /* Montserrat-SemiBoldItalic.ttf */; };
+		DC4BBE622443AF890034328A /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4F2443AF890034328A /* Montserrat-ExtraBoldItalic.ttf */; };
+		DC542881248D76DC000571EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542880248D76DC000571EB /* HomeView.swift */; };
+		DC542883248D8E1E000571EB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542882248D8E1E000571EB /* HomeRouter.swift */; };
+		DC542887248D9542000571EB /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542886248D9542000571EB /* ReviewModel.swift */; };
+		DC542889248D9D76000571EB /* BuildReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542888248D9D76000571EB /* BuildReviewView.swift */; };
+		DC7AA99924958B1400DEAFD5 /* BuildReviewCrowdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */; };
+		DC7AA99B24958B2100DEAFD5 /* BuildReviewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */; };
+		DC7DE2D5249689BA00B40DDE /* BuildReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */; };
+		DCBD436F2490653E0045F0E7 /* BuildReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD436E2490653E0045F0E7 /* BuildReviewInteractor.swift */; };
+		DCBD4371249065DF0045F0E7 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD4370249065DF0045F0E7 /* HomePresenter.swift */; };
+		DCBD43732490666C0045F0E7 /* BuildReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD43722490666C0045F0E7 /* BuildReviewPresenter.swift */; };
+		DCBD4375249067850045F0E7 /* BuildReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */; };
+		DCBD437724906A0F0045F0E7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */; };
+		DCCCBEA22436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCCBEA12436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift */; };
+		F0789BA840B519F588A0C4F7 /* libPods-KairosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 715A3EC4B692F9592D5A4F52 /* libPods-KairosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +74,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11B3A4749873BEA5A5A8866A /* Pods-Kairos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kairos.release.xcconfig"; path = "Target Support Files/Pods-Kairos/Pods-Kairos.release.xcconfig"; sourceTree = "<group>"; };
+		1521B6A7B67A10B5E8F9375E /* Pods-KairosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KairosUITests.debug.xcconfig"; path = "Target Support Files/Pods-KairosUITests/Pods-KairosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		162E11E262AB1526009B7739 /* Pods-KairosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KairosUITests.release.xcconfig"; path = "Target Support Files/Pods-KairosUITests/Pods-KairosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		715A3EC4B692F9592D5A4F52 /* libPods-KairosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KairosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DB25F9107E0F2A350672CA3 /* Pods-Kairos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kairos.debug.xcconfig"; path = "Target Support Files/Pods-Kairos/Pods-Kairos.debug.xcconfig"; sourceTree = "<group>"; };
+		81625AAC4D831A83F8A86F6E /* libPods-KairosUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KairosUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FEB15551D8926D95A7EAB94 /* Pods-KairosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KairosTests.debug.xcconfig"; path = "Target Support Files/Pods-KairosTests/Pods-KairosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C10E55DC47D9BFDF6960B90F /* Pods_Kairos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kairos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D890207FB8A21CB017502583 /* Pods-KairosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KairosTests.release.xcconfig"; path = "Target Support Files/Pods-KairosTests/Pods-KairosTests.release.xcconfig"; sourceTree = "<group>"; };
 		DC39084C242C6ABA00506DA3 /* Kairos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kairos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC39084F242C6ABA00506DA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC390851242C6ABA00506DA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,13 +96,44 @@
 		DC39086D242C6ABB00506DA3 /* KairosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KairosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC390871242C6ABB00506DA3 /* KairosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KairosUITests.swift; sourceTree = "<group>"; };
 		DC390873242C6ABB00506DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC390880242C7C1400506DA3 /* ReviewFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewFlowView.swift; sourceTree = "<group>"; };
-		DC390882242C7C2400506DA3 /* SpotFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotFinderView.swift; sourceTree = "<group>"; };
-		DC390884242C7CC700506DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC390880242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COMMENTEDOUTReviewFlowView.swift; sourceTree = "<group>"; };
 		DC390886242C7CE300506DA3 /* ReviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
-		DC390888242C7D1500506DA3 /* ReviewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
-		DC39088C242C7E1C00506DA3 /* Storyboard */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Storyboard; sourceTree = "<group>"; };
-		DC390890242C7E6600506DA3 /* ViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewController; sourceTree = "<group>"; };
+		DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewLightView.swift; sourceTree = "<group>"; };
+		DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildReviewTimeView.swift; sourceTree = "<group>"; };
+		DC4BBE312443AC680034328A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		DC4BBE372443AD420034328A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC4BBE3A2443AF440034328A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DC4BBE3D2443AF890034328A /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE3E2443AF890034328A /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		DC4BBE3F2443AF890034328A /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE402443AF890034328A /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		DC4BBE412443AF890034328A /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE422443AF890034328A /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		DC4BBE432443AF890034328A /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		DC4BBE442443AF890034328A /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		DC4BBE452443AF890034328A /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE462443AF890034328A /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE472443AF890034328A /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		DC4BBE482443AF890034328A /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE492443AF890034328A /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DC4BBE4C2443AF890034328A /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		DC4BBE4D2443AF890034328A /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		DC4BBE4E2443AF890034328A /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE4F2443AF890034328A /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		DC4BBE632443BB810034328A /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
+		DC542880248D76DC000571EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DC542882248D8E1E000571EB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		DC542886248D9542000571EB /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
+		DC542888248D9D76000571EB /* BuildReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewView.swift; sourceTree = "<group>"; };
+		DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewCrowdView.swift; sourceTree = "<group>"; };
+		DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewChatView.swift; sourceTree = "<group>"; };
+		DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewService.swift; sourceTree = "<group>"; };
+		DCBD436E2490653E0045F0E7 /* BuildReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewInteractor.swift; sourceTree = "<group>"; };
+		DCBD4370249065DF0045F0E7 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		DCBD43722490666C0045F0E7 /* BuildReviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewPresenter.swift; sourceTree = "<group>"; };
+		DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewRouter.swift; sourceTree = "<group>"; };
+		DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		DCCCBEA12436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COMMENTEDOUTSpotDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F205A5D05AFFB4191480F9 /* Pods_Kairos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0789BA840B519F588A0C4F7 /* libPods-KairosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +157,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				748DE040DB4ED69F2CBF3364 /* libPods-KairosUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A1C94BBBFDD4A27CFD88CFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DB25F9107E0F2A350672CA3 /* Pods-Kairos.debug.xcconfig */,
+				11B3A4749873BEA5A5A8866A /* Pods-Kairos.release.xcconfig */,
+				9FEB15551D8926D95A7EAB94 /* Pods-KairosTests.debug.xcconfig */,
+				D890207FB8A21CB017502583 /* Pods-KairosTests.release.xcconfig */,
+				1521B6A7B67A10B5E8F9375E /* Pods-KairosUITests.debug.xcconfig */,
+				162E11E262AB1526009B7739 /* Pods-KairosUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		825530155E5031DE790502B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C10E55DC47D9BFDF6960B90F /* Pods_Kairos.framework */,
+				715A3EC4B692F9592D5A4F52 /* libPods-KairosTests.a */,
+				81625AAC4D831A83F8A86F6E /* libPods-KairosUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC390843242C6ABA00506DA3 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +194,8 @@
 				DC390865242C6ABB00506DA3 /* KairosTests */,
 				DC390870242C6ABB00506DA3 /* KairosUITests */,
 				DC39084D242C6ABA00506DA3 /* Products */,
+				6A1C94BBBFDD4A27CFD88CFD /* Pods */,
+				825530155E5031DE790502B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,16 +212,20 @@
 		DC39084E242C6ABA00506DA3 /* Kairos */ = {
 			isa = PBXGroup;
 			children = (
-				DC39087F242C7BC500506DA3 /* Views */,
 				DC39084F242C6ABA00506DA3 /* AppDelegate.swift */,
 				DC390851242C6ABA00506DA3 /* SceneDelegate.swift */,
-				DC390886242C7CE300506DA3 /* ReviewData.swift */,
-				DC390888242C7D1500506DA3 /* ReviewHandler.swift */,
-				DC390884242C7CC700506DA3 /* Assets.xcassets */,
+				DC390853242C6ABA00506DA3 /* ContentView.swift */,
+				DC54287F248D74A7000571EB /* HomeModule */,
+				DC54287E248D6922000571EB /* BuildReviewModule */,
+				DC54287C248D6908000571EB /* Entities */,
+				DC7DE2D32496899400B40DDE /* Services */,
+				DC39087F242C7BC500506DA3 /* ForLearning */,
 				DC39085A242C6ABB00506DA3 /* LaunchScreen.storyboard */,
 				DC39085D242C6ABB00506DA3 /* Info.plist */,
-				DC39088C242C7E1C00506DA3 /* Storyboard */,
-				DC390890242C7E6600506DA3 /* ViewController */,
+				DC4BBE272443AB900034328A /* Fonts */,
+				DC4BBE392443AF440034328A /* ViewController */,
+				DC4BBE302443AC680034328A /* Storyboard */,
+				DC4BBE372443AD420034328A /* Assets.xcassets */,
 				DC390857242C6ABB00506DA3 /* Preview Content */,
 			);
 			path = Kairos;
@@ -152,14 +257,114 @@
 			path = KairosUITests;
 			sourceTree = "<group>";
 		};
-		DC39087F242C7BC500506DA3 /* Views */ = {
+		DC39087F242C7BC500506DA3 /* ForLearning */ = {
 			isa = PBXGroup;
 			children = (
-				DC390853242C6ABA00506DA3 /* ContentView.swift */,
-				DC390880242C7C1400506DA3 /* ReviewFlowView.swift */,
-				DC390882242C7C2400506DA3 /* SpotFinderView.swift */,
+				DC390880242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift */,
+				DCCCBEA12436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift */,
 			);
-			path = Views;
+			path = ForLearning;
+			sourceTree = "<group>";
+		};
+		DC4BBE272443AB900034328A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DC4BBE3C2443AF890034328A /* Montserrat */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DC4BBE302443AC680034328A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DC4BBE312443AC680034328A /* Storyboard.storyboard */,
+			);
+			name = Storyboard;
+			path = "Kairos/Preview Content/Storyboard";
+			sourceTree = SOURCE_ROOT;
+		};
+		DC4BBE392443AF440034328A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DC4BBE3A2443AF440034328A /* MapViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DC4BBE3C2443AF890034328A /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				DC4BBE3D2443AF890034328A /* Montserrat-LightItalic.ttf */,
+				DC4BBE3E2443AF890034328A /* Montserrat-Medium.ttf */,
+				DC4BBE3F2443AF890034328A /* Montserrat-BoldItalic.ttf */,
+				DC4BBE402443AF890034328A /* Montserrat-Light.ttf */,
+				DC4BBE412443AF890034328A /* Montserrat-ThinItalic.ttf */,
+				DC4BBE422443AF890034328A /* Montserrat-ExtraLight.ttf */,
+				DC4BBE432443AF890034328A /* Montserrat-Thin.ttf */,
+				DC4BBE442443AF890034328A /* Montserrat-Bold.ttf */,
+				DC4BBE452443AF890034328A /* Montserrat-MediumItalic.ttf */,
+				DC4BBE462443AF890034328A /* Montserrat-BlackItalic.ttf */,
+				DC4BBE472443AF890034328A /* Montserrat-SemiBold.ttf */,
+				DC4BBE482443AF890034328A /* Montserrat-ExtraLightItalic.ttf */,
+				DC4BBE492443AF890034328A /* Montserrat-ExtraBold.ttf */,
+				DC4BBE632443BB810034328A /* Montserrat.ttf */,
+				DC4BBE4C2443AF890034328A /* Montserrat-Regular.ttf */,
+				DC4BBE4D2443AF890034328A /* Montserrat-Italic.ttf */,
+				DC4BBE4E2443AF890034328A /* Montserrat-SemiBoldItalic.ttf */,
+				DC4BBE4F2443AF890034328A /* Montserrat-ExtraBoldItalic.ttf */,
+			);
+			path = Montserrat;
+			sourceTree = "<group>";
+		};
+		DC54287C248D6908000571EB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DC390886242C7CE300506DA3 /* ReviewData.swift */,
+				DC542886248D9542000571EB /* ReviewModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DC54287E248D6922000571EB /* BuildReviewModule */ = {
+			isa = PBXGroup;
+			children = (
+				DC542888248D9D76000571EB /* BuildReviewView.swift */,
+				DCBD436E2490653E0045F0E7 /* BuildReviewInteractor.swift */,
+				DCBD43722490666C0045F0E7 /* BuildReviewPresenter.swift */,
+				DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */,
+				DCBD43782490871B0045F0E7 /* CategoryViews */,
+			);
+			path = BuildReviewModule;
+			sourceTree = "<group>";
+		};
+		DC54287F248D74A7000571EB /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				DC542880248D76DC000571EB /* HomeView.swift */,
+				DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */,
+				DCBD4370249065DF0045F0E7 /* HomePresenter.swift */,
+				DC542882248D8E1E000571EB /* HomeRouter.swift */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		DC7DE2D32496899400B40DDE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DCBD43782490871B0045F0E7 /* CategoryViews */ = {
+			isa = PBXGroup;
+			children = (
+				DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */,
+				DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */,
+				DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */,
+				DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */,
+			);
+			path = CategoryViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,9 +374,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC390876242C6ABB00506DA3 /* Build configuration list for PBXNativeTarget "Kairos" */;
 			buildPhases = (
+				CAEA2CABA551D4527834A2BF /* [CP] Check Pods Manifest.lock */,
 				DC390848242C6ABA00506DA3 /* Sources */,
 				DC390849242C6ABA00506DA3 /* Frameworks */,
 				DC39084A242C6ABA00506DA3 /* Resources */,
+				C3ACA48E70A3F64ECD37C00F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,6 +393,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC390879242C6ABB00506DA3 /* Build configuration list for PBXNativeTarget "KairosTests" */;
 			buildPhases = (
+				6EF5F2BA8B48D458AE414B11 /* [CP] Check Pods Manifest.lock */,
 				DC39085E242C6ABB00506DA3 /* Sources */,
 				DC39085F242C6ABB00506DA3 /* Frameworks */,
 				DC390860242C6ABB00506DA3 /* Resources */,
@@ -204,6 +412,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC39087C242C6ABB00506DA3 /* Build configuration list for PBXNativeTarget "KairosUITests" */;
 			buildPhases = (
+				6229936FD3360EFE32E9293E /* [CP] Check Pods Manifest.lock */,
 				DC390869242C6ABB00506DA3 /* Sources */,
 				DC39086A242C6ABB00506DA3 /* Frameworks */,
 				DC39086B242C6ABB00506DA3 /* Resources */,
@@ -266,11 +475,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4BBE5C2443AF890034328A /* Montserrat-ExtraBold.ttf in Resources */,
 				DC39085C242C6ABB00506DA3 /* LaunchScreen.storyboard in Resources */,
-				DC390891242C7E6600506DA3 /* ViewController in Resources */,
-				DC390885242C7CC700506DA3 /* Assets.xcassets in Resources */,
+				DC4BBE592443AF890034328A /* Montserrat-BlackItalic.ttf in Resources */,
+				DC4BBE582443AF890034328A /* Montserrat-MediumItalic.ttf in Resources */,
+				DC4BBE522443AF890034328A /* Montserrat-BoldItalic.ttf in Resources */,
+				DC4BBE322443AC680034328A /* Storyboard.storyboard in Resources */,
+				DC4BBE602443AF890034328A /* Montserrat-Italic.ttf in Resources */,
+				DC4BBE622443AF890034328A /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				DC4BBE382443AD420034328A /* Assets.xcassets in Resources */,
+				DC4BBE532443AF890034328A /* Montserrat-Light.ttf in Resources */,
+				DC4BBE5F2443AF890034328A /* Montserrat-Regular.ttf in Resources */,
+				DC4BBE542443AF890034328A /* Montserrat-ThinItalic.ttf in Resources */,
+				DC4BBE502443AF890034328A /* Montserrat-LightItalic.ttf in Resources */,
+				DC4BBE612443AF890034328A /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				DC4BBE5B2443AF890034328A /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				DC4BBE5A2443AF890034328A /* Montserrat-SemiBold.ttf in Resources */,
+				DC4BBE562443AF890034328A /* Montserrat-Thin.ttf in Resources */,
+				DC4BBE572443AF890034328A /* Montserrat-Bold.ttf in Resources */,
+				DC4BBE512443AF890034328A /* Montserrat-Medium.ttf in Resources */,
 				DC390859242C6ABB00506DA3 /* Preview Assets.xcassets in Resources */,
-				DC39088D242C7E1C00506DA3 /* Storyboard in Resources */,
+				DC4BBE552443AF890034328A /* Montserrat-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,18 +515,118 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6229936FD3360EFE32E9293E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KairosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EF5F2BA8B48D458AE414B11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KairosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3ACA48E70A3F64ECD37C00F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kairos/Pods-Kairos-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kairos/Pods-Kairos-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kairos/Pods-Kairos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAEA2CABA551D4527834A2BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kairos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC390848242C6ABA00506DA3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC390883242C7C2400506DA3 /* SpotFinderView.swift in Sources */,
 				DC390887242C7CE300506DA3 /* ReviewData.swift in Sources */,
-				DC390889242C7D1500506DA3 /* ReviewHandler.swift in Sources */,
-				DC390881242C7C1400506DA3 /* ReviewFlowView.swift in Sources */,
+				DCCCBEA22436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift in Sources */,
+				DC542881248D76DC000571EB /* HomeView.swift in Sources */,
+				DC4BBE3B2443AF440034328A /* MapViewController.swift in Sources */,
+				DCBD4375249067850045F0E7 /* BuildReviewRouter.swift in Sources */,
+				DC7AA99B24958B2100DEAFD5 /* BuildReviewChatView.swift in Sources */,
+				DC542889248D9D76000571EB /* BuildReviewView.swift in Sources */,
+				DCBD436F2490653E0045F0E7 /* BuildReviewInteractor.swift in Sources */,
+				DCBD4371249065DF0045F0E7 /* HomePresenter.swift in Sources */,
+				DC7AA99924958B1400DEAFD5 /* BuildReviewCrowdView.swift in Sources */,
+				DC390881242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift in Sources */,
 				DC390850242C6ABA00506DA3 /* AppDelegate.swift in Sources */,
+				DCBD43732490666C0045F0E7 /* BuildReviewPresenter.swift in Sources */,
+				DC46E27D2495174700F4C92D /* BuildReviewTimeView.swift in Sources */,
+				DCBD437724906A0F0045F0E7 /* HomeInteractor.swift in Sources */,
 				DC390852242C6ABA00506DA3 /* SceneDelegate.swift in Sources */,
+				DC7DE2D5249689BA00B40DDE /* BuildReviewService.swift in Sources */,
 				DC390854242C6ABA00506DA3 /* ContentView.swift in Sources */,
+				DC46E27724942C7100F4C92D /* BuildReviewLightView.swift in Sources */,
+				DC542883248D8E1E000571EB /* HomeRouter.swift in Sources */,
+				DC542887248D9542000571EB /* ReviewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,10 +789,12 @@
 		};
 		DC390877242C6ABB00506DA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DB25F9107E0F2A350672CA3 /* Pods-Kairos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Kairos/Preview Content\"";
+				DEVELOPMENT_TEAM = JSUCR8R92M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kairos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -483,10 +810,12 @@
 		};
 		DC390878242C6ABB00506DA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11B3A4749873BEA5A5A8866A /* Pods-Kairos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Kairos/Preview Content\"";
+				DEVELOPMENT_TEAM = JSUCR8R92M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kairos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -502,6 +831,7 @@
 		};
 		DC39087A242C6ABB00506DA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FEB15551D8926D95A7EAB94 /* Pods-KairosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -523,6 +853,7 @@
 		};
 		DC39087B242C6ABB00506DA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D890207FB8A21CB017502583 /* Pods-KairosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +875,7 @@
 		};
 		DC39087D242C6ABB00506DA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1521B6A7B67A10B5E8F9375E /* Pods-KairosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -563,6 +895,7 @@
 		};
 		DC39087E242C6ABB00506DA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162E11E262AB1526009B7739 /* Pods-KairosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
