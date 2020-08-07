@@ -1,5 +1,5 @@
 //
-//  SpotReviewView.swift
+//  SpotDetailView.swift
 //  Kairos
 //
 //  Created by Alex McCaffrey on 6/20/20.
@@ -8,28 +8,28 @@
 
 import SwiftUI
 
-struct SpotReviewView: View {
+struct SpotDetailView: View {
   
   @ObservedObject var presenter: SpotDetailPresenter
   
   var body: some View {
     VStack {
       presenter.makeButtonForGetCall()
-      Text("SpotID = ")
-      Text("Time = ")
-      Text("Chat = ")
-      Text("Light = ")
-      Text("Crowd = ")
+      Text("SpotID = \(self.presenter.spotData.spotid)")
+      Text("Time = \(self.presenter.spotData.time)")
+      Text("Chat = \(self.presenter.spotData.chat)")
+      Text("Light = \(self.presenter.spotData.light)")
+      Text("Crowd = \(self.presenter.spotData.crowd)")
     }
   }
 }
 
-struct SpotReviewView_Previews: PreviewProvider {
+struct SpotDetailView_Previews: PreviewProvider {
   static var previews: some View {
     let model = SpotModel.sampleModel
     let service = SpotReviewService()
-    let interactor = SpotReviewInteractor(model: model, service: service)
-    let presenter = SpotReviewPresenter(interactor: interactor)
-    return SpotReviewView(presenter: presenter)
+    let interactor = SpotDetailInteractor(model: model, service: service)
+    let presenter = SpotDetailPresenter(interactor: interactor)
+    return SpotDetailView(presenter: presenter)
   }
 }

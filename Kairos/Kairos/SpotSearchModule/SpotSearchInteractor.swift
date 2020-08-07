@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+class SpotSearchInteractor {
+  let model: PlacesModel
+  let service: SpotNameSearch
+  
+  init(model: PlacesModel, service: SpotNameSearch) {
+    self.model = model
+    self.service = service
+  }
+  
+  func getSearchDetails(_ query: String, completion: @escaping ([Place]) -> Void) {
+    service.searchPlaces(query) { (output) in
+      completion(output)
+    }
+  }
+}

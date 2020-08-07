@@ -7,3 +7,32 @@
 //
 
 import Foundation
+import Combine
+
+class SpotNameSearch {
+  
+  func searchPlaces(_ query: String, completionBlock: @escaping ([Place]) -> Void) {
+    
+    let gPlacesURL = URL(string: "https://alexmccaffrey.com/api/spotsearch/\(query)/33.998760/-118.480016")
+    var request = URLRequest(url: gPlacesURL!)
+    request.httpMethod = "GET"
+    
+    let session = URLSession(configuration: .default)
+    
+    let task = session.dataTask(with: request) {
+      (data, response, error) in
+      if let data = data {
+        do {
+          let decoder = JSONDecoder()
+          let placesData: [Place] = try decoder.decode([Place].self, from: data)
+          completionBlock(placesData)
+        } catch let error {
+          print(error)
+        }
+      }
+    }
+    task.resume()
+  }
+}
+
+

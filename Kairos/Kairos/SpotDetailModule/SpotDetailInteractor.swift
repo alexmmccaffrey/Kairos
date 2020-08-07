@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SpotReviewInteractor {
+class SpotDetailInteractor {
   let model: SpotModel
   let service: SpotReviewService
   
@@ -17,13 +17,9 @@ class SpotReviewInteractor {
     self.service = service
   }
   
-  func getSpotDetails(_ id: Int) {
-    service.getSpotDetails(1) { (output) in
-      self.model.SpotDetails.spotid = output.spotid
-      self.model.SpotDetails.timerating = output.timerating
-      self.model.SpotDetails.lightrating = output.lightrating
-      self.model.SpotDetails.crowdrating = output.crowdrating
-      self.model.SpotDetails.chatrating = output.chatrating
+  func getSpotDetails(_ id: Int, completion: @escaping (Spot) -> Void) {
+    service.getSpotDetails(id) { (output) in
+      completion(output)
     }
   }
 }

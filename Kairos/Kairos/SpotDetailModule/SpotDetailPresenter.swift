@@ -6,22 +6,31 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Combine
+import Foundation
 import SwiftUI
 
-class SpotReviewPresenter: ObservableObject {
-  private let interactor: SpotDetailInteractor
-  private let router = SpotReviewRouter()
+class SpotDetailPresenter: ObservableObject {
+  let interactor: SpotDetailInteractor
+  let router = SpotDetailRouter()
   
-  init (interactor: SpotReviewInteractor) {
+  init (interactor: SpotDetailInteractor) {
     self.interactor = interactor
   }
   
-  @ObservedObject var wow = interactor.model.SpotDetails.chatrating
+  @Published var spotData = SpotModel().SpotDetails
   
   func makeButtonForGetCall() -> some View {
     Button(action: {
-      self.interactor.getSpotDetails(1)
+      self.interactor.getSpotDetails(8) { (output) in
+        print(output)
+        DispatchQueue.main.async {
+          self.spotData.spotid = output.spotid
+          self.spotData.time = output.time
+          self.spotData.light = output.light
+          self.spotData.crowd = output.crowd
+          self.spotData.chat = output.chat
+        }
+      }
     }, label: {
       Text("Click here to return details")
     })

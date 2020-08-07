@@ -9,13 +9,26 @@
 import SwiftUI
 
 struct SpotSearchView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  
+  @ObservedObject var presenter: SpotSearchPresenter
+  @State private var searchText = ""
+  
+  var body: some View {
+    VStack {
+      SearchBar(text: $searchText)
+      presenter.makeButtonForGetSearch(searchText)
+      Text("First SpotID = \(presenter.queryData[0].spotID)")
     }
+  }
 }
 
 struct SpotSearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SpotSearchView()
+  static var previews: some View {
+      let model = PlacesModel.sampleModel
+      let service = SpotNameSearch()
+      let interactor = SpotSearchInteractor(model: model, service: service)
+      let presenter = SpotSearchPresenter(interactor: interactor)
+      return SpotSearchView(presenter: presenter)
     }
 }
+

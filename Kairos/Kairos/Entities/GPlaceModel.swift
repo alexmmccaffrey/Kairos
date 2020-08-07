@@ -1,5 +1,5 @@
 //
-//  GPlacesModel.swift
+//  GPlaceModel.swift
 //  Kairos
 //
 //  Created by Alex McCaffrey on 7/13/20.
@@ -8,8 +8,19 @@
 
 import Foundation
 
-final class gPlacesModel {
+final class PlacesModel {
   
-  var gPlace = GPlace()
+  var places = Places()
   
 }
+
+
+#if DEBUG
+extension PlacesModel {
+  static var sampleModel: PlacesModel {
+    let model = PlacesModel()
+    return model
+  }
+}
+#endif
+
