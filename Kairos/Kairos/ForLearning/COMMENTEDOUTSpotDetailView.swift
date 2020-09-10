@@ -8,7 +8,7 @@
 //
 //import SwiftUI
 //
-//struct SpotDetailView: View {
+//struct Test: View {
 //
 //  @State var timeOfDay = ["Morning", "Noon", "Afternoon", "Evening", "Late Night"]
 //  @State var timeOfDaySelected = 4
@@ -111,6 +111,6 @@
 //
 //struct SwiftUIView_Previews: PreviewProvider {
 //  static var previews: some View {
-//    SpotDetailView()
+//    Test()
 //  }
 //}
