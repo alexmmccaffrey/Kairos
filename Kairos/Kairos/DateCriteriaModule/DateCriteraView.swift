@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct DateCriteraView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  var body: some View {
+    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  }
 }
 
 struct DateCriteraView_Previews: PreviewProvider {
-    static var previews: some View {
-        DateCriteraView()
-    }
+  static var previews: some View {
+    DateCriteraView()
+  }
 }

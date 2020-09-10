@@ -9,33 +9,27 @@
 import SwiftUI
 
 struct ContentView: View {
-  
+
   var body: some View {
     HomeView(presenter:
       HomePresenter(interactor:
-        HomeInteractor(model:
-          ReviewModel())))
-//    BuildReviewView(presenter:
-//    BuildReviewPresenter(interactor:
-//      BuildReviewInteractor(model:
-//        ReviewModel())))
-//    TestViewMother(presenter: TestPresenter(interactor: BuildReviewInteractor(model: ReviewModel())))
+        HomeInteractor(
+          reviewModel: ReviewModel(),
+          spotModel: SpotModel(),
+          placesModel: PlacesModel(),
+          searchService: SpotNameSearch())))
   }
+
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    let model: ReviewModel.sample
-//    return ContentView()
-//      .environmentObject(model)
-//  }
-//}
-
-
-//struct ContentView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    let model = DataModel.sample
-//    return ContentView()
-//      .environmentObject(model)
-//  }
-//}
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    let reviewModel = ReviewModel.sampleModel
+    let spotModel = SpotModel.sampleModel
+    let placesModel = PlacesModel.sampleModel
+    let searchService = SpotNameSearch()
+    let interactor = HomeInteractor(reviewModel: reviewModel, spotModel: spotModel, placesModel: placesModel, searchService: searchService)
+    let presenter = HomePresenter(interactor: interactor)
+    return HomeView(presenter: presenter)
+  }
+}

@@ -6,22 +6,41 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 class HomePresenter: ObservableObject {
-  private let interactor: HomeInteractor
-  private let router = HomeRouter()
+  let interactor: HomeInteractor
+  let router = HomeRouter()
   
   init(interactor: HomeInteractor) {
     self.interactor = interactor
   }
+  
+  @Published var queryData = Places().places
 
   func makeReviewBuilderButton() -> some View {
-    NavigationLink(destination: router.makeBuildReviewView(model: interactor.model)) {
+    NavigationLink(destination: router.makeBuildReviewView(model: interactor.reviewModel)) {
       Image("Versace_Logo")
     }
   }
   
+  func makeSpotDetailButton() -> some View {
+    NavigationLink(destination: router.makeSpotReview(model: interactor.spotModel)) {
+      Image("WUTANG")
+    }
+  }
+  
+  func makeButtonForGetSearch(_ query: String,_ city: String, _ state: String) -> some View {
+    Button(action: {
+      self.interactor.getSearchDetails(query, city, state) { (output) in
+        DispatchQueue.main.async {
+          self.queryData[0].spotID = output[0].spotID
+        }
+      }
+    }, label: {
+      Text("Click here to return search")
+    })
+  }
   
 }

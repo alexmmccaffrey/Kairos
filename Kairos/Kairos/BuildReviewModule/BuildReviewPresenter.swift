@@ -11,8 +11,8 @@ import SwiftUI
 import Combine
 
 class BuildReviewPresenter: ObservableObject {
-  private let interactor: BuildReviewInteractor
-  private let router = BuildReviewRouter()
+  let interactor: BuildReviewInteractor
+  let router = BuildReviewRouter()
   
   
   init(interactor: BuildReviewInteractor) {
@@ -25,9 +25,6 @@ class BuildReviewPresenter: ObservableObject {
       objectWillChange.send(self)
     }
   }
-
-  @State var timeTapped = TimeTapped.none
-  @State var lightTapped = LightTapped.none
   
   func makeForwardButton() -> some View {
     Button(action: {

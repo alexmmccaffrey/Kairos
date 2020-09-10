@@ -19,15 +19,4 @@ class SpotSearchPresenter: ObservableObject {
   
   @Published var queryData = Places().places
 
-  func makeButtonForGetSearch(_ query: String) -> some View {
-    Button(action: {
-      self.interactor.getSearchDetails(query) { (output) in
-        DispatchQueue.main.async {
-          self.queryData[0].spotID = output[0].spotID
-        }
-      }
-    }, label: {
-      Text("Click here to return search")
-    })
-  }
 }

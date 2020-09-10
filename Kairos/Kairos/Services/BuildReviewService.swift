@@ -25,8 +25,8 @@ class BuildReviewService {
     let task = session.dataTask(with: request) {
       (data, response, error) in
       if let data = data {
-        if let postResponse = String(bytes: data, encoding: String.Encoding.utf8) {
-          print(postResponse)
+        if let response = String(bytes: data, encoding: String.Encoding.utf8) {
+          print(response)
         }
       }
     }

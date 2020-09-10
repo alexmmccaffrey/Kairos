@@ -11,11 +11,25 @@ import SwiftUI
 struct HomeView: View {
   
   @ObservedObject var presenter: HomePresenter
+  @State private var searchQuery = ""
+  @State private var searchCity = ""
+  @State private var searchState = ""
+  
   
   var body: some View {
     NavigationView {
       VStack {
+        Text("Query")
+        SearchBar(text: $searchQuery)
+        Text("City")
+        SearchBar(text: $searchCity)
+        Text("State")
+        SearchBar(text: $searchState)
+        presenter.makeButtonForGetSearch(searchQuery, searchCity, searchState)
+        Text("First SpotID = \(presenter.queryData[0].spotID)")
         presenter.makeReviewBuilderButton()
+          .buttonStyle(PlainButtonStyle())
+        presenter.makeSpotDetailButton()
           .buttonStyle(PlainButtonStyle())
       }
     }
@@ -24,8 +38,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    let model = ReviewModel.sampleModel
-    let interactor = HomeInteractor(model: model)
+    let reviewModel = ReviewModel.sampleModel
+    let spotModel = SpotModel.sampleModel
+    let placesModel = PlacesModel.sampleModel
+    let searchService = SpotNameSearch()
+    let interactor = HomeInteractor(reviewModel: reviewModel, spotModel: spotModel, placesModel: placesModel, searchService: searchService)
     let presenter = HomePresenter(interactor: interactor)
     return HomeView(presenter: presenter)
   }

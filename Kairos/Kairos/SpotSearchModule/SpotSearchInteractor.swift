@@ -17,9 +17,4 @@ class SpotSearchInteractor {
     self.service = service
   }
   
-  func getSearchDetails(_ query: String, completion: @escaping ([Place]) -> Void) {
-    service.searchPlaces(query) { (output) in
-      completion(output)
-    }
-  }
 }

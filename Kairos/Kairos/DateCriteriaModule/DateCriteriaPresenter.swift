@@ -1,5 +1,5 @@
 //
-//  File2.swift
+//  DateCriteriaPresenter.swift
 //  Kairos
 //
 //  Created by Alex McCaffrey on 8/25/20.
@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+class DateCriteriaPresenter {
+  
+}

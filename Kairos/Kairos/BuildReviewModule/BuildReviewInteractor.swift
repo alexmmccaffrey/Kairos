@@ -39,7 +39,9 @@ class BuildReviewInteractor {
       encoder.outputFormatting = .prettyPrinted
       let jsonNewReview = try encoder.encode(model.newReview)
       service.postNewReview(jsonNewReview)
-    } catch { print(error) }
+    } catch {
+      print(error)
+    }
   }
   
 }

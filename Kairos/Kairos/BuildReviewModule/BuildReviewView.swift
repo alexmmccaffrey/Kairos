@@ -12,6 +12,7 @@ struct BuildReviewView: View {
   
   @ObservedObject var presenter: BuildReviewPresenter
   
+  
   var body: some View {
     NavigationView{
       VStack {

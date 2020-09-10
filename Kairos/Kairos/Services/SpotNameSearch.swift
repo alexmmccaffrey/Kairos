@@ -11,9 +11,9 @@ import Combine
 
 class SpotNameSearch {
   
-  func searchPlaces(_ query: String, completionBlock: @escaping ([Place]) -> Void) {
+  func searchPlaces(_ query: String,_ city: String,_ state: String, completionBlock: @escaping ([Place]) -> Void) {
     
-    let gPlacesURL = URL(string: "https://alexmccaffrey.com/api/spotsearch/\(query)/33.998760/-118.480016")
+    let gPlacesURL = URL(string: "https://alexmccaffrey.com/api/spotsearch/\(query)/\(city)/\(state)")
     var request = URLRequest(url: gPlacesURL!)
     request.httpMethod = "GET"
     
