@@ -18,12 +18,20 @@ class HomeRouter {
     return BuildReviewView(presenter: presenter)
   }
   
-  func makeSpotReview(model: SpotModel) -> some View {
+  func makeSpotDetailView(model: SpotModel) -> some View {
     let service = SpotReviewService()
     let presenter = SpotDetailPresenter(
       interactor: SpotDetailInteractor(
         model: model, service: service))
     return SpotDetailView(presenter: presenter)
+  }
+  
+  func makeSpotSearchModule() {
+    
+  }
+  
+  func makeDateCriteriaModule() {
+    
   }
   
 //  func makeDateCriteriaView() -> some View {

@@ -18,5 +18,5 @@ class SpotSearchPresenter: ObservableObject {
   }
   
   @Published var queryData = Places().places
-
+  
 }

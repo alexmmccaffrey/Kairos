@@ -26,7 +26,7 @@ class HomePresenter: ObservableObject {
   }
   
   func makeSpotDetailButton() -> some View {
-    NavigationLink(destination: router.makeSpotReview(model: interactor.spotModel)) {
+    NavigationLink(destination: router.makeSpotDetailView(model: interactor.spotModel)) {
       Image("WUTANG")
     }
   }

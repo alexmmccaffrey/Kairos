@@ -10,6 +10,14 @@ import SwiftUI
 
 class SpotDetailRouter {
   
+  func makeBuildReviewView(model: ReviewModel) -> some View {
+    let service = BuildReviewService()
+    let presenter = BuildReviewPresenter(
+      interactor: BuildReviewInteractor(
+        model: model, service: service))
+    return BuildReviewView(presenter: presenter)
+  }
+  
 }
 
 
