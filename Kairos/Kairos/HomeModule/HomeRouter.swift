@@ -26,13 +26,15 @@ class HomeRouter {
     return SpotDetailView(presenter: presenter)
   }
   
-  func makeSpotSearchModule() {
-    
+  func makeSpotSearchModule(spotModel: SpotModel) -> some View {
+    let service = SpotNameSearch()
+    let presenter = SpotSearchPresenter(interactor: SpotSearchInteractor(model: spotModel, service: service))
+    return SpotSearchView(presenter: presenter)
   }
   
-  func makeDateCriteriaModule() {
-    
-  }
+//  func makeDateCriteriaModule() {
+//
+//  }
   
 //  func makeDateCriteriaView() -> some View {
 //    

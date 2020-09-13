@@ -15,8 +15,7 @@ struct ContentView: View {
       HomePresenter(interactor:
         HomeInteractor(
           reviewModel: ReviewModel(),
-          spotModel: SpotModel(),
-          placesModel: PlacesModel(),
+          spotModel: SpotModel(spot: Spot()),
           searchService: SpotNameSearch())))
   }
 
@@ -26,9 +25,8 @@ struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     let reviewModel = ReviewModel.sampleModel
     let spotModel = SpotModel.sampleModel
-    let placesModel = PlacesModel.sampleModel
     let searchService = SpotNameSearch()
-    let interactor = HomeInteractor(reviewModel: reviewModel, spotModel: spotModel, placesModel: placesModel, searchService: searchService)
+    let interactor = HomeInteractor(reviewModel: reviewModel, spotModel: spotModel, searchService: searchService)
     let presenter = HomePresenter(interactor: interactor)
     return HomeView(presenter: presenter)
   }

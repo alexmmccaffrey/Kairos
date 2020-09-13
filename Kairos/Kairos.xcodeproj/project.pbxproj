@@ -25,7 +25,6 @@
 		DC39085C242C6ABB00506DA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC39085A242C6ABB00506DA3 /* LaunchScreen.storyboard */; };
 		DC390867242C6ABB00506DA3 /* KairosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390866242C6ABB00506DA3 /* KairosTests.swift */; };
 		DC390872242C6ABB00506DA3 /* KairosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390871242C6ABB00506DA3 /* KairosUITests.swift */; };
-		DC390881242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390880242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift */; };
 		DC390887242C7CE300506DA3 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390886242C7CE300506DA3 /* ReviewData.swift */; };
 		DC46E27724942C7100F4C92D /* BuildReviewLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */; };
 		DC46E27D2495174700F4C92D /* BuildReviewTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */; };
@@ -68,9 +67,6 @@
 		DCBD4375249067850045F0E7 /* BuildReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */; };
 		DCBD437724906A0F0045F0E7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */; };
 		DCCC479424BD5AC0005DD0AA /* SpotNameSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */; };
-		DCCC479724BD74E1005DD0AA /* GPlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC479624BD74E1005DD0AA /* GPlaceData.swift */; };
-		DCCC479924BD753A005DD0AA /* GPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC479824BD753A005DD0AA /* GPlaceModel.swift */; };
-		DCCCBEA22436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCCBEA12436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift */; };
 		DCEFC13824DA4967003BE581 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFC13724DA4967003BE581 /* SearchBar.swift */; };
 		F0789BA840B519F588A0C4F7 /* libPods-KairosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 715A3EC4B692F9592D5A4F52 /* libPods-KairosTests.a */; };
 /* End PBXBuildFile section */
@@ -124,7 +120,6 @@
 		DC39086D242C6ABB00506DA3 /* KairosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KairosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC390871242C6ABB00506DA3 /* KairosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KairosUITests.swift; sourceTree = "<group>"; };
 		DC390873242C6ABB00506DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC390880242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COMMENTEDOUTReviewFlowView.swift; sourceTree = "<group>"; };
 		DC390886242C7CE300506DA3 /* ReviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewLightView.swift; sourceTree = "<group>"; };
 		DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildReviewTimeView.swift; sourceTree = "<group>"; };
@@ -168,9 +163,6 @@
 		DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewRouter.swift; sourceTree = "<group>"; };
 		DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotNameSearch.swift; sourceTree = "<group>"; };
-		DCCC479624BD74E1005DD0AA /* GPlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPlaceData.swift; sourceTree = "<group>"; };
-		DCCC479824BD753A005DD0AA /* GPlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPlaceModel.swift; sourceTree = "<group>"; };
-		DCCCBEA12436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COMMENTEDOUTSpotDetailView.swift; sourceTree = "<group>"; };
 		DCEFC13724DA4967003BE581 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,7 +264,6 @@
 				DC54287C248D6908000571EB /* Entities */,
 				DC7DE2D32496899400B40DDE /* Services */,
 				DCEFC13624DA4938003BE581 /* Custom Views */,
-				DC39087F242C7BC500506DA3 /* ForLearning */,
 				DC39085A242C6ABB00506DA3 /* LaunchScreen.storyboard */,
 				DC39085D242C6ABB00506DA3 /* Info.plist */,
 				DC4BBE272443AB900034328A /* Fonts */,
@@ -308,15 +299,6 @@
 				DC390873242C6ABB00506DA3 /* Info.plist */,
 			);
 			path = KairosUITests;
-			sourceTree = "<group>";
-		};
-		DC39087F242C7BC500506DA3 /* ForLearning */ = {
-			isa = PBXGroup;
-			children = (
-				DC390880242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift */,
-				DCCCBEA12436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift */,
-			);
-			path = ForLearning;
 			sourceTree = "<group>";
 		};
 		DC4BBE272443AB900034328A /* Fonts */ = {
@@ -376,8 +358,6 @@
 				DC542886248D9542000571EB /* ReviewModel.swift */,
 				DC104672249EEADD00750691 /* SpotData.swift */,
 				DC104675249EEE8B00750691 /* SpotModel.swift */,
-				DCCC479624BD74E1005DD0AA /* GPlaceData.swift */,
-				DCCC479824BD753A005DD0AA /* GPlaceModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -697,7 +677,6 @@
 			files = (
 				DC38806224CF9D6800AA8D67 /* SpotSearchRouter.swift in Sources */,
 				DC390887242C7CE300506DA3 /* ReviewData.swift in Sources */,
-				DCCCBEA22436E3820077E919 /* COMMENTEDOUTSpotDetailView.swift in Sources */,
 				DC542881248D76DC000571EB /* HomeView.swift in Sources */,
 				DC4BBE3B2443AF440034328A /* MapViewController.swift in Sources */,
 				DCEFC13824DA4967003BE581 /* SearchBar.swift in Sources */,
@@ -708,11 +687,9 @@
 				DCBD436F2490653E0045F0E7 /* BuildReviewInteractor.swift in Sources */,
 				DC957A9524F5E5500047F083 /* DateCriteriaInteractor.swift in Sources */,
 				DCBD4371249065DF0045F0E7 /* HomePresenter.swift in Sources */,
-				DCCC479724BD74E1005DD0AA /* GPlaceData.swift in Sources */,
 				DC7AA99924958B1400DEAFD5 /* BuildReviewCrowdView.swift in Sources */,
 				DC10466B249EE71C00750691 /* SpotDetailView.swift in Sources */,
 				DC8A7F0E24CF9CEF00A797E9 /* SpotSearchInteractor.swift in Sources */,
-				DC390881242C7C1400506DA3 /* COMMENTEDOUTReviewFlowView.swift in Sources */,
 				DC390850242C6ABA00506DA3 /* AppDelegate.swift in Sources */,
 				DC104673249EEADD00750691 /* SpotData.swift in Sources */,
 				DCBD43732490666C0045F0E7 /* BuildReviewPresenter.swift in Sources */,
@@ -728,7 +705,6 @@
 				DC46E27724942C7100F4C92D /* BuildReviewLightView.swift in Sources */,
 				DC8A7F1024CF9CFB00A797E9 /* SpotSearchPresenter.swift in Sources */,
 				DC10466F249EE79C00750691 /* SpotDetailPresenter.swift in Sources */,
-				DCCC479924BD753A005DD0AA /* GPlaceModel.swift in Sources */,
 				DC542883248D8E1E000571EB /* HomeRouter.swift in Sources */,
 				DC957A9D24F5E6170047F083 /* DateCriteraView.swift in Sources */,
 				DC104676249EEE8B00750691 /* SpotModel.swift in Sources */,

@@ -17,6 +17,6 @@ class SpotSearchPresenter: ObservableObject {
     self.interactor = interactor
   }
   
-  @Published var queryData = Places().places
+//  @Published var queryData = Places().places
   
 }

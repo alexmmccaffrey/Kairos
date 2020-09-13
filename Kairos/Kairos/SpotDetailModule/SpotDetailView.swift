@@ -15,11 +15,11 @@ struct SpotDetailView: View {
   var body: some View {
     VStack {
       presenter.makeButtonForGetCall()
-      Text("SpotID = \(self.presenter.spotData.spotid)")
-      Text("Time = \(self.presenter.spotData.time)")
-      Text("Chat = \(self.presenter.spotData.chat)")
-      Text("Light = \(self.presenter.spotData.light)")
-      Text("Crowd = \(self.presenter.spotData.crowd)")
+//      Text("SpotID = \(self.presenter.spotData.spotID)")
+//      Text("Time = \(self.presenter.spotData.time)")
+//      Text("Chat = \(self.presenter.spotData.chat)")
+//      Text("Light = \(self.presenter.spotData.light)")
+//      Text("Crowd = \(self.presenter.spotData.crowd)")
     }
   }
 }

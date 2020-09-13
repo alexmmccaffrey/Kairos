@@ -20,7 +20,7 @@ struct SpotSearchView: View {
 
 struct SpotSearchView_Previews: PreviewProvider {
   static var previews: some View {
-      let model = PlacesModel.sampleModel
+      let model = SpotModel.sampleModel
       let service = SpotNameSearch()
       let interactor = SpotSearchInteractor(model: model, service: service)
       let presenter = SpotSearchPresenter(interactor: interactor)
