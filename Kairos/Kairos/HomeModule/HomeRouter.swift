@@ -28,7 +28,10 @@ class HomeRouter {
   
   func makeSpotSearchModule(spotModel: SpotModel) -> some View {
     let service = SpotNameSearch()
-    let presenter = SpotSearchPresenter(interactor: SpotSearchInteractor(model: spotModel, service: service))
+    
+    let presenter = SpotSearchPresenter(
+      interactor: SpotSearchInteractor(spotModel: spotModel, service: service)
+    )
     return SpotSearchView(presenter: presenter)
   }
   

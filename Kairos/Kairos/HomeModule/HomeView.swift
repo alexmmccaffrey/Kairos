@@ -11,11 +11,11 @@ import SwiftUI
 struct HomeView: View {
   
   @ObservedObject var presenter: HomePresenter
+  
   @State private var searchQuery = ""
   @State private var searchCity = ""
   @State private var searchState = ""
-  
-  
+
   var body: some View {
     NavigationView {
       VStack {

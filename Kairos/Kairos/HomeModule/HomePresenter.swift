@@ -13,56 +13,61 @@ class HomePresenter: ObservableObject {
   let interactor: HomeInteractor
   let router = HomeRouter()
   
+  @Published var spots: [Spot]?
+  @Published var views: Binding<Int?> = .constant(1)
+  
+//  init?(_ base: Binding<Value?>)
+  
+  let navigationViews = PassthroughSubject<HomePresenter,Never>()
+  var currentNavigation: Int = 0 {
+    didSet {
+      navigationViews.send(self)
+    }
+  }
+  
   init(interactor: HomeInteractor) {
     self.interactor = interactor
   }
-
-
+  
   func makeReviewBuilderButton() -> some View {
     NavigationLink(destination: router.makeBuildReviewView(model: interactor.reviewModel)) {
-      Text("Review Builder")
-      Image("Versace_Logo")
+      VStack {
+        Text("Review Builder")
+        Image("Versace_Logo")
+      }
     }
   }
-  
+
   func makeSpotDetailButton() -> some View {
-    NavigationLink(destination: router.makeSpotDetailView(model: self.interactor.spotModel)) {
-      Text("Spot Detail")
-      Image("WUTANG")
-    }
-  }
-  
-  func makeSpotSearchButton() -> some View {
-    NavigationLink(destination: router.makeSpotSearchModule(spotModel: self.interactor.spotModel)) {
-        Text("Spot Detail")
+    NavigationLink(destination: router.makeSpotDetailView(model: interactor.spotModel)) {
+      VStack{
+        Text("Spot Details")
         Image("PVC_Pipes")
+      }
     }
   }
-  
-  @Published var spots: [Spot]?
-  
+
+  func makeSpotSearchButton() -> some View {
+    NavigationLink(destination: router.makeSpotSearchModule(spotModel: interactor.spotModel), tag: 2, selection: views) {
+      VStack{
+        Text("Spot Search View")
+      }
+    }
+  }
+
   func makeSearch(_ query: String,_ city: String, _ state: String) -> some View {
     Button(action: {
       self.interactor.getSearchDetails(query, city, state) {
-        self.spots = self.interactor.spotModel.spots
+        DispatchQueue.main.async {
+          self.spots = self.interactor.spotModel.spots
+          self.views = .constant(2)
+          print(self.interactor.spotModel.spots)
+          print(self.views)
+        }
       }
     }, label: {
       Text("Click here to return search")
     })
   }
-  
-//  func makeButtonForGetSearch(_ query: String,_ city: String, _ state: String) -> some View {
-//    Button(action: {
-//      self.interactor.getSearchDetails(query, city, state) { (output) in
-//        DispatchQueue.main.async {
-//          self.places = output
-//        }
-//      }
-//    }, label: {
-//      Text("Click here to return search")
-//    })
-//  }
-  
 
-  
 }

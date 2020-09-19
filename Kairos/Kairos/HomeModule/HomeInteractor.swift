@@ -22,7 +22,7 @@ class HomeInteractor {
   func getSearchDetails(_ query: String,_ city: String,_ state: String, searchCompletionBlock: @escaping () -> Void) {
     searchService.searchPlaces(query, city, state) { (output) in
       self.spotModel.spots = output
+      searchCompletionBlock()
     }
   }
-  
 }

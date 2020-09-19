@@ -13,18 +13,19 @@ struct SpotSearchView: View {
   
   var body: some View {
     VStack {
-      Text("Empty Text View")
+      Text("Spot = \(self.presenter.interactor.spotModel.spots![0].spotID)")
+      presenter.makeSpotDetailButton()
     }
   }
 }
 
 struct SpotSearchView_Previews: PreviewProvider {
   static var previews: some View {
-      let model = SpotModel.sampleModel
-      let service = SpotNameSearch()
-      let interactor = SpotSearchInteractor(model: model, service: service)
-      let presenter = SpotSearchPresenter(interactor: interactor)
-      return SpotSearchView(presenter: presenter)
-    }
+    let model = SpotModel.sampleModel
+    let service = SpotNameSearch()
+    let interactor = SpotSearchInteractor(spotModel: model, service: service)
+    let presenter = SpotSearchPresenter(interactor: interactor)
+    return SpotSearchView(presenter: presenter)
+  }
 }
 

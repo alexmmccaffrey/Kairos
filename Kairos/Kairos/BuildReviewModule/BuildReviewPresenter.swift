@@ -6,7 +6,6 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 import Combine
 
@@ -19,10 +18,10 @@ class BuildReviewPresenter: ObservableObject {
     self.interactor = interactor
   }
   
-  let objectWillChange = PassthroughSubject<BuildReviewPresenter,Never>()
+  let buildReviewViews = PassthroughSubject<BuildReviewPresenter,Never>()
   var currentReviewView: Int = 1 {
     didSet {
-      objectWillChange.send(self)
+      buildReviewViews.send(self)
     }
   }
   
