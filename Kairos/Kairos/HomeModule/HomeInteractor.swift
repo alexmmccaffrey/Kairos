@@ -11,19 +11,18 @@ import Combine
 class HomeInteractor {
   let reviewModel: ReviewModel
   let spotModel: SpotModel
-  let placesModel: PlacesModel
   let searchService: SpotNameSearch
 
-  init (reviewModel: ReviewModel, spotModel: SpotModel, placesModel: PlacesModel, searchService: SpotNameSearch) {
+  init (reviewModel: ReviewModel, spotModel: SpotModel, searchService: SpotNameSearch) {
     self.reviewModel = reviewModel
     self.spotModel = spotModel
-    self.placesModel = placesModel
     self.searchService = searchService
   }
-
-  func getSearchDetails(_ query: String,_ city: String,_ state: String, completion: @escaping ([Place]) -> Void) {
+  
+  func getSearchDetails(_ query: String,_ city: String,_ state: String, searchCompletionBlock: @escaping () -> Void) {
     searchService.searchPlaces(query, city, state) { (output) in
-      completion(output)
+      self.spotModel.spots = output
+      searchCompletionBlock()
     }
   }
 }

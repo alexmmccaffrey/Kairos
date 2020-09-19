@@ -13,10 +13,18 @@ class SpotSearchPresenter: ObservableObject {
   let interactor: SpotSearchInteractor
   let router = SpotSearchRouter()
   
+  @Published var spots: [Spot]?
+  
   init (interactor: SpotSearchInteractor) {
     self.interactor = interactor
   }
   
-  @Published var queryData = Places().places
+  func makeSpotDetailButton() -> some View {
+    NavigationLink(destination: router.makeSpotDetailView(model: interactor.spotModel)) {
+      VStack{
+        Text("Link to Spot Detail")
+      }
+    }
+  }
   
 }

@@ -6,18 +6,24 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Combine
+import Foundation
 
 final class SpotModel: ObservableObject {
   
-  @Published var SpotDetails = Spot()
+  @Published var spot: Spot
+  
+  @Published var spots: [Spot]?
+  
+  init(spot: Spot) {
+    self.spot = spot
+  }
   
 }
 
 #if DEBUG
 extension SpotModel {
   static var sampleModel: SpotModel {
-    let model = SpotModel()
+    let model = SpotModel(spot: Spot())
     return model
   }
 }

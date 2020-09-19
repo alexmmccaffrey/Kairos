@@ -8,22 +8,36 @@
 
 import Combine
 
+
+
 struct Spot: Codable {
-  var spotid: Int
-  var time: Int
-  var light: Int
-  var crowd: Int
-  var chat: Int
+  var spotID: Int
+  var placeID: String
+  var name: String
+  var lightTime1: Int?
+  var crowdTime1: Int?
+  var chatTime1: Int?
+  var lightTime2: Int?
+  var crowdTime2: Int?
+  var chatTime2: Int?
+  var lightTime3: Int?
+  var crowdTime3: Int?
+  var chatTime3: Int?
+  var lightTime4: Int?
+  var crowdTime4: Int?
+  var chatTime4: Int?
   
   
+  enum CodingKeys: String, CodingKey {
+    case spotID = "spot_id", placeID = "tomtom_id", name, lightTime1 = "light_time1", crowdTime1 = "crowd_time1", chatTime1 = "chat_time1", lightTime2 = "light_time2", crowdTime2 = "crowd_time2", chatTime2 = "chat_time2", lightTime3 = "light_time3", crowdTime3 = "crowd_time3", chatTime3 = "chat_time3", lightTime4 = "light_time4", crowdTime4 = "crowd_time4", chatTime4 = "chat_time4"
+  }
   
   /// spotid set to 0 on init for the moment while I wait for way to determine spotid during review process
+
   
   init() {
-    spotid = 0
-    time = 0
-    light = 0
-    crowd = 0
-    chat = 0
+    spotID = 0
+    placeID = ""
+    name = ""
   }
 }

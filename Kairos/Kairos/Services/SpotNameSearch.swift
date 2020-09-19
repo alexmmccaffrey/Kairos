@@ -7,14 +7,17 @@
 //
 
 import Foundation
-import Combine
 
 class SpotNameSearch {
   
-  func searchPlaces(_ query: String,_ city: String,_ state: String, completionBlock: @escaping ([Place]) -> Void) {
+  func searchPlaces(_ query: String,_ city: String,_ state: String, completionBlock: @escaping ([Spot]) -> Void) {
     
-    let gPlacesURL = URL(string: "https://alexmccaffrey.com/api/spotsearch/\(query)/\(city)/\(state)")
-    var request = URLRequest(url: gPlacesURL!)
+    let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
+    let encodedCity = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
+    let encodedState = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
+    
+    let url = URL(string: "https://alexmccaffrey.com/api/spotsearch/\(encodedQuery!)/\(encodedCity!))/\(encodedState!))")
+    var request = URLRequest(url: url!)
     request.httpMethod = "GET"
     
     let session = URLSession(configuration: .default)
@@ -24,8 +27,8 @@ class SpotNameSearch {
       if let data = data {
         do {
           let decoder = JSONDecoder()
-          let placesData: [Place] = try decoder.decode([Place].self, from: data)
-          completionBlock(placesData)
+          let spots: [Spot] = try decoder.decode([Spot].self, from: data)
+          completionBlock(spots)
         } catch let error {
           print(error)
         }
@@ -33,6 +36,7 @@ class SpotNameSearch {
     }
     task.resume()
   }
+  
 }
 
 

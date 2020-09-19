@@ -13,34 +13,61 @@ class HomePresenter: ObservableObject {
   let interactor: HomeInteractor
   let router = HomeRouter()
   
+  @Published var spots: [Spot]?
+  @Published var views: Binding<Int?> = .constant(1)
+  
+//  init?(_ base: Binding<Value?>)
+  
+  let navigationViews = PassthroughSubject<HomePresenter,Never>()
+  var currentNavigation: Int = 0 {
+    didSet {
+      navigationViews.send(self)
+    }
+  }
+  
   init(interactor: HomeInteractor) {
     self.interactor = interactor
   }
   
-  @Published var queryData = Places().places
-
   func makeReviewBuilderButton() -> some View {
     NavigationLink(destination: router.makeBuildReviewView(model: interactor.reviewModel)) {
-      Image("Versace_Logo")
+      VStack {
+        Text("Review Builder")
+        Image("Versace_Logo")
+      }
     }
   }
-  
+
   func makeSpotDetailButton() -> some View {
     NavigationLink(destination: router.makeSpotDetailView(model: interactor.spotModel)) {
-      Image("WUTANG")
+      VStack{
+        Text("Spot Details")
+        Image("PVC_Pipes")
+      }
     }
   }
-  
-  func makeButtonForGetSearch(_ query: String,_ city: String, _ state: String) -> some View {
+
+  func makeSpotSearchButton() -> some View {
+    NavigationLink(destination: router.makeSpotSearchModule(spotModel: interactor.spotModel), tag: 2, selection: views) {
+      VStack{
+        Text("Spot Search View")
+      }
+    }
+  }
+
+  func makeSearch(_ query: String,_ city: String, _ state: String) -> some View {
     Button(action: {
-      self.interactor.getSearchDetails(query, city, state) { (output) in
+      self.interactor.getSearchDetails(query, city, state) {
         DispatchQueue.main.async {
-          self.queryData[0].spotID = output[0].spotID
+          self.spots = self.interactor.spotModel.spots
+          self.views = .constant(2)
+          print(self.interactor.spotModel.spots)
+          print(self.views)
         }
       }
     }, label: {
       Text("Click here to return search")
     })
   }
-  
+
 }
