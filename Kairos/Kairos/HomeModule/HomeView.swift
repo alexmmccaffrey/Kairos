@@ -26,13 +26,16 @@ struct HomeView: View {
         Text("State")
         SearchBar(text: $searchState)
         presenter.makeSearch(searchQuery, searchCity, searchState)
-        presenter.makeReviewBuilderButton()
-          .buttonStyle(PlainButtonStyle())
-        presenter.makeSpotDetailButton()
-          .buttonStyle(PlainButtonStyle())
-        presenter.makeSpotSearchButton()
-          .buttonStyle(PlainButtonStyle())
+        presenter.linkSpotSearchView()
+        presenter.makeDateCriteriaView()
+        presenter.linkDateCriteriaView()
       }
+        .onAppear {
+          self.presenter.views = .constant(0)
+          self.presenter.overlay = false
+          self.presenter.errorMessage = false
+        }
+        .overlay(ActivityIndicator(isAnimating: .constant(presenter.overlay), style: .large))
     }
   }
   

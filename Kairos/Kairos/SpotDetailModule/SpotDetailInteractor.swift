@@ -23,4 +23,5 @@ class SpotDetailInteractor: ObservableObject {
       completion(output)
     }
   }
+  
 }

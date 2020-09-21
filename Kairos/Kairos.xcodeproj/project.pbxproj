@@ -52,6 +52,7 @@
 		DC542883248D8E1E000571EB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542882248D8E1E000571EB /* HomeRouter.swift */; };
 		DC542887248D9542000571EB /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542886248D9542000571EB /* ReviewModel.swift */; };
 		DC542889248D9D76000571EB /* BuildReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542888248D9D76000571EB /* BuildReviewView.swift */; };
+		DC568B8C2516D38500A1B856 /* SpotFinderSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC568B8B2516D38500A1B856 /* SpotFinderSearch.swift */; };
 		DC7AA99924958B1400DEAFD5 /* BuildReviewCrowdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */; };
 		DC7AA99B24958B2100DEAFD5 /* BuildReviewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */; };
 		DC7DE2D5249689BA00B40DDE /* BuildReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */; };
@@ -67,6 +68,7 @@
 		DCBD4375249067850045F0E7 /* BuildReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */; };
 		DCBD437724906A0F0045F0E7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */; };
 		DCCC479424BD5AC0005DD0AA /* SpotNameSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */; };
+		DCCE4CCB251661D200495987 /* ActivityInidicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE4CCA251661D200495987 /* ActivityInidicator.swift */; };
 		DCEFC13824DA4967003BE581 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFC13724DA4967003BE581 /* SearchBar.swift */; };
 		F0789BA840B519F588A0C4F7 /* libPods-KairosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 715A3EC4B692F9592D5A4F52 /* libPods-KairosTests.a */; };
 /* End PBXBuildFile section */
@@ -148,6 +150,7 @@
 		DC542882248D8E1E000571EB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		DC542886248D9542000571EB /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		DC542888248D9D76000571EB /* BuildReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewView.swift; sourceTree = "<group>"; };
+		DC568B8B2516D38500A1B856 /* SpotFinderSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotFinderSearch.swift; sourceTree = "<group>"; };
 		DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewCrowdView.swift; sourceTree = "<group>"; };
 		DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewChatView.swift; sourceTree = "<group>"; };
 		DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewService.swift; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewRouter.swift; sourceTree = "<group>"; };
 		DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotNameSearch.swift; sourceTree = "<group>"; };
+		DCCE4CCA251661D200495987 /* ActivityInidicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInidicator.swift; sourceTree = "<group>"; };
 		DCEFC13724DA4967003BE581 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -391,6 +395,7 @@
 				DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */,
 				DC104667249EDB8500750691 /* SpotReviewService.swift */,
 				DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */,
+				DC568B8B2516D38500A1B856 /* SpotFinderSearch.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEFC13724DA4967003BE581 /* SearchBar.swift */,
+				DCCE4CCA251661D200495987 /* ActivityInidicator.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				DCBD437724906A0F0045F0E7 /* HomeInteractor.swift in Sources */,
 				DC10466D249EE78000750691 /* SpotDetailInteractor.swift in Sources */,
 				DC390852242C6ABA00506DA3 /* SceneDelegate.swift in Sources */,
+				DCCE4CCB251661D200495987 /* ActivityInidicator.swift in Sources */,
 				DC7DE2D5249689BA00B40DDE /* BuildReviewService.swift in Sources */,
 				DC390854242C6ABA00506DA3 /* ContentView.swift in Sources */,
 				DC46E27724942C7100F4C92D /* BuildReviewLightView.swift in Sources */,
@@ -711,6 +718,7 @@
 				DC542887248D9542000571EB /* ReviewModel.swift in Sources */,
 				DC104668249EDB8500750691 /* SpotReviewService.swift in Sources */,
 				DCCC479424BD5AC0005DD0AA /* SpotNameSearch.swift in Sources */,
+				DC568B8C2516D38500A1B856 /* SpotFinderSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,17 +884,19 @@
 			baseConfigurationReference = 7DB25F9107E0F2A350672CA3 /* Pods-Kairos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Kairos/Preview Content\"";
-				DEVELOPMENT_TEAM = JSUCR8R92M;
+				DEVELOPMENT_TEAM = 3D7N59BJNV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kairos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Alex-McCaffrey.Kairos";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alexander-McCaffrey.Kairos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -897,17 +907,19 @@
 			baseConfigurationReference = 11B3A4749873BEA5A5A8866A /* Pods-Kairos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Kairos/Preview Content\"";
-				DEVELOPMENT_TEAM = JSUCR8R92M;
+				DEVELOPMENT_TEAM = 3D7N59BJNV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kairos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Alex-McCaffrey.Kairos";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alexander-McCaffrey.Kairos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

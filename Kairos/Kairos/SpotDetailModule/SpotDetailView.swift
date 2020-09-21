@@ -15,6 +15,7 @@ struct SpotDetailView: View {
   var body: some View {
     VStack {
       Text("SpotID = \(self.presenter.interactor.model.spots![0].spotID)")
+      presenter.makeBuildReviewView()
     }
   }
 }

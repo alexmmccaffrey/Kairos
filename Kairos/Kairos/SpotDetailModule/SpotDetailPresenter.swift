@@ -23,22 +23,13 @@ class SpotDetailPresenter: ObservableObject {
     spotData = self.interactor.model.spot
   }
   
-  
-//  func makeButtonForGetCall() -> some View {
-//    Button(action: {
-//      self.interactor.getSpotDetails(8) { (output) in
-//        print(output)
-//        DispatchQueue.main.async {
-////          self.spotData.spotID = output.spotID
-////          self.spotData.time = output.time
-////          self.spotData.light = output.light
-////          self.spotData.crowd = output.crowd
-////          self.spotData.chat = output.chat
-//        }
-//      }
-//    }, label: {
-//      Text("Click here to return details")
-//    })
-//  }
+  func makeBuildReviewView() -> some View {
+    NavigationLink(destination: router.makeBuildReviewView(model: ReviewModel())) {
+      VStack {
+        Text("Build Review Button")
+      }
+    }
+  }
+
 }
 

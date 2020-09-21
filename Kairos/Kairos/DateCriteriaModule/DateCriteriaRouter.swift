@@ -6,4 +6,16 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+
+class DateCriteriaRouter {
+  
+  func makeSpotSearchModule(spotModel: SpotModel) -> some View {
+    let service = SpotNameSearch()
+    let presenter = SpotSearchPresenter(
+      interactor: SpotSearchInteractor(spotModel: spotModel, service: service)
+    )
+    return SpotSearchView(presenter: presenter)
+  }
+  
+}

@@ -28,19 +28,18 @@ class HomeRouter {
   
   func makeSpotSearchModule(spotModel: SpotModel) -> some View {
     let service = SpotNameSearch()
-    
     let presenter = SpotSearchPresenter(
       interactor: SpotSearchInteractor(spotModel: spotModel, service: service)
     )
     return SpotSearchView(presenter: presenter)
   }
   
-//  func makeDateCriteriaModule() {
-//
-//  }
-  
-//  func makeDateCriteriaView() -> some View {
-//    
-//  }
+  func makeDateCriteriaView(model: SpotModel) -> some View {
+    let searchService = SpotFinderSearch()
+    let presenter = DateCriteriaPresenter(
+      interactor: DateCriteriaInteractor(model: model, searchService: searchService)
+    )
+    return DateCriteraView(presenter: presenter)
+  }
   
 }

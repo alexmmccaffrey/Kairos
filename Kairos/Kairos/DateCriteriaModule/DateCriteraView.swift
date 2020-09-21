@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct DateCriteraView: View {
+  
+  @ObservedObject var presenter: DateCriteriaPresenter
+  
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    presenter.makeSearchButton()
+    presenter.makeSpotSearchView()
   }
 }
 
 struct DateCriteraView_Previews: PreviewProvider {
   static var previews: some View {
-    DateCriteraView()
+    let model = SpotModel.sampleModel
+    let searchService = SpotFinderSearch()
+    let interactor = DateCriteriaInteractor(model: model, searchService: searchService)
+    let presenter = DateCriteriaPresenter(interactor: interactor)
+    DateCriteraView(presenter: presenter)
   }
 }

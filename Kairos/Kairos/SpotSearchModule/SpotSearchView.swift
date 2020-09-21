@@ -13,7 +13,7 @@ struct SpotSearchView: View {
   
   var body: some View {
     VStack {
-      Text("Spot = \(self.presenter.interactor.spotModel.spots![0].spotID)")
+//      Text("Spot = \(self.presenter.interactor.spotModel.spots![0].spotID)")
       presenter.makeSpotDetailButton()
     }
   }

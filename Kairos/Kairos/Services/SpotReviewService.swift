@@ -26,7 +26,7 @@ class SpotReviewService {
           let spotData = try decoder.decode([Spot].self, from: data)
           let spotDetails = spotData[0]
           completionBlock(spotDetails)
-        } catch let error {
+        } catch {
           print(error)
         } 
       }

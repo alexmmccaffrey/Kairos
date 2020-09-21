@@ -19,10 +19,18 @@ class HomeInteractor {
     self.searchService = searchService
   }
   
-  func getSearchDetails(_ query: String,_ city: String,_ state: String, searchCompletionBlock: @escaping () -> Void) {
-    searchService.searchPlaces(query, city, state) { (output) in
-      self.spotModel.spots = output
-      searchCompletionBlock()
+  func getSearchDetails(_ query: String,_ city: String,_ state: String, completion: @escaping (Error?) -> Void) {
+      searchService.searchPlaces(query, city, state) { (result) in
+      switch result {
+        case .success(let spots):
+          self.spotModel.spots = spots
+          print("What the fuck")
+          completion(nil)
+        case .failure(let error):
+          self.spotModel.spots = nil
+          completion(error)
+      }
     }
   }
+  
 }
