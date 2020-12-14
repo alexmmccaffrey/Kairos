@@ -10,14 +10,6 @@ import SwiftUI
 
 class HomeRouter {
   
-  func makeBuildReviewView(model: ReviewModel) -> some View {
-    let service = BuildReviewService()
-    let presenter = BuildReviewPresenter(
-      interactor: BuildReviewInteractor(
-        model: model, service: service))
-    return BuildReviewView(presenter: presenter)
-  }
-  
   func makeSpotDetailView(model: SpotModel) -> some View {
     let service = SpotReviewService()
     let presenter = SpotDetailPresenter(
@@ -26,10 +18,11 @@ class HomeRouter {
     return SpotDetailView(presenter: presenter)
   }
   
-  func makeSpotSearchModule(spotModel: SpotModel) -> some View {
+  func makeSpotSearchModule(spotModel: SpotModel, timePreference: DropdownOption) -> some View {
     let service = SpotNameSearch()
     let presenter = SpotSearchPresenter(
-      interactor: SpotSearchInteractor(spotModel: spotModel, service: service)
+      interactor: SpotSearchInteractor(spotModel: spotModel, service: service),
+      timePreference: timePreference
     )
     return SpotSearchView(presenter: presenter)
   }

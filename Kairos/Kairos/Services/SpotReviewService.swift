@@ -10,10 +10,10 @@ import Foundation
 
 class SpotReviewService {
   
-  func getSpotDetails(_ id: Int, completionBlock: @escaping (Spot) -> Void) {
+  func getSpotDetails(_ id: Int, completion: @escaping (SpotReviewResponse) -> Void) {
     
-    let apiURL = URL(string: "https://alexmccaffrey.com/api/review/\(id)")!
-    var request = URLRequest(url: apiURL)
+    let url = URL(string: "https://alexmccaffrey.com/api/review/\(id)")!
+    var request = URLRequest(url: url)
     request.httpMethod = "GET"
     
     let session = URLSession(configuration: .default)
@@ -22,10 +22,13 @@ class SpotReviewService {
       (data, response, error) in
       if let data = data {
         do {
+          guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            throw self.errorHandler()
+          }
           let decoder = JSONDecoder()
           let spotData = try decoder.decode([Spot].self, from: data)
-          let spotDetails = spotData[0]
-          completionBlock(spotDetails)
+          let spot = spotData[0]
+          completion(SpotReviewResponse.success(spot))
         } catch {
           print(error)
         } 
@@ -33,4 +36,20 @@ class SpotReviewService {
     }
     task.resume()
   }
+  
+  enum SpotReviewResponse: Error {
+    case success(Spot)
+    case failure(Error)
+  }
+  
+  enum SpotReviewError: Error {
+    case genericError
+  }
+  
+  func errorHandler() -> Error {
+    let error = SpotReviewError.genericError
+    return error
+  }
+  
 }
+

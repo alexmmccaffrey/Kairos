@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class ServerErrorModel {
+  
+  @Published var serverError = ServerError()
+
+}
+
+#if DEBUG
+extension ServerErrorModel {
+  static var sampleModel: ServerErrorModel {
+    let model = ServerErrorModel()
+    return model
+  }
+}
+#endif

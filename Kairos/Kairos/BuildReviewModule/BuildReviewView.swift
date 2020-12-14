@@ -7,37 +7,187 @@
 //
 
 import SwiftUI
+import Sliders
 
 struct BuildReviewView: View {
   
   @ObservedObject var presenter: BuildReviewPresenter
   
+  @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+  
+  @State var dropdownFrame = [CGRect](repeating: .zero, count: 1)
   
   var body: some View {
-    NavigationView{
-      VStack {
-        if presenter.currentReviewView == 1 {
-          BuildReviewTimeView(presenter: presenter)
-        } else if presenter.currentReviewView == 2 {
-          BuildReviewLightView(presenter: presenter)
-        } else if presenter.currentReviewView == 3 {
-          BuildReviewCrowdView(presenter: presenter)
-        } else if presenter.currentReviewView == 4 {
-          BuildReviewChatView(presenter: presenter)
+    GeometryReader { GeometryProxy in
+      VStack(spacing: 0) {
+        ZStack(alignment: .topLeading) {
+          RoundedRectangle(cornerRadius: 15.0)
+            .fill(Color.white)
+            .shadow(color: Color.black.opacity(0.15), radius: 15, x: 0.0, y: 4.0)
+            .shadow(color: Color.black.opacity(0.10), radius: 15, x: 0.0, y: 1.0)
+          VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
+              presenter.makeSpotInfoImage(width: abs(GeometryProxy.size.width - 32))
+              presenter.makeSpotInfoSectionName()
+                .font(.custom("Metropolis Semi Bold", size: 14.0))
+                .padding(.vertical, 7)
+                .offset(x: 20)
+              presenter.makeSeparatorLineView()
+            }
+            Rectangle()
+              .fill(Color.white)
+              .frame(height: GeometryProxy.size.height >= 682 ? 89 : 84)
+            VStack(alignment: .center, spacing: 0) {
+              presenter.makeSeparatorLineView()
+                .padding(.bottom, GeometryProxy.size.height >= 682 ? 6 : 2)
+              VStack(alignment: .leading, spacing: 0) {
+                Text("What was the lighting like?")
+                  .font(.custom("Metropolis Medium", size: GeometryProxy.size.height >= 682 ? 13.0 : 12.0))
+                  .padding(.top, GeometryProxy.size.height >= 682 ? 6 : 2)
+                  .padding(.bottom, 6)
+                presenter.makeSlider(binding: $presenter.lightSlider)
+                  .frame(width: abs(GeometryProxy.size.width - 80))
+                  .padding(.top, GeometryProxy.size.height >= 682 ? 6 : 2)
+                  .padding(.bottom, 6)
+              }
+              HStack(alignment: .center) {
+                Text("Natural")
+                  .font(.custom("Metropolis Regular", size: presenter.lightSlider < 0.25 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("Bright")
+                  .font(.custom("Metropolis Regular", size: 0.25 < presenter.lightSlider && presenter.lightSlider <= 0.5 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("Low")
+                  .font(.custom("Metropolis Regular", size: 0.5 < presenter.lightSlider && presenter.lightSlider <= 0.75 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("Dim")
+                  .font(.custom("Metropolis Regular", size: 0.75 < presenter.lightSlider ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+              }
+              .padding(.bottom, 12)
+            }
+            .frame(height: GeometryProxy.size.height >= 682 ? 104 : 74)
+            VStack(alignment: .center, spacing: 0) {
+              presenter.makeSeparatorLineView()
+                .padding(.bottom, GeometryProxy.size.height >= 682 ? 6 : 2)
+              VStack(alignment: .leading, spacing: 0) {
+                Text("How crowded was it?")
+                  .padding(.top, GeometryProxy.size.height >= 682 ? 6 : 2)
+                  .padding(.bottom, 6)
+                  .font(.custom("Metropolis Medium", size: GeometryProxy.size.height >= 682 ? 13.0 : 12.0))
+                presenter.makeSlider(binding: $presenter.crowdSlider)
+                  .padding(.top, GeometryProxy.size.height >= 682 ? 6 : 2)
+                  .padding(.bottom, 6)
+                  .frame(width: abs(GeometryProxy.size.width - 80))
+              }
+              HStack(alignment: .center) {
+                Text("1")
+                  .font(.custom("Metropolis Regular", size: presenter.crowdSlider < 0.25 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("2")
+                  .font(.custom("Metropolis Regular", size: 0.25 < presenter.crowdSlider && presenter.crowdSlider <= 0.5 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("3")
+                  .font(.custom("Metropolis Regular", size: 0.5 < presenter.crowdSlider && presenter.crowdSlider <= 0.75 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("4")
+                  .font(.custom("Metropolis Regular", size: 0.75 < presenter.crowdSlider ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+              }
+              .padding(.bottom, 12)
+            }
+            .frame(height: GeometryProxy.size.height >= 682 ? 104 : 74)
+            VStack(alignment: .center, spacing: 0) {
+              presenter.makeSeparatorLineView()
+                .padding(.bottom, GeometryProxy.size.height >= 682 ? 6 : 2)
+              VStack(alignment: .leading, spacing: 0) {
+                Text("How easy was it to have a conversation?")
+                  .padding(.top, GeometryProxy.size.height >= 682 ? 6 : 2)
+                  .padding(.bottom, 6)
+                  .font(.custom("Metropolis Medium", size: GeometryProxy.size.height >= 682 ? 13.0 : 12.0))
+                presenter.makeSlider(binding: $presenter.chatSlider)
+                  .padding(.top, GeometryProxy.size.height >= 682 ? 6 : 2)
+                  .padding(.bottom, 6)
+                  .frame(width: abs(GeometryProxy.size.width - 80))
+              }
+              HStack(alignment: .center) {
+                Text("Natural")
+                  .font(.custom("Metropolis Regular", size: presenter.chatSlider < 0.25 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("Bright")
+                  .font(.custom("Metropolis Regular", size: 0.25 < presenter.chatSlider && presenter.chatSlider <= 0.5 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("Low")
+                  .font(.custom("Metropolis Regular", size: 0.5 < presenter.chatSlider && presenter.chatSlider <= 0.75 ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+                Text("Dim")
+                  .font(.custom("Metropolis Regular", size: 0.75 < presenter.chatSlider ? 16.0 : 12.0))
+                  .frame(width: abs((GeometryProxy.size.width - 100)/4))
+              }
+              .padding(.bottom, 12)
+            }
+            .frame(height: GeometryProxy.size.height >= 682 ? 104 : 74)
+            Spacer()
+            VStack(spacing: 0) {
+              presenter.makeSubmitButton(width: abs(GeometryProxy.size.width-62))
+              .padding(.bottom, 17)
+            }
+          }
+          VStack(alignment: .center, spacing: 0) {
+            HStack {
+              Text("What time of day did you visit?")
+                .font(.custom("Metropolis Medium", size: GeometryProxy.size.height >= 682 ? 13.0 : 12.0))
+                .padding(.top, 6)
+                .padding(.bottom, GeometryProxy.size.height >= 682 ? 12 : 6)
+                .padding(.leading, 22)
+              Spacer()
+            }
+            HStack(spacing: 0) {
+              Spacer()
+              Spacer()
+              Spacer()
+              GeometryReader { dropdownGeometryProxy in
+                VStack(spacing: 0) {
+                  BubbleDropdown(dropdownWidth: abs(GeometryProxy.size.width - 80), dropdownHeight: 30.0, expand: $presenter.isDropdown, options: $presenter.timeDropdownOptions, currentOption: $presenter.currentTimeDropdownOption)
+                    .onAppear {
+                      self.dropdownFrame[0] = dropdownGeometryProxy.frame(in: .named("innerSection"))
+                    }
+                }
+              }
+            }
+          }
+          .offset(y: 212)
+          if presenter.isDropdown {
+            BubbleDropdownUnderlay(dropdownWidth: abs(GeometryProxy.size.width - 80), dropdownHeight: 30.0, expand: $presenter.isDropdown, options: $presenter.timeDropdownOptions, currentOption: $presenter.currentTimeDropdownOption)
+              .offset(x: dropdownFrame[0].minX, y: dropdownFrame[0].minY+30)
+          }
         }
-        Text("This is BuildReviewView \(presenter.currentReviewView)")
+        .coordinateSpace(name: "innerSection")
+        .frame(width: abs(GeometryProxy.size.width-32), height: GeometryProxy.size.height >= 682 ? abs(GeometryProxy.size.height-30) : abs(GeometryProxy.size.height-20))
       }
+      .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height)
+      .navigationBarBackButtonHidden(true)
+      .navigationBarItems(leading: Button(action : {
+          self.mode.wrappedValue.dismiss()
+      }){
+          Image("arrowIconLeft")
+      })
+      .navigationBarTitle("Leave A Review")
+      .navigationBarTitleDisplayMode(.inline)
+      .background(Color("viewBackground"))
     }
   }
 }
 
 struct BuildReviewView_Previews : PreviewProvider {
   static var previews: some View {
-    let model = ReviewModel.sampleModel
+    let reviewModel = ReviewModel.sampleModel
+    let spotModel = SpotModel.sampleModel
     let service = BuildReviewService()
-    let interactor = BuildReviewInteractor(model: model, service: service)
+    let interactor = BuildReviewInteractor(reviewModel: reviewModel, spotModel: spotModel, reviewService: service)
     let presenter = BuildReviewPresenter(interactor: interactor)
     return BuildReviewView(presenter: presenter)
+      
   }
 }
 

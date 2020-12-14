@@ -14,16 +14,24 @@ class SpotSearchPresenter: ObservableObject {
   let router = SpotSearchRouter()
   
   @Published var spots: [Spot]?
+  @Published var viewNavigation: Int? = nil
   
-  init (interactor: SpotSearchInteractor) {
+  init (interactor: SpotSearchInteractor, timePreference: DropdownOption = DropdownOption(3, "Evening")) {
     self.interactor = interactor
+    self.timePreference = timePreference
   }
   
-  func makeSpotDetailButton() -> some View {
-    NavigationLink(destination: router.makeSpotDetailView(model: interactor.spotModel)) {
-      VStack{
-        Text("Link to Spot Detail")
-      }
+  let timePreference: DropdownOption
+  
+  func spotDetailLink(selection: Binding<Int?>) -> some View {
+    NavigationLink(
+      destination: router.makeSpotDetailView(
+        model: interactor.spotModel,
+        timePreference: timePreference),
+      tag: 1,
+      selection: selection
+    ) {
+      EmptyView()
     }
   }
   

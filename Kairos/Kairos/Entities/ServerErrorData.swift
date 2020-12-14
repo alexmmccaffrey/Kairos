@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct ServerError: Codable {
+  
+  var error: String
+  
+  init() {
+    error = "no errors found"
+  }
+  
+}

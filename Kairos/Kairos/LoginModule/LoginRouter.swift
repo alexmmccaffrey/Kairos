@@ -6,4 +6,27 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+
+class LoginRouter {
+  
+  func makeHomeView(reviewModel: ReviewModel) -> some View {
+    let imageDownloadService = ImageDownloadService()
+    let locationService = UserLocationService()
+    let searchService = SpotNameSearch()
+    let spotFinderService = SpotFinderSearch()
+    let presenter = HomePresenter(
+      interactor: HomeInteractor(
+        locationModel: LocationModel(),
+        reviewModel: ReviewModel(),
+        spotModel: SpotModel(
+          spot: Spot()),
+        userModel: UserLoginModel(),
+        imageDownloadService: imageDownloadService,
+        locationService: locationService,
+        searchService: searchService,
+        spotFinderService: spotFinderService))
+    return HomeView(presenter: presenter)
+  }
+   
+}

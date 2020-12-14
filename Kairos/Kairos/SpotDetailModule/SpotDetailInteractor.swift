@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SpotDetailInteractor: ObservableObject {
   let model: SpotModel
@@ -18,10 +19,28 @@ class SpotDetailInteractor: ObservableObject {
     self.service = service
   }
   
-  func getSpotDetails(_ id: Int, completion: @escaping (Spot) -> Void) {
-    service.getSpotDetails(id) { (output) in
-      completion(output)
-    }
+  func getSpotName() -> String {
+    return self.model.getSpotName()
+  }
+  
+  func getSpotAddress() -> String {
+    return self.model.getSpotAddress()
+  }
+  
+  func getSpotImage() -> UIImage? {
+    return self.model.getSpotImage()
+  }
+  
+  func getLightRating(time: Int) -> String {
+    return self.model.getLightRating(time: time)
+  }
+  
+  func getCrowdRating(time: Int) -> String {
+    return self.model.getCrowdRating(time: time)
+  }
+  
+  func getChatRating(time: Int) -> String {
+    return self.model.getChatRating(time: time)
   }
   
 }

@@ -9,17 +9,12 @@
 import Foundation
 import CoreLocation
 
-struct Location: Codable {
+struct LocationData: Codable {
     
-  var latitude: Double?
-  var longitude: Double?
-  var city: String?
-  var state: String?
+  var city: String? = nil
+  var state: String? = nil
   
-  init(location: CLLocationCoordinate2D, city: String, state: String) {
-    latitude =  location.latitude
-    longitude =  location.longitude
-    self.city = city
-  }
+  var latitude: Double? = nil
+  var longitude: Double? = nil
   
 }

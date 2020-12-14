@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Combine
+import Foundation
 
 struct Review: Codable {
   var spotID: Int
@@ -16,7 +16,7 @@ struct Review: Codable {
   var chat: Int?
   
   enum CodingKeys: String, CodingKey {
-    case spotID = "spot_id", time, light, crowd, chat
+    case spotID = "spotid", time, light, crowd, chat
   }
   
   /// spotid set to 1 on init for the moment while I wait for way to determine spotid during review process

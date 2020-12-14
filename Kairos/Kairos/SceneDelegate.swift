@@ -29,6 +29,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+      
+      //
+      let navBarAppearance = UINavigationBarAppearance()
+      navBarAppearance.configureWithOpaqueBackground()
+      navBarAppearance.backgroundColor = UIColor(named: "appBackground")
+      navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+      
+      navBarAppearance.shadowImage = nil // line
+      navBarAppearance.shadowColor = .clear // line
+
+//      navBarAppearance.shadowColor = UIColor(named: "appBackground")
+      
+      UINavigationBar.appearance().standardAppearance = navBarAppearance
+      
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class UserLoginModel {
+  
+  @Published var user = UserLoginData()
+
+}
+
+#if DEBUG
+extension UserLoginModel {
+  static var sampleModel: UserLoginModel {
+    let model = UserLoginModel()
+    return model
+  }
+}
+#endif

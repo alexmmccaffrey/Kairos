@@ -20,16 +20,23 @@ class DateCriteriaPresenter: ObservableObject {
   }
   
   func makeSpotSearchView() -> some View {
-    NavigationLink(destination: router.makeSpotSearchModule(spotModel: interactor.model), tag: 1, selection: views) {
-      EmptyView()
-    }
+//    NavigationLink(destination: router.makeSpotSearchModule(spotModel: interactor.model), tag: 1, selection: views) {
+//      EmptyView()
+//    }
+    EmptyView()
   }
   
   func makeSearch(time: Int, light: Int, crowd: Int, chat: Int, _ city: String,_ state: String) {
     self.overlay = true
-    self.interactor.getSearchDetails(time: time, light: light, crowd: crowd, chat: chat, city, state) {
-      DispatchQueue.main.async {
-        self.views = .constant(1)
+    self.interactor.getSearchDetails(time: time, light: light, crowd: crowd, chat: chat, city, state) { (result) in
+      if let error = result {
+        DispatchQueue.main.async {
+          print(error)
+        }
+      } else if result == nil {
+        DispatchQueue.main.async {
+          self.views = .constant(1)
+        }
       }
     }
   }
@@ -41,6 +48,5 @@ class DateCriteriaPresenter: ObservableObject {
       Text("Click here to return search")
     })
   }
-  
-  
+
 }

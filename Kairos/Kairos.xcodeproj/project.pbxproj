@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		DC104671249EE7AA00750691 /* SpotDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC104670249EE7AA00750691 /* SpotDetailRouter.swift */; };
 		DC104673249EEADD00750691 /* SpotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC104672249EEADD00750691 /* SpotData.swift */; };
 		DC104676249EEE8B00750691 /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC104675249EEE8B00750691 /* SpotModel.swift */; };
+		DC14A655255CDB3D00F6FDD2 /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = DC14A654255CDB3D00F6FDD2 /* Sliders */; };
 		DC38806224CF9D6800AA8D67 /* SpotSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38806124CF9D6800AA8D67 /* SpotSearchRouter.swift */; };
 		DC38806424CFA02700AA8D67 /* SpotSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38806324CFA02700AA8D67 /* SpotSearchView.swift */; };
 		DC390850242C6ABA00506DA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39084F242C6ABA00506DA3 /* AppDelegate.swift */; };
@@ -26,35 +27,29 @@
 		DC390867242C6ABB00506DA3 /* KairosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390866242C6ABB00506DA3 /* KairosTests.swift */; };
 		DC390872242C6ABB00506DA3 /* KairosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390871242C6ABB00506DA3 /* KairosUITests.swift */; };
 		DC390887242C7CE300506DA3 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390886242C7CE300506DA3 /* ReviewData.swift */; };
-		DC46E27724942C7100F4C92D /* BuildReviewLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */; };
-		DC46E27D2495174700F4C92D /* BuildReviewTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */; };
+		DC3AFC3B255F4FC900ABD199 /* BubbleDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3AFC3A255F4FC900ABD199 /* BubbleDropdown.swift */; };
+		DC3BC05025661A520067654F /* UserSignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BC04F25661A520067654F /* UserSignUpService.swift */; };
+		DC4032352586EE3C00D189A8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4032342586EE3C00D189A8 /* BlurView.swift */; };
 		DC4BBE322443AC680034328A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE312443AC680034328A /* Storyboard.storyboard */; };
 		DC4BBE382443AD420034328A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE372443AD420034328A /* Assets.xcassets */; };
 		DC4BBE3B2443AF440034328A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4BBE3A2443AF440034328A /* MapViewController.swift */; };
-		DC4BBE502443AF890034328A /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE3D2443AF890034328A /* Montserrat-LightItalic.ttf */; };
-		DC4BBE512443AF890034328A /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE3E2443AF890034328A /* Montserrat-Medium.ttf */; };
-		DC4BBE522443AF890034328A /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE3F2443AF890034328A /* Montserrat-BoldItalic.ttf */; };
-		DC4BBE532443AF890034328A /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE402443AF890034328A /* Montserrat-Light.ttf */; };
-		DC4BBE542443AF890034328A /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE412443AF890034328A /* Montserrat-ThinItalic.ttf */; };
-		DC4BBE552443AF890034328A /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE422443AF890034328A /* Montserrat-ExtraLight.ttf */; };
-		DC4BBE562443AF890034328A /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE432443AF890034328A /* Montserrat-Thin.ttf */; };
-		DC4BBE572443AF890034328A /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE442443AF890034328A /* Montserrat-Bold.ttf */; };
-		DC4BBE582443AF890034328A /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE452443AF890034328A /* Montserrat-MediumItalic.ttf */; };
-		DC4BBE592443AF890034328A /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE462443AF890034328A /* Montserrat-BlackItalic.ttf */; };
-		DC4BBE5A2443AF890034328A /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE472443AF890034328A /* Montserrat-SemiBold.ttf */; };
-		DC4BBE5B2443AF890034328A /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE482443AF890034328A /* Montserrat-ExtraLightItalic.ttf */; };
-		DC4BBE5C2443AF890034328A /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE492443AF890034328A /* Montserrat-ExtraBold.ttf */; };
-		DC4BBE5F2443AF890034328A /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4C2443AF890034328A /* Montserrat-Regular.ttf */; };
-		DC4BBE602443AF890034328A /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4D2443AF890034328A /* Montserrat-Italic.ttf */; };
-		DC4BBE612443AF890034328A /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4E2443AF890034328A /* Montserrat-SemiBoldItalic.ttf */; };
-		DC4BBE622443AF890034328A /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE4F2443AF890034328A /* Montserrat-ExtraBoldItalic.ttf */; };
+		DC4C79D125308FD600A23AA6 /* ServerErrorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C79D025308FD600A23AA6 /* ServerErrorData.swift */; };
+		DC4C79D625308FEF00A23AA6 /* ServerErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C79D525308FEF00A23AA6 /* ServerErrorModel.swift */; };
+		DC4C79DB2532ADE300A23AA6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C79DA2532ADE300A23AA6 /* LoginService.swift */; };
+		DC4C79E02532B10100A23AA6 /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C79DF2532B10100A23AA6 /* UserLoginData.swift */; };
+		DC4C79E82532B2B300A23AA6 /* UserLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C79E72532B2B300A23AA6 /* UserLoginModel.swift */; };
+		DC4C79ED2532B6FB00A23AA6 /* UserRefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C79EC2532B6FB00A23AA6 /* UserRefreshToken.swift */; };
+		DC4C79FE253B8F2A00A23AA6 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C79FD253B8F2A00A23AA6 /* LoginInteractor.swift */; };
+		DC4C7A06253B8F3D00A23AA6 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C7A05253B8F3D00A23AA6 /* LoginPresenter.swift */; };
+		DC4C7A0B253B8F4C00A23AA6 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C7A0A253B8F4C00A23AA6 /* LoginRouter.swift */; };
+		DC4C7A11253B8F6A00A23AA6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C7A10253B8F6A00A23AA6 /* LoginView.swift */; };
+		DC4C7A19254CF48000A23AA6 /* BubbleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C7A18254CF48000A23AA6 /* BubbleTextField.swift */; };
+		DC53F9912572C36D00247BA5 /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC53F9902572C36D00247BA5 /* UserLocationService.swift */; };
 		DC542881248D76DC000571EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542880248D76DC000571EB /* HomeView.swift */; };
 		DC542883248D8E1E000571EB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542882248D8E1E000571EB /* HomeRouter.swift */; };
 		DC542887248D9542000571EB /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542886248D9542000571EB /* ReviewModel.swift */; };
 		DC542889248D9D76000571EB /* BuildReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC542888248D9D76000571EB /* BuildReviewView.swift */; };
 		DC568B8C2516D38500A1B856 /* SpotFinderSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC568B8B2516D38500A1B856 /* SpotFinderSearch.swift */; };
-		DC7AA99924958B1400DEAFD5 /* BuildReviewCrowdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */; };
-		DC7AA99B24958B2100DEAFD5 /* BuildReviewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */; };
 		DC7DE2D5249689BA00B40DDE /* BuildReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */; };
 		DC8A7F0E24CF9CEF00A797E9 /* SpotSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8A7F0D24CF9CEF00A797E9 /* SpotSearchInteractor.swift */; };
 		DC8A7F1024CF9CFB00A797E9 /* SpotSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8A7F0F24CF9CFB00A797E9 /* SpotSearchPresenter.swift */; };
@@ -62,6 +57,25 @@
 		DC957A9724F5E55D0047F083 /* DateCriteriaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC957A9624F5E55D0047F083 /* DateCriteriaPresenter.swift */; };
 		DC957A9B24F5E5760047F083 /* DateCriteriaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC957A9A24F5E5760047F083 /* DateCriteriaRouter.swift */; };
 		DC957A9D24F5E6170047F083 /* DateCriteraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC957A9C24F5E6170047F083 /* DateCriteraView.swift */; };
+		DC9A73AB254F1A3E0066912C /* Metropolis-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A7399254F1A3E0066912C /* Metropolis-Bold.otf */; };
+		DC9A73AC254F1A3E0066912C /* Metropolis-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A739A254F1A3E0066912C /* Metropolis-Thin.otf */; };
+		DC9A73AD254F1A3E0066912C /* Metropolis-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A739B254F1A3E0066912C /* Metropolis-RegularItalic.otf */; };
+		DC9A73AE254F1A3E0066912C /* Metropolis-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A739C254F1A3E0066912C /* Metropolis-ExtraBold.otf */; };
+		DC9A73AF254F1A3E0066912C /* Metropolis-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A739D254F1A3E0066912C /* Metropolis-SemiBoldItalic.otf */; };
+		DC9A73B0254F1A3E0066912C /* Metropolis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A739E254F1A3E0066912C /* Metropolis-Light.otf */; };
+		DC9A73B1254F1A3E0066912C /* Metropolis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A739F254F1A3E0066912C /* Metropolis-Regular.otf */; };
+		DC9A73B2254F1A3E0066912C /* Metropolis-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A0254F1A3E0066912C /* Metropolis-Black.otf */; };
+		DC9A73B3254F1A3E0066912C /* Metropolis-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A1254F1A3E0066912C /* Metropolis-ExtraLightItalic.otf */; };
+		DC9A73B4254F1A3E0066912C /* Metropolis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A2254F1A3E0066912C /* Metropolis-Medium.otf */; };
+		DC9A73B5254F1A3E0066912C /* Metropolis-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A3254F1A3E0066912C /* Metropolis-BlackItalic.otf */; };
+		DC9A73B6254F1A3E0066912C /* Metropolis-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A4254F1A3E0066912C /* Metropolis-ThinItalic.otf */; };
+		DC9A73B7254F1A3E0066912C /* Metropolis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A5254F1A3E0066912C /* Metropolis-ExtraLight.otf */; };
+		DC9A73B8254F1A3E0066912C /* Metropolis-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A6254F1A3E0066912C /* Metropolis-MediumItalic.otf */; };
+		DC9A73B9254F1A3E0066912C /* Metropolis-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A7254F1A3E0066912C /* Metropolis-LightItalic.otf */; };
+		DC9A73BA254F1A3E0066912C /* Metropolis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A8254F1A3E0066912C /* Metropolis-SemiBold.otf */; };
+		DC9A73BB254F1A3E0066912C /* Metropolis-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73A9254F1A3E0066912C /* Metropolis-BoldItalic.otf */; };
+		DC9A73BC254F1A3E0066912C /* Metropolis-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC9A73AA254F1A3E0066912C /* Metropolis-ExtraBoldItalic.otf */; };
+		DCB742C7257407BE0053A800 /* SpotlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB742C6257407BE0053A800 /* SpotlightCell.swift */; };
 		DCBD436F2490653E0045F0E7 /* BuildReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD436E2490653E0045F0E7 /* BuildReviewInteractor.swift */; };
 		DCBD4371249065DF0045F0E7 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD4370249065DF0045F0E7 /* HomePresenter.swift */; };
 		DCBD43732490666C0045F0E7 /* BuildReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD43722490666C0045F0E7 /* BuildReviewPresenter.swift */; };
@@ -69,6 +83,10 @@
 		DCBD437724906A0F0045F0E7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */; };
 		DCCC479424BD5AC0005DD0AA /* SpotNameSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */; };
 		DCCE4CCB251661D200495987 /* ActivityInidicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE4CCA251661D200495987 /* ActivityInidicator.swift */; };
+		DCDB1487257F3AA0009173F4 /* ImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB1486257F3AA0009173F4 /* ImageDownloadService.swift */; };
+		DCE7B17F25624FB500550BF8 /* WideSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE7B17E25624FB500550BF8 /* WideSpotCell.swift */; };
+		DCEA40BA256C954000A7D58A /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA40B9256C954000A7D58A /* LocationData.swift */; };
+		DCEA40C2256C985F00A7D58A /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA40C1256C985F00A7D58A /* LocationModel.swift */; };
 		DCEFC13824DA4967003BE581 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFC13724DA4967003BE581 /* SearchBar.swift */; };
 		F0789BA840B519F588A0C4F7 /* libPods-KairosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 715A3EC4B692F9592D5A4F52 /* libPods-KairosTests.a */; };
 /* End PBXBuildFile section */
@@ -123,36 +141,29 @@
 		DC390871242C6ABB00506DA3 /* KairosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KairosUITests.swift; sourceTree = "<group>"; };
 		DC390873242C6ABB00506DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC390886242C7CE300506DA3 /* ReviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
-		DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewLightView.swift; sourceTree = "<group>"; };
-		DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildReviewTimeView.swift; sourceTree = "<group>"; };
+		DC3AFC3A255F4FC900ABD199 /* BubbleDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDropdown.swift; sourceTree = "<group>"; };
+		DC3BC04F25661A520067654F /* UserSignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpService.swift; sourceTree = "<group>"; };
+		DC4032342586EE3C00D189A8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DC4BBE312443AC680034328A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		DC4BBE372443AD420034328A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC4BBE3A2443AF440034328A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		DC4BBE3D2443AF890034328A /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE3E2443AF890034328A /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		DC4BBE3F2443AF890034328A /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE402443AF890034328A /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		DC4BBE412443AF890034328A /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE422443AF890034328A /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
-		DC4BBE432443AF890034328A /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		DC4BBE442443AF890034328A /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		DC4BBE452443AF890034328A /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE462443AF890034328A /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE472443AF890034328A /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
-		DC4BBE482443AF890034328A /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE492443AF890034328A /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
-		DC4BBE4C2443AF890034328A /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		DC4BBE4D2443AF890034328A /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
-		DC4BBE4E2443AF890034328A /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE4F2443AF890034328A /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		DC4BBE632443BB810034328A /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
+		DC4C79D025308FD600A23AA6 /* ServerErrorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorData.swift; sourceTree = "<group>"; };
+		DC4C79D525308FEF00A23AA6 /* ServerErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorModel.swift; sourceTree = "<group>"; };
+		DC4C79DA2532ADE300A23AA6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		DC4C79DF2532B10100A23AA6 /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
+		DC4C79E72532B2B300A23AA6 /* UserLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginModel.swift; sourceTree = "<group>"; };
+		DC4C79EC2532B6FB00A23AA6 /* UserRefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRefreshToken.swift; sourceTree = "<group>"; };
+		DC4C79FD253B8F2A00A23AA6 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		DC4C7A05253B8F3D00A23AA6 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		DC4C7A0A253B8F4C00A23AA6 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		DC4C7A10253B8F6A00A23AA6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DC4C7A18254CF48000A23AA6 /* BubbleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTextField.swift; sourceTree = "<group>"; };
+		DC53F9902572C36D00247BA5 /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
 		DC542880248D76DC000571EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DC542882248D8E1E000571EB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		DC542886248D9542000571EB /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		DC542888248D9D76000571EB /* BuildReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewView.swift; sourceTree = "<group>"; };
 		DC568B8B2516D38500A1B856 /* SpotFinderSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotFinderSearch.swift; sourceTree = "<group>"; };
-		DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewCrowdView.swift; sourceTree = "<group>"; };
-		DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewChatView.swift; sourceTree = "<group>"; };
 		DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewService.swift; sourceTree = "<group>"; };
 		DC8A7F0D24CF9CEF00A797E9 /* SpotSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSearchInteractor.swift; sourceTree = "<group>"; };
 		DC8A7F0F24CF9CFB00A797E9 /* SpotSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSearchPresenter.swift; sourceTree = "<group>"; };
@@ -160,6 +171,25 @@
 		DC957A9624F5E55D0047F083 /* DateCriteriaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCriteriaPresenter.swift; sourceTree = "<group>"; };
 		DC957A9A24F5E5760047F083 /* DateCriteriaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCriteriaRouter.swift; sourceTree = "<group>"; };
 		DC957A9C24F5E6170047F083 /* DateCriteraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCriteraView.swift; sourceTree = "<group>"; };
+		DC9A7399254F1A3E0066912C /* Metropolis-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Bold.otf"; sourceTree = "<group>"; };
+		DC9A739A254F1A3E0066912C /* Metropolis-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Thin.otf"; sourceTree = "<group>"; };
+		DC9A739B254F1A3E0066912C /* Metropolis-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-RegularItalic.otf"; sourceTree = "<group>"; };
+		DC9A739C254F1A3E0066912C /* Metropolis-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraBold.otf"; sourceTree = "<group>"; };
+		DC9A739D254F1A3E0066912C /* Metropolis-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		DC9A739E254F1A3E0066912C /* Metropolis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Light.otf"; sourceTree = "<group>"; };
+		DC9A739F254F1A3E0066912C /* Metropolis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Regular.otf"; sourceTree = "<group>"; };
+		DC9A73A0254F1A3E0066912C /* Metropolis-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Black.otf"; sourceTree = "<group>"; };
+		DC9A73A1254F1A3E0066912C /* Metropolis-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		DC9A73A2254F1A3E0066912C /* Metropolis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Medium.otf"; sourceTree = "<group>"; };
+		DC9A73A3254F1A3E0066912C /* Metropolis-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-BlackItalic.otf"; sourceTree = "<group>"; };
+		DC9A73A4254F1A3E0066912C /* Metropolis-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ThinItalic.otf"; sourceTree = "<group>"; };
+		DC9A73A5254F1A3E0066912C /* Metropolis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraLight.otf"; sourceTree = "<group>"; };
+		DC9A73A6254F1A3E0066912C /* Metropolis-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-MediumItalic.otf"; sourceTree = "<group>"; };
+		DC9A73A7254F1A3E0066912C /* Metropolis-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-LightItalic.otf"; sourceTree = "<group>"; };
+		DC9A73A8254F1A3E0066912C /* Metropolis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-SemiBold.otf"; sourceTree = "<group>"; };
+		DC9A73A9254F1A3E0066912C /* Metropolis-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-BoldItalic.otf"; sourceTree = "<group>"; };
+		DC9A73AA254F1A3E0066912C /* Metropolis-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		DCB742C6257407BE0053A800 /* SpotlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightCell.swift; sourceTree = "<group>"; };
 		DCBD436E2490653E0045F0E7 /* BuildReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewInteractor.swift; sourceTree = "<group>"; };
 		DCBD4370249065DF0045F0E7 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		DCBD43722490666C0045F0E7 /* BuildReviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildReviewPresenter.swift; sourceTree = "<group>"; };
@@ -167,6 +197,10 @@
 		DCBD437624906A0F0045F0E7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotNameSearch.swift; sourceTree = "<group>"; };
 		DCCE4CCA251661D200495987 /* ActivityInidicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInidicator.swift; sourceTree = "<group>"; };
+		DCDB1486257F3AA0009173F4 /* ImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadService.swift; sourceTree = "<group>"; };
+		DCE7B17E25624FB500550BF8 /* WideSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideSpotCell.swift; sourceTree = "<group>"; };
+		DCEA40B9256C954000A7D58A /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		DCEA40C1256C985F00A7D58A /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		DCEFC13724DA4967003BE581 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90F205A5D05AFFB4191480F9 /* Pods_Kairos.framework in Frameworks */,
+				DC14A655255CDB3D00F6FDD2 /* Sliders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +296,7 @@
 				DC390851242C6ABA00506DA3 /* SceneDelegate.swift */,
 				DC390853242C6ABA00506DA3 /* ContentView.swift */,
 				DC54287F248D74A7000571EB /* HomeModule */,
+				DC4C79FC253B8F0900A23AA6 /* LoginModule */,
 				DC54287E248D6922000571EB /* BuildReviewModule */,
 				DC957A9324F5E4610047F083 /* DateCriteriaModule */,
 				DC104669249EE6D900750691 /* SpotDetailModule */,
@@ -268,12 +304,12 @@
 				DC54287C248D6908000571EB /* Entities */,
 				DC7DE2D32496899400B40DDE /* Services */,
 				DCEFC13624DA4938003BE581 /* Custom Views */,
-				DC39085A242C6ABB00506DA3 /* LaunchScreen.storyboard */,
 				DC39085D242C6ABB00506DA3 /* Info.plist */,
-				DC4BBE272443AB900034328A /* Fonts */,
+				DC39085A242C6ABB00506DA3 /* LaunchScreen.storyboard */,
 				DC4BBE392443AF440034328A /* ViewController */,
 				DC4BBE302443AC680034328A /* Storyboard */,
 				DC4BBE372443AD420034328A /* Assets.xcassets */,
+				DC4BBE272443AB900034328A /* Fonts */,
 				DC390857242C6ABB00506DA3 /* Preview Content */,
 			);
 			path = Kairos;
@@ -308,7 +344,7 @@
 		DC4BBE272443AB900034328A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				DC4BBE3C2443AF890034328A /* Montserrat */,
+				DC9A7398254F1A3E0066912C /* Metropolis */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -330,29 +366,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		DC4BBE3C2443AF890034328A /* Montserrat */ = {
+		DC4C79FC253B8F0900A23AA6 /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
-				DC4BBE3D2443AF890034328A /* Montserrat-LightItalic.ttf */,
-				DC4BBE3E2443AF890034328A /* Montserrat-Medium.ttf */,
-				DC4BBE3F2443AF890034328A /* Montserrat-BoldItalic.ttf */,
-				DC4BBE402443AF890034328A /* Montserrat-Light.ttf */,
-				DC4BBE412443AF890034328A /* Montserrat-ThinItalic.ttf */,
-				DC4BBE422443AF890034328A /* Montserrat-ExtraLight.ttf */,
-				DC4BBE432443AF890034328A /* Montserrat-Thin.ttf */,
-				DC4BBE442443AF890034328A /* Montserrat-Bold.ttf */,
-				DC4BBE452443AF890034328A /* Montserrat-MediumItalic.ttf */,
-				DC4BBE462443AF890034328A /* Montserrat-BlackItalic.ttf */,
-				DC4BBE472443AF890034328A /* Montserrat-SemiBold.ttf */,
-				DC4BBE482443AF890034328A /* Montserrat-ExtraLightItalic.ttf */,
-				DC4BBE492443AF890034328A /* Montserrat-ExtraBold.ttf */,
-				DC4BBE632443BB810034328A /* Montserrat.ttf */,
-				DC4BBE4C2443AF890034328A /* Montserrat-Regular.ttf */,
-				DC4BBE4D2443AF890034328A /* Montserrat-Italic.ttf */,
-				DC4BBE4E2443AF890034328A /* Montserrat-SemiBoldItalic.ttf */,
-				DC4BBE4F2443AF890034328A /* Montserrat-ExtraBoldItalic.ttf */,
+				DC4C79FD253B8F2A00A23AA6 /* LoginInteractor.swift */,
+				DC4C7A05253B8F3D00A23AA6 /* LoginPresenter.swift */,
+				DC4C7A0A253B8F4C00A23AA6 /* LoginRouter.swift */,
+				DC4C7A10253B8F6A00A23AA6 /* LoginView.swift */,
 			);
-			path = Montserrat;
+			path = LoginModule;
 			sourceTree = "<group>";
 		};
 		DC54287C248D6908000571EB /* Entities */ = {
@@ -362,6 +384,12 @@
 				DC542886248D9542000571EB /* ReviewModel.swift */,
 				DC104672249EEADD00750691 /* SpotData.swift */,
 				DC104675249EEE8B00750691 /* SpotModel.swift */,
+				DC4C79D025308FD600A23AA6 /* ServerErrorData.swift */,
+				DC4C79D525308FEF00A23AA6 /* ServerErrorModel.swift */,
+				DC4C79DF2532B10100A23AA6 /* UserLoginData.swift */,
+				DC4C79E72532B2B300A23AA6 /* UserLoginModel.swift */,
+				DCEA40B9256C954000A7D58A /* LocationData.swift */,
+				DCEA40C1256C985F00A7D58A /* LocationModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -373,7 +401,6 @@
 				DCBD43722490666C0045F0E7 /* BuildReviewPresenter.swift */,
 				DC542888248D9D76000571EB /* BuildReviewView.swift */,
 				DCBD4374249067850045F0E7 /* BuildReviewRouter.swift */,
-				DCBD43782490871B0045F0E7 /* CategoryViews */,
 			);
 			path = BuildReviewModule;
 			sourceTree = "<group>";
@@ -393,9 +420,14 @@
 			isa = PBXGroup;
 			children = (
 				DC7DE2D4249689BA00B40DDE /* BuildReviewService.swift */,
+				DCDB1486257F3AA0009173F4 /* ImageDownloadService.swift */,
+				DC4C79DA2532ADE300A23AA6 /* LoginService.swift */,
 				DC104667249EDB8500750691 /* SpotReviewService.swift */,
 				DCCC479324BD5AC0005DD0AA /* SpotNameSearch.swift */,
 				DC568B8B2516D38500A1B856 /* SpotFinderSearch.swift */,
+				DC53F9902572C36D00247BA5 /* UserLocationService.swift */,
+				DC4C79EC2532B6FB00A23AA6 /* UserRefreshToken.swift */,
+				DC3BC04F25661A520067654F /* UserSignUpService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -422,22 +454,41 @@
 			path = DateCriteriaModule;
 			sourceTree = "<group>";
 		};
-		DCBD43782490871B0045F0E7 /* CategoryViews */ = {
+		DC9A7398254F1A3E0066912C /* Metropolis */ = {
 			isa = PBXGroup;
 			children = (
-				DC46E27C2495174700F4C92D /* BuildReviewTimeView.swift */,
-				DC46E27624942C7100F4C92D /* BuildReviewLightView.swift */,
-				DC7AA99824958B1400DEAFD5 /* BuildReviewCrowdView.swift */,
-				DC7AA99A24958B2100DEAFD5 /* BuildReviewChatView.swift */,
+				DC9A7399254F1A3E0066912C /* Metropolis-Bold.otf */,
+				DC9A739A254F1A3E0066912C /* Metropolis-Thin.otf */,
+				DC9A739B254F1A3E0066912C /* Metropolis-RegularItalic.otf */,
+				DC9A739C254F1A3E0066912C /* Metropolis-ExtraBold.otf */,
+				DC9A739D254F1A3E0066912C /* Metropolis-SemiBoldItalic.otf */,
+				DC9A739E254F1A3E0066912C /* Metropolis-Light.otf */,
+				DC9A739F254F1A3E0066912C /* Metropolis-Regular.otf */,
+				DC9A73A0254F1A3E0066912C /* Metropolis-Black.otf */,
+				DC9A73A1254F1A3E0066912C /* Metropolis-ExtraLightItalic.otf */,
+				DC9A73A2254F1A3E0066912C /* Metropolis-Medium.otf */,
+				DC9A73A3254F1A3E0066912C /* Metropolis-BlackItalic.otf */,
+				DC9A73A4254F1A3E0066912C /* Metropolis-ThinItalic.otf */,
+				DC9A73A5254F1A3E0066912C /* Metropolis-ExtraLight.otf */,
+				DC9A73A6254F1A3E0066912C /* Metropolis-MediumItalic.otf */,
+				DC9A73A7254F1A3E0066912C /* Metropolis-LightItalic.otf */,
+				DC9A73A8254F1A3E0066912C /* Metropolis-SemiBold.otf */,
+				DC9A73A9254F1A3E0066912C /* Metropolis-BoldItalic.otf */,
+				DC9A73AA254F1A3E0066912C /* Metropolis-ExtraBoldItalic.otf */,
 			);
-			path = CategoryViews;
+			path = Metropolis;
 			sourceTree = "<group>";
 		};
 		DCEFC13624DA4938003BE581 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				DCEFC13724DA4967003BE581 /* SearchBar.swift */,
 				DCCE4CCA251661D200495987 /* ActivityInidicator.swift */,
+				DC4C7A18254CF48000A23AA6 /* BubbleTextField.swift */,
+				DC3AFC3A255F4FC900ABD199 /* BubbleDropdown.swift */,
+				DCEFC13724DA4967003BE581 /* SearchBar.swift */,
+				DCE7B17E25624FB500550BF8 /* WideSpotCell.swift */,
+				DCB742C6257407BE0053A800 /* SpotlightCell.swift */,
+				DC4032342586EE3C00D189A8 /* BlurView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -460,6 +511,9 @@
 			dependencies = (
 			);
 			name = Kairos;
+			packageProductDependencies = (
+				DC14A654255CDB3D00F6FDD2 /* Sliders */,
+			);
 			productName = Kairos;
 			productReference = DC39084C242C6ABA00506DA3 /* Kairos.app */;
 			productType = "com.apple.product-type.application";
@@ -509,7 +563,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Alex McCaffrey";
 				TargetAttributes = {
 					DC39084B242C6ABA00506DA3 = {
@@ -534,6 +588,9 @@
 				Base,
 			);
 			mainGroup = DC390843242C6ABA00506DA3;
+			packageReferences = (
+				DC14A653255CDB3D00F6FDD2 /* XCRemoteSwiftPackageReference "swiftui-sliders" */,
+			);
 			productRefGroup = DC39084D242C6ABA00506DA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -550,27 +607,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC4BBE5C2443AF890034328A /* Montserrat-ExtraBold.ttf in Resources */,
+				DC9A73AB254F1A3E0066912C /* Metropolis-Bold.otf in Resources */,
 				DC39085C242C6ABB00506DA3 /* LaunchScreen.storyboard in Resources */,
-				DC4BBE592443AF890034328A /* Montserrat-BlackItalic.ttf in Resources */,
-				DC4BBE582443AF890034328A /* Montserrat-MediumItalic.ttf in Resources */,
-				DC4BBE522443AF890034328A /* Montserrat-BoldItalic.ttf in Resources */,
+				DC9A73AD254F1A3E0066912C /* Metropolis-RegularItalic.otf in Resources */,
 				DC4BBE322443AC680034328A /* Storyboard.storyboard in Resources */,
-				DC4BBE602443AF890034328A /* Montserrat-Italic.ttf in Resources */,
-				DC4BBE622443AF890034328A /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				DC9A73B6254F1A3E0066912C /* Metropolis-ThinItalic.otf in Resources */,
+				DC9A73B9254F1A3E0066912C /* Metropolis-LightItalic.otf in Resources */,
+				DC9A73B4254F1A3E0066912C /* Metropolis-Medium.otf in Resources */,
+				DC9A73B8254F1A3E0066912C /* Metropolis-MediumItalic.otf in Resources */,
+				DC9A73B0254F1A3E0066912C /* Metropolis-Light.otf in Resources */,
+				DC9A73AF254F1A3E0066912C /* Metropolis-SemiBoldItalic.otf in Resources */,
 				DC4BBE382443AD420034328A /* Assets.xcassets in Resources */,
-				DC4BBE532443AF890034328A /* Montserrat-Light.ttf in Resources */,
-				DC4BBE5F2443AF890034328A /* Montserrat-Regular.ttf in Resources */,
-				DC4BBE542443AF890034328A /* Montserrat-ThinItalic.ttf in Resources */,
-				DC4BBE502443AF890034328A /* Montserrat-LightItalic.ttf in Resources */,
-				DC4BBE612443AF890034328A /* Montserrat-SemiBoldItalic.ttf in Resources */,
-				DC4BBE5B2443AF890034328A /* Montserrat-ExtraLightItalic.ttf in Resources */,
-				DC4BBE5A2443AF890034328A /* Montserrat-SemiBold.ttf in Resources */,
-				DC4BBE562443AF890034328A /* Montserrat-Thin.ttf in Resources */,
-				DC4BBE572443AF890034328A /* Montserrat-Bold.ttf in Resources */,
-				DC4BBE512443AF890034328A /* Montserrat-Medium.ttf in Resources */,
+				DC9A73B3254F1A3E0066912C /* Metropolis-ExtraLightItalic.otf in Resources */,
+				DC9A73B1254F1A3E0066912C /* Metropolis-Regular.otf in Resources */,
+				DC9A73BC254F1A3E0066912C /* Metropolis-ExtraBoldItalic.otf in Resources */,
+				DC9A73B5254F1A3E0066912C /* Metropolis-BlackItalic.otf in Resources */,
+				DC9A73BB254F1A3E0066912C /* Metropolis-BoldItalic.otf in Resources */,
+				DC9A73AC254F1A3E0066912C /* Metropolis-Thin.otf in Resources */,
+				DC9A73B7254F1A3E0066912C /* Metropolis-ExtraLight.otf in Resources */,
+				DC9A73BA254F1A3E0066912C /* Metropolis-SemiBold.otf in Resources */,
 				DC390859242C6ABB00506DA3 /* Preview Assets.xcassets in Resources */,
-				DC4BBE552443AF890034328A /* Montserrat-ExtraLight.ttf in Resources */,
+				DC9A73AE254F1A3E0066912C /* Metropolis-ExtraBold.otf in Resources */,
+				DC9A73B2254F1A3E0066912C /* Metropolis-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,18 +741,26 @@
 			files = (
 				DC38806224CF9D6800AA8D67 /* SpotSearchRouter.swift in Sources */,
 				DC390887242C7CE300506DA3 /* ReviewData.swift in Sources */,
+				DC4C7A06253B8F3D00A23AA6 /* LoginPresenter.swift in Sources */,
 				DC542881248D76DC000571EB /* HomeView.swift in Sources */,
 				DC4BBE3B2443AF440034328A /* MapViewController.swift in Sources */,
+				DC4032352586EE3C00D189A8 /* BlurView.swift in Sources */,
+				DC4C79D125308FD600A23AA6 /* ServerErrorData.swift in Sources */,
 				DCEFC13824DA4967003BE581 /* SearchBar.swift in Sources */,
 				DC38806424CFA02700AA8D67 /* SpotSearchView.swift in Sources */,
 				DCBD4375249067850045F0E7 /* BuildReviewRouter.swift in Sources */,
-				DC7AA99B24958B2100DEAFD5 /* BuildReviewChatView.swift in Sources */,
+				DC4C79FE253B8F2A00A23AA6 /* LoginInteractor.swift in Sources */,
 				DC542889248D9D76000571EB /* BuildReviewView.swift in Sources */,
 				DCBD436F2490653E0045F0E7 /* BuildReviewInteractor.swift in Sources */,
+				DC4C79D625308FEF00A23AA6 /* ServerErrorModel.swift in Sources */,
 				DC957A9524F5E5500047F083 /* DateCriteriaInteractor.swift in Sources */,
+				DC4C7A0B253B8F4C00A23AA6 /* LoginRouter.swift in Sources */,
 				DCBD4371249065DF0045F0E7 /* HomePresenter.swift in Sources */,
-				DC7AA99924958B1400DEAFD5 /* BuildReviewCrowdView.swift in Sources */,
+				DC4C7A19254CF48000A23AA6 /* BubbleTextField.swift in Sources */,
+				DC4C79DB2532ADE300A23AA6 /* LoginService.swift in Sources */,
+				DCEA40C2256C985F00A7D58A /* LocationModel.swift in Sources */,
 				DC10466B249EE71C00750691 /* SpotDetailView.swift in Sources */,
+				DCEA40BA256C954000A7D58A /* LocationData.swift in Sources */,
 				DC8A7F0E24CF9CEF00A797E9 /* SpotSearchInteractor.swift in Sources */,
 				DC390850242C6ABA00506DA3 /* AppDelegate.swift in Sources */,
 				DC104673249EEADD00750691 /* SpotData.swift in Sources */,
@@ -702,22 +768,30 @@
 				DC957A9B24F5E5760047F083 /* DateCriteriaRouter.swift in Sources */,
 				DC104671249EE7AA00750691 /* SpotDetailRouter.swift in Sources */,
 				DC957A9724F5E55D0047F083 /* DateCriteriaPresenter.swift in Sources */,
-				DC46E27D2495174700F4C92D /* BuildReviewTimeView.swift in Sources */,
 				DCBD437724906A0F0045F0E7 /* HomeInteractor.swift in Sources */,
 				DC10466D249EE78000750691 /* SpotDetailInteractor.swift in Sources */,
+				DC4C7A11253B8F6A00A23AA6 /* LoginView.swift in Sources */,
 				DC390852242C6ABA00506DA3 /* SceneDelegate.swift in Sources */,
 				DCCE4CCB251661D200495987 /* ActivityInidicator.swift in Sources */,
 				DC7DE2D5249689BA00B40DDE /* BuildReviewService.swift in Sources */,
+				DCDB1487257F3AA0009173F4 /* ImageDownloadService.swift in Sources */,
+				DC4C79E82532B2B300A23AA6 /* UserLoginModel.swift in Sources */,
+				DC4C79E02532B10100A23AA6 /* UserLoginData.swift in Sources */,
+				DC53F9912572C36D00247BA5 /* UserLocationService.swift in Sources */,
 				DC390854242C6ABA00506DA3 /* ContentView.swift in Sources */,
-				DC46E27724942C7100F4C92D /* BuildReviewLightView.swift in Sources */,
 				DC8A7F1024CF9CFB00A797E9 /* SpotSearchPresenter.swift in Sources */,
 				DC10466F249EE79C00750691 /* SpotDetailPresenter.swift in Sources */,
+				DCB742C7257407BE0053A800 /* SpotlightCell.swift in Sources */,
+				DC3BC05025661A520067654F /* UserSignUpService.swift in Sources */,
 				DC542883248D8E1E000571EB /* HomeRouter.swift in Sources */,
+				DCE7B17F25624FB500550BF8 /* WideSpotCell.swift in Sources */,
 				DC957A9D24F5E6170047F083 /* DateCriteraView.swift in Sources */,
 				DC104676249EEE8B00750691 /* SpotModel.swift in Sources */,
 				DC542887248D9542000571EB /* ReviewModel.swift in Sources */,
+				DC4C79ED2532B6FB00A23AA6 /* UserRefreshToken.swift in Sources */,
 				DC104668249EDB8500750691 /* SpotReviewService.swift in Sources */,
 				DCCC479424BD5AC0005DD0AA /* SpotNameSearch.swift in Sources */,
+				DC3AFC3B255F4FC900ABD199 /* BubbleDropdown.swift in Sources */,
 				DC568B8C2516D38500A1B856 /* SpotFinderSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,6 +865,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -815,7 +890,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -851,6 +926,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -869,7 +945,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -890,6 +966,7 @@
 				DEVELOPMENT_TEAM = 3D7N59BJNV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kairos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -913,6 +990,7 @@
 				DEVELOPMENT_TEAM = 3D7N59BJNV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kairos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1049,6 +1127,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC14A653255CDB3D00F6FDD2 /* XCRemoteSwiftPackageReference "swiftui-sliders" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexmmccaffrey/swiftui-sliders";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC14A654255CDB3D00F6FDD2 /* Sliders */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC14A653255CDB3D00F6FDD2 /* XCRemoteSwiftPackageReference "swiftui-sliders" */;
+			productName = Sliders;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC390844242C6ABA00506DA3 /* Project object */;
 }

@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum SpotNameResponse: Error {
-  case success([Spot])
-  case failure(Error)
-}
-
 class SpotNameSearch {
   
   func searchPlaces(_ query: String,_ city: String,_ state: String, completion: @escaping (SpotNameResponse) -> Void) {
@@ -32,9 +27,14 @@ class SpotNameSearch {
       if let data = data {
         do {
           let decoder = JSONDecoder()
+          guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            throw self.errorHandler()
+          }
+
+          
           let spots: [Spot] = try decoder.decode([Spot].self, from: data)
           completion(SpotNameResponse.success(spots))
-        } catch {
+        } catch let error {
           completion(SpotNameResponse.failure(error))
         }
       }
@@ -42,20 +42,21 @@ class SpotNameSearch {
     task.resume()
   }
   
+  enum SpotNameResponse: Error {
+    case success([Spot])
+    case failure(Error)
+  }
+  
+  enum SpotNameSearchError: Error {
+    case genericError
+  }
+  
+  func errorHandler() -> Error {
+    let error = SpotNameSearchError.genericError
+    return error
+  }
+  
 }
-
-//let task = session.dataTask(with: request) {
-//  (data, response, error) in
-//  if let data = data {
-//    do {
-//      let decoder = JSONDecoder()
-//      let spots: [Spot] = try decoder.decode([Spot].self, from: data)
-//      completion(SpotNameResponse.success(spots))
-//    } catch {
-//      completion(SpotNameResponse.failure(error))
-//    }
-//  }
-//}
 
 
 

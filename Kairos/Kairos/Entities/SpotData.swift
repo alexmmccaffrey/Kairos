@@ -6,14 +6,18 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Combine
-
-
+import Foundation
+import SwiftUI
 
 struct Spot: Codable {
+  
   var spotID: Int
   var placeID: String
   var name: String
+  var category: String?
+  var address: String?
+  var imageURL: String? = "https://preview.redd.it/rxgonieqaz361.jpg?width=750&auto=webp&s=b6d0aa388438582c093a4aef94bfd34375fd4794"
+  var image: UIImage?
   var lightTime1: Int?
   var crowdTime1: Int?
   var chatTime1: Int?
@@ -40,4 +44,9 @@ struct Spot: Codable {
     placeID = ""
     name = ""
   }
+}
+
+// Conforming Spot to Identifiable
+extension Spot: Identifiable {
+    var id: Int { return spotID }
 }

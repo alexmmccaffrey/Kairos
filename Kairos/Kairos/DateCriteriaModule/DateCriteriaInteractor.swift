@@ -17,10 +17,16 @@ class DateCriteriaInteractor {
     self.searchService = searchService
   }
   
-  func getSearchDetails(time: Int, light: Int, crowd: Int, chat: Int,_ city: String,_ state: String, searchCompletionBlock: @escaping () -> Void) {
-    searchService.spotFinder(time: time, light: light, crowd: crowd, chat: chat, city, state) { (output) in
-      self.model.spots = output
-      searchCompletionBlock()
+  func getSearchDetails(time: Int, light: Int, crowd: Int, chat: Int,_ city: String,_ state: String, completion: @escaping (Error?) -> Void) {
+    searchService.spotFinder(time: time, light: light, crowd: crowd, chat: chat, city, state) { (result) in
+      switch result {
+      case .success(let spots):
+        self.model.spots = spots
+        completion(nil)
+      case .failure(let error):
+        self.model.spots = nil
+        completion(error)
+      }
     }
   }
   

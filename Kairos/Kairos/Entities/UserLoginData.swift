@@ -1,5 +1,5 @@
 //
-//  UserData.swift
+//  UserLoginData.swift
 //  Kairos
 //
 //  Created by Alex McCaffrey on 10/10/20.
@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct UserLoginData: Codable {
+  
+  var accessToken: String?
+  var email: String?
+  var refreshToken: String?
+  var password: String?
+  var username: String?
+  
+  init() {}
+  
+}

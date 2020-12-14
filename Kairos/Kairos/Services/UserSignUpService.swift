@@ -1,25 +1,25 @@
 //
-//  LoginService.swift
+//  UserSignUpService.swift
 //  Kairos
 //
-//  Created by Alex McCaffrey on 10/10/20.
+//  Created by Alex McCaffrey on 11/18/20.
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
 import Foundation
 
-enum SignUpResponse {
+enum UserSignUpResponse {
   case success(UserLoginData)
-  case failure(SignUpError)
+  case failure(UserSignUpError)
 }
 
-enum SignUpError: Error {
+enum UserSignUpError: Error {
   case genericError
 }
 
-class SignUpService {
+class UserSignUpService {
   
-  func signUp(data: Data, completion: @escaping (SignUpResponse) -> Void) {
+  func userSignUp(data: Data, completion: @escaping (UserSignUpResponse) -> Void) {
     
     let url = URL(string: "https://alexmccaffrey.com/api/create_user")
     var request = URLRequest(url: url!)
@@ -39,18 +39,20 @@ class SignUpService {
             throw self.errorHandler()
           }
           let user: UserLoginData = try decoder.decode(UserLoginData.self, from: data)
-          completion(SignUpResponse.success(user))
-        } catch {
-          let error = self.errorHandler()
-          completion(SignUpResponse.failure(error))
+          print(user)
+          completion(UserSignUpResponse.success(user))
+        } catch (let error) {
+          print(error)
+          let newerror = self.errorHandler()
+          completion(UserSignUpResponse.failure(newerror))
         }
       }
     }
     task.resume()
   }
   
-  func errorHandler() -> SignUpError {
-    let error = SignUpError.genericError
+  func errorHandler() -> UserSignUpError {
+    let error = UserSignUpError.genericError
     return error
   }
   

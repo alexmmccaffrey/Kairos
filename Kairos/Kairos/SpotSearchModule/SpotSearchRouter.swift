@@ -10,11 +10,12 @@ import SwiftUI
 
 class SpotSearchRouter {
   
-  func makeSpotDetailView(model: SpotModel) -> some View {
+  func makeSpotDetailView(model: SpotModel, timePreference: DropdownOption) -> some View {
     let service = SpotReviewService()
     let presenter = SpotDetailPresenter(
       interactor: SpotDetailInteractor(
-        model: model, service: service))
+        model: model, service: service),
+      timePreference: timePreference)
     return SpotDetailView(presenter: presenter)
   }
   

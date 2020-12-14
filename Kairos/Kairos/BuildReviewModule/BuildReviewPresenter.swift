@@ -7,98 +7,130 @@
 //
 
 import SwiftUI
-import Combine
+import Sliders
 
 class BuildReviewPresenter: ObservableObject {
   let interactor: BuildReviewInteractor
   let router = BuildReviewRouter()
   
+
   
-  init(interactor: BuildReviewInteractor) {
+  init(interactor: BuildReviewInteractor, timePreference: DropdownOption = DropdownOption(3, "Evening")) {
     self.interactor = interactor
+    self.currentTimeDropdownOption = timePreference
   }
   
-  let buildReviewViews = PassthroughSubject<BuildReviewPresenter,Never>()
-  var currentReviewView: Int = 1 {
-    didSet {
-      buildReviewViews.send(self)
+  @Published var timeDropdownOptions: [DropdownOption] = [DropdownOption(1, "Morning"), DropdownOption(2, "Afternoon"), DropdownOption(3, "Evening"), DropdownOption(4, "Late Night")]
+  @Published var currentTimeDropdownOption: DropdownOption
+  @Published var isDropdown: Bool = false
+  @Published var lightSlider: Float = 0.36
+  @Published var crowdSlider: Float = 0.36
+  @Published var chatSlider: Float = 0.36
+  
+
+  func submitReviewAction() {
+    let light = sliderValue(slider: lightSlider)
+    let crowd = sliderValue(slider: crowdSlider)
+    let chat = sliderValue(slider: chatSlider)
+    let time = currentTimeDropdownOption.timeValue
+    interactor.setNewReview(time: time, light: light, crowd: crowd, chat: chat) {
+      self.interactor.submitReview(attempt: 1) { (result) in
+        print("Success")
+        // Show success message and re-open Spot Details view
+      } failure: { (error) in
+        print(error)
+        print("Fail")
+        // Show error message and re-open Spot Details view
+      }
+    }
+
+  }
+
+  func makeSlider(binding: Binding<Float>) -> some View {
+    ValueSlider(value: binding)
+      .valueSliderStyle(
+        HorizontalValueSliderStyle(
+          track: HorizontalValueTrack(
+            view: Capsule()
+              .foregroundColor(Color("sliderColor"))
+          )
+          .background(Capsule().foregroundColor(Color("sliderBackground")))
+          .frame(height: 10),
+          thumb: Circle()
+            .strokeBorder(Color("sliderColor"), lineWidth: 0.3)
+            .background(
+              Circle()
+                .foregroundColor(Color.white)
+                .shadow(radius: 10)
+            ),
+          thumbSize: CGSize(width: 22.0, height: 22.0),
+          thumbInteractiveSize: CGSize(width: 22.0, height: 22.0)
+        )
+      )
+  }
+  
+  func makeSpotInfoImage(width: CGFloat) -> some View {
+//    Image("itemNotFound")
+//      .resizable()
+//      .cornerRadius(15.0)
+    
+    Image(uiImage: interactor.getSpotImage() ?? UIImage(imageLiteralResourceName: "itemNotFound"))
+      .resizable()
+      .scaledToFill()
+      .aspectRatio(1.0, contentMode: .fill)
+      .frame(width: width, height: 180)
+      .clipShape(RoundedRectangle(cornerRadius: 15.0))
+  }
+  
+  func makeSpotInfoSectionName() -> some View {
+    Text(interactor.getSpotName())
+  }
+  
+  func getSpotImage() -> some View {
+    Text(interactor.getSpotName())
+  }
+  
+  func makeSubmitButton(width: CGFloat) -> some View {
+    ZStack {
+      Button(action: {
+        self.submitReviewAction()
+      }, label: {
+        HStack{
+          Spacer()
+          Text("Submit")
+            .font(.custom("Metropolis Semi Bold", size: 15.0))
+          Spacer()
+        }
+        .padding(.vertical, 24)
+      })
+      .frame(width: width, height: 37, alignment: .center)
+      .foregroundColor(.white)
+      .background(Color("appBackground"))
+      .cornerRadius(40)
     }
   }
   
-  func makeForwardButton() -> some View {
-    Button(action: {
-      self.currentReviewView += 1
-    }, label: {
-      Image(systemName: "arrow.right")
-    })
-  }
-
-  func makeBackButton() -> some View {
-    Button(action: {
-      self.currentReviewView -= 1
-    }, label: {
-      Image(systemName: "arrow.left")
-    })
-  }
-
-  func makeSubmitButton() -> some View {
-    Button(action: {
-      self.interactor.submitReview()
-    }, label: {
-      Text("Submit")
-    })
+  func makeSeparatorLineView() -> some View {
+    Rectangle()
+      .fill(Color("bubbleTextFieldOutline"))
+      .frame(height: 0.5)
   }
   
-  func buildTimeReview(_ timeSelection: Int?) {
-    interactor.buildTimeReview(timeSelection)
+  /// Helper Methods
+  func sliderValue(slider: Float) -> Int {
+    var value = -1
+    if slider < 0.25 {
+      value = 1
+    } else if slider >= 0.25 && slider < 0.50 {
+      value = 2
+    } else if slider >= 0.50 && slider < 0.75 {
+      value = 3
+    } else if slider >= 0.75 && slider <= 1.00 {
+      value = 4
+    }
+    return value
   }
   
-  func buildLightReview(_ lightSelection: Int?) {
-    interactor.buildLightReview(lightSelection)
-  }
-  
-  func buildCrowdReview(_ crowdSelection: Int?) {
-    interactor.buildCrowdReview(crowdSelection)
-  }
-  
-  func buildChatReview(_ chatSelection: Int?) {
-    interactor.buildChatReview(chatSelection)
-  }
-
-  public enum TimeTapped: Int, CaseIterable  {
-    case none = 0
-    case morning = 1
-    case noon = 2
-    case afternoon = 3
-    case evening = 4
-    case lateNight = 5
-  }
-  
-  public enum LightTapped: Int, CaseIterable  {
-    case none = 0
-    case shining = 1
-    case bright = 2
-    case neutral = 3
-    case dim = 4
-    case moody = 5
-  }
-  
-  public enum CrowdTapped: Int, CaseIterable  {
-    case none = 0
-    case c1 = 1
-    case c2 = 2
-    case c3 = 3
-    case c4 = 4
-    case c5 = 5
-  }
-  
-  public enum ChatTapped: Int, CaseIterable  {
-    case none = 0
-    case ch1 = 1
-    case ch2 = 2
-    case ch3 = 3
-    case ch4 = 4
-    case ch5 = 5
-  }
+  /// End Helper Methods
   
 }

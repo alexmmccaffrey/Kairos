@@ -10,12 +10,12 @@ import SwiftUI
 
 class DateCriteriaRouter {
   
-  func makeSpotSearchModule(spotModel: SpotModel) -> some View {
-    let service = SpotNameSearch()
-    let presenter = SpotSearchPresenter(
-      interactor: SpotSearchInteractor(spotModel: spotModel, service: service)
-    )
-    return SpotSearchView(presenter: presenter)
-  }
+//  func makeSpotSearchModule(spotModel: SpotModel) -> some View {
+//    let service = SpotNameSearch()
+//    let presenter = SpotSearchPresenter(
+//      interactor: SpotSearchInteractor(spotModel: spotModel, service: service)
+//    )
+//    return SpotSearchView(presenter: presenter)
+//  }
   
 }
