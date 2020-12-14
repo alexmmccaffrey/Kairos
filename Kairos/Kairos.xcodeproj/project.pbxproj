@@ -29,7 +29,6 @@
 		DC390887242C7CE300506DA3 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC390886242C7CE300506DA3 /* ReviewData.swift */; };
 		DC3AFC3B255F4FC900ABD199 /* BubbleDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3AFC3A255F4FC900ABD199 /* BubbleDropdown.swift */; };
 		DC3BC05025661A520067654F /* UserSignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BC04F25661A520067654F /* UserSignUpService.swift */; };
-		DC4032352586EE3C00D189A8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4032342586EE3C00D189A8 /* BlurView.swift */; };
 		DC4BBE322443AC680034328A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE312443AC680034328A /* Storyboard.storyboard */; };
 		DC4BBE382443AD420034328A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4BBE372443AD420034328A /* Assets.xcassets */; };
 		DC4BBE3B2443AF440034328A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4BBE3A2443AF440034328A /* MapViewController.swift */; };
@@ -143,7 +142,6 @@
 		DC390886242C7CE300506DA3 /* ReviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		DC3AFC3A255F4FC900ABD199 /* BubbleDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDropdown.swift; sourceTree = "<group>"; };
 		DC3BC04F25661A520067654F /* UserSignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpService.swift; sourceTree = "<group>"; };
-		DC4032342586EE3C00D189A8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DC4BBE312443AC680034328A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		DC4BBE372443AD420034328A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC4BBE3A2443AF440034328A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -488,7 +486,6 @@
 				DCEFC13724DA4967003BE581 /* SearchBar.swift */,
 				DCE7B17E25624FB500550BF8 /* WideSpotCell.swift */,
 				DCB742C6257407BE0053A800 /* SpotlightCell.swift */,
-				DC4032342586EE3C00D189A8 /* BlurView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -744,7 +741,6 @@
 				DC4C7A06253B8F3D00A23AA6 /* LoginPresenter.swift in Sources */,
 				DC542881248D76DC000571EB /* HomeView.swift in Sources */,
 				DC4BBE3B2443AF440034328A /* MapViewController.swift in Sources */,
-				DC4032352586EE3C00D189A8 /* BlurView.swift in Sources */,
 				DC4C79D125308FD600A23AA6 /* ServerErrorData.swift in Sources */,
 				DCEFC13824DA4967003BE581 /* SearchBar.swift in Sources */,
 				DC38806424CFA02700AA8D67 /* SpotSearchView.swift in Sources */,
