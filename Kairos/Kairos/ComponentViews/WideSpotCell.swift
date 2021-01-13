@@ -16,7 +16,7 @@ struct WideSpotCell: View {
   
   var spotName: String = "Spot name not found"
   var spotCategory: String = "Spot category not found"
-  var spotImage: String = ""
+  var spotAddress: String = "Spot address not found"
   var image: UIImage?
   
   
@@ -38,11 +38,12 @@ struct WideSpotCell: View {
               .font(.custom("Metropolis Semi Bold", size: 14.0))
               .padding(.top, 12)
               .padding(.bottom, 4)
-            Text(spotCategory)
+            Spacer()
+            Text(spotAddress)
               .font(.custom("Metropolis Medium", size: 12.0))
               .foregroundColor(Color("loginSelection"))
               .padding(. top, 4)
-              .padding(.bottom, 8)
+              .padding(.bottom, 12)
           }
           .frame(height: 55)
           .padding(.leading, 12)

@@ -12,25 +12,37 @@ import SwiftUI
 class LoginPresenter: ObservableObject {
   let interactor: LoginInteractor
   let router = LoginRouter()
+  @Published var isFromHome: Bool
   
   @Published var username: String = "amcctesting"
   @Published var email: String = ""
   @Published var password: String = "password"
   @Published var confirmPassword: String = ""
-  
   @Published var isSignUp: Bool = false
-  
   @Published var viewNavigation: Int? = nil
+  @Published var isLoadingAnimation: Bool = false
+  @Published var isLoading: Bool = false
+  @Published var isBackgroundBlur: Bool = false
+  @Published var isBackgroundDisabled: Bool = false
+  /// Errors and Validation
+  @Published var isUsernameEmptyError: Bool = false
+  @Published var isEmailEmptyError: Bool = false
+  @Published var isPasswordEmptyError: Bool = false
+  @Published var isConfirmPasswordEmptyError: Bool = false
+  @Published var isPasswordsNotMatchingError: Bool = false
+  @Published var isSignUpError: Bool = false
+  @Published var isLoginError: Bool = false
   
-  init(interactor: LoginInteractor) {
+  init(interactor: LoginInteractor, isFromHome: Bool) {
     self.interactor = interactor
+    self.isFromHome = isFromHome
   }
   
   /// Router Navigation
   
   func linkHomeView(selection: Binding<Int?>) -> some View {
     NavigationLink(
-      destination: router.makeHomeView(reviewModel: ReviewModel()),
+      destination: router.makeHomeView(reviewModel: ReviewModel(), userModel: interactor.userModel),
       tag: 1,
       selection: selection)
     {
@@ -43,20 +55,17 @@ class LoginPresenter: ObservableObject {
   
   /// End Router Navigation       
   
-  /// Login and Sign Up Actions
+  /// Actions
   
-  func makeLoginRequestAction(username: String, password: String) {
+  func makeLoginRequestAction(username: String, password: String, success: @escaping (UserLoginResponse?) -> Void, failure: @escaping (Error?) -> Void) {
     self.interactor.loginRequest(username: username, password: password) { (result) in
-      DispatchQueue.main.async {
-        UserDefaults.standard.set(true, forKey: "IsLoggedIn")
-        self.viewNavigation = 1
-      }
+      success(result)
     } failure: { (error) in
-      print(error!)
+      failure(error)
     }
   }
   
-  func makeSignUpRequestAction(email: String, username: String, password: String) {
+  func makeSignUpRequestAction(email: String, username: String, password: String, success: @escaping (UserLoginResponse?) -> Void, failure: @escaping (Error?) -> Void) {
     self.interactor.signUpRequest(email: email, username: username, password: password) { (result) in
       DispatchQueue.main.async {
         UserDefaults.standard.set(true, forKey: "IsLoggedIn")
@@ -66,61 +75,8 @@ class LoginPresenter: ObservableObject {
       print(error!)
     }
   }
-  
-  /// Login and Sign Up Buttons
-  
-  func makeLoginSubmitButton() -> some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 45, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
-        .fill(Color.white)
-        .frame(width: 270, height: 90, alignment: .center)
-        .shadow(radius: 4)
-      Button(action: {
-        self.makeLoginRequestAction(username: self.username, password: self.password)
-      }, label: {
-        HStack{
-          Spacer()
-          Text("Login")
-            .foregroundColor(Color.white)
-            .font(.custom("Metropolis Semi Bold", size: 18))
-          Spacer()
-        }
-        .padding(.vertical, 24)
-      })
-      .frame(width: 250, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-      .foregroundColor(.white)
-      .background(Color("appBackground"))
-      .cornerRadius(40)
-    }
-  }
 
-  func makeSignUpSubmitButton() -> some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 45, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
-        .fill(Color.white)
-        .frame(width: 270, height: 90, alignment: .center)
-        .shadow(radius: 4)
-      Button(action: {
-        self.makeSignUpRequestAction(email: self.email, username: self.username, password: self.password)
-      }, label: {
-        HStack{
-          Spacer()
-          Text("Sign Up")
-            .foregroundColor(Color.white)
-            .font(.custom("Metropolis Semi Bold", size: 18))
-          Spacer()
-        }
-        .padding(.vertical, 24)
-      })
-      .padding()
-      .frame(width: 250, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-      .foregroundColor(.white)
-      .background(Color("appBackground"))
-      .cornerRadius(40)
-    }
-  }
-  
-  /// End Login and Sign Up Buttons
+  /// Views
   
   func makeLoginFieldSection() -> some View  {
     GeometryReader { GeometryProxy in
@@ -157,5 +113,40 @@ class LoginPresenter: ObservableObject {
         .font(.custom(isSignUp ? "Metropolis Semi Bold" : "Metropolis Regular", size: 20))
     })
   }
+  
+  /// Errors and Validation
+  
+  func checkFieldIsEmptyLogin() -> Bool {
+    isUsernameEmptyError = username.isEmpty
+    isPasswordEmptyError = password.isEmpty
+    if username.isEmpty || password.isEmpty {
+      return false
+    } else {
+      return true
+    }
+  }
+  
+  func checkFieldIsEmptySignUp() -> Bool {
+    isUsernameEmptyError = username.isEmpty
+    isPasswordEmptyError = password.isEmpty
+    isEmailEmptyError = email.isEmpty
+    isConfirmPasswordEmptyError = confirmPassword.isEmpty
+    if username.isEmpty || password.isEmpty || email.isEmpty || confirmPassword.isEmpty {
+      return false
+    } else {
+      return true
+    }
+  }
+  
+  func checkFieldsMatching() -> Bool {
+    let check = password != confirmPassword
+    isPasswordsNotMatchingError = check
+    if password == confirmPassword {
+      return true
+    } else {
+      return false
+    }
+  }
+  
   
 }

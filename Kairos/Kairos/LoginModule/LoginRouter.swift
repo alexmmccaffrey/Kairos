@@ -10,22 +10,30 @@ import SwiftUI
 
 class LoginRouter {
   
-  func makeHomeView(reviewModel: ReviewModel) -> some View {
+  func makeHomeView(reviewModel: ReviewModel, userModel: UserLoginModel) -> some View {
+    let spotModel = SpotModel(spot: Spot())
+    let recentlyReviewedSpotModel = SpotModel(spot: Spot())
+    let nearbySpotModel = SpotModel(spot: Spot())
     let imageDownloadService = ImageDownloadService()
     let locationService = UserLocationService()
     let searchService = SpotNameSearch()
     let spotFinderService = SpotFinderSearch()
+    let nearbySpotService = NearbySpots()
+    let recentlyReviewedService = RecentlyReviewedSpots()
     let presenter = HomePresenter(
       interactor: HomeInteractor(
         locationModel: LocationModel(),
-        reviewModel: ReviewModel(),
-        spotModel: SpotModel(
-          spot: Spot()),
-        userModel: UserLoginModel(),
+        reviewModel: reviewModel,
+        spotModel: spotModel,
+        recentlyReviewedSpotModel: recentlyReviewedSpotModel,
+        nearbySpotModel: nearbySpotModel,
+        userModel: userModel,
         imageDownloadService: imageDownloadService,
         locationService: locationService,
         searchService: searchService,
-        spotFinderService: spotFinderService))
+        spotFinderService: spotFinderService,
+        nearbySpotService: nearbySpotService,
+        recentlyReviewedService: recentlyReviewedService))
     return HomeView(presenter: presenter)
   }
    

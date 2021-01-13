@@ -13,8 +13,6 @@ class BuildReviewPresenter: ObservableObject {
   let interactor: BuildReviewInteractor
   let router = BuildReviewRouter()
   
-
-  
   init(interactor: BuildReviewInteractor, timePreference: DropdownOption = DropdownOption(3, "Evening")) {
     self.interactor = interactor
     self.currentTimeDropdownOption = timePreference
@@ -23,12 +21,22 @@ class BuildReviewPresenter: ObservableObject {
   @Published var timeDropdownOptions: [DropdownOption] = [DropdownOption(1, "Morning"), DropdownOption(2, "Afternoon"), DropdownOption(3, "Evening"), DropdownOption(4, "Late Night")]
   @Published var currentTimeDropdownOption: DropdownOption
   @Published var isDropdown: Bool = false
-  @Published var lightSlider: Float = 0.36
+  @Published var lightSlider: Float = 0.35
   @Published var crowdSlider: Float = 0.36
   @Published var chatSlider: Float = 0.36
+  @Published var isLoadingAnimation: Bool = false
+  @Published var isLoading: Bool = false
+  @Published var isBackgroundBlur: Bool = false
+  @Published var isBackgroundDisabled: Bool = false
   
+  /// Actions
 
-  func submitReviewAction() {
+  func submitReviewAction(completion: @escaping () -> Void) {
+    DispatchQueue.main.async {
+      self.isLoading = true
+      self.isBackgroundBlur = true
+      self.isBackgroundDisabled = true
+    }
     let light = sliderValue(slider: lightSlider)
     let crowd = sliderValue(slider: crowdSlider)
     let chat = sliderValue(slider: chatSlider)
@@ -36,15 +44,30 @@ class BuildReviewPresenter: ObservableObject {
     interactor.setNewReview(time: time, light: light, crowd: crowd, chat: chat) {
       self.interactor.submitReview(attempt: 1) { (result) in
         print("Success")
-        // Show success message and re-open Spot Details view
+        DispatchQueue.main.async {
+          self.isLoading = false
+          self.isBackgroundBlur = false
+          self.isBackgroundDisabled = false
+        }
+        completion()
       } failure: { (error) in
-        print(error)
-        print("Fail")
-        // Show error message and re-open Spot Details view
+        DispatchQueue.main.async {
+          self.isLoading = false
+          self.isBackgroundBlur = true
+          self.isBackgroundDisabled = true
+        }
+        completion()
       }
     }
-
   }
+  
+  func getIsReviewSuccess() -> Bool? {
+    return interactor.getIsReviewSuccess()
+  }
+  
+  /// End Actions
+  
+  /// Views
 
   func makeSlider(binding: Binding<Float>) -> some View {
     ValueSlider(value: binding)
@@ -70,10 +93,6 @@ class BuildReviewPresenter: ObservableObject {
   }
   
   func makeSpotInfoImage(width: CGFloat) -> some View {
-//    Image("itemNotFound")
-//      .resizable()
-//      .cornerRadius(15.0)
-    
     Image(uiImage: interactor.getSpotImage() ?? UIImage(imageLiteralResourceName: "itemNotFound"))
       .resizable()
       .scaledToFill()
@@ -90,31 +109,13 @@ class BuildReviewPresenter: ObservableObject {
     Text(interactor.getSpotName())
   }
   
-  func makeSubmitButton(width: CGFloat) -> some View {
-    ZStack {
-      Button(action: {
-        self.submitReviewAction()
-      }, label: {
-        HStack{
-          Spacer()
-          Text("Submit")
-            .font(.custom("Metropolis Semi Bold", size: 15.0))
-          Spacer()
-        }
-        .padding(.vertical, 24)
-      })
-      .frame(width: width, height: 37, alignment: .center)
-      .foregroundColor(.white)
-      .background(Color("appBackground"))
-      .cornerRadius(40)
-    }
-  }
-  
   func makeSeparatorLineView() -> some View {
     Rectangle()
       .fill(Color("bubbleTextFieldOutline"))
       .frame(height: 0.5)
   }
+  
+  /// End Views
   
   /// Helper Methods
   func sliderValue(slider: Float) -> Int {

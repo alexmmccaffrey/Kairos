@@ -20,11 +20,42 @@ struct SpotDetailView: View {
   var body: some View {
     GeometryReader { GeometryProxy in
       VStack(spacing: 0) {
-        ZStack(alignment: .topLeading) {
+        ZStack(alignment: .top) {
+          if self.presenter.isReviewSuccessModal {
+            presenter.makeReviewSuccessModal(width: abs(GeometryProxy.size.width-96), height: 125)
+              .zIndex(100)
+              .offset(y: 100)
+              .onAppear() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                  presenter.isReviewSuccessModal = false
+                  presenter.isBackgroundBlur = false
+                  presenter.isBackgroundDisabled = false
+                }
+              }
+          }
+          if self.presenter.isReviewErrorModal {
+            presenter.makeReviewErrorModal(width: abs(GeometryProxy.size.width-96), height: 165)
+              .zIndex(100)
+              .offset(y: 100)
+          }
+          if self.presenter.isLoggedInRequiredModal {
+            self.presenter.makeLoggedInRequiredModal(width: abs(GeometryProxy.size.width-96))
+              .zIndex(100)
+              .frame(width: abs(GeometryProxy.size.width-64), height: 175)
+              .offset(y: 75)
+          }
+          if self.presenter.isMadePreviousReviewModal {
+            self.presenter.makeMadePreviousReviewModal(width: abs(GeometryProxy.size.width-96))
+              .zIndex(100)
+              .frame(width: abs(GeometryProxy.size.width-64), height: 175)
+              .offset(y: 75)
+          }
           if self.presenter.isDropdown {
             BubbleDropdownUnderlay(dropdownWidth: abs(GeometryProxy.size.width - 200), dropdownHeight: 30.0, expand: $presenter.isDropdown, options: $presenter.timeDropdownOptions, currentOption: $presenter.currentTimeDropdownOption)
-              .offset(x: dropdownFrame[0].minX, y: dropdownFrame[0].minY+22)
+              .offset(x: dropdownFrame[0].minX-84, y: dropdownFrame[0].minY+22)
               .zIndex(20.0)
+              .blur(radius: presenter.isBackgroundBlur ? 10 : 0)
+              .disabled(presenter.isBackgroundDisabled)
           }
           RoundedRectangle(cornerRadius: 15.0)
             .fill(Color.white)
@@ -54,7 +85,7 @@ struct SpotDetailView: View {
                 .frame(width: 14,height: 18)
               Text(self.presenter.getSpotAddress())
                 .font(.custom("Metropolis Regular", size: 12.0))
-                .padding(.leading, 8)
+                .padding(.horizontal, 8)
             }
             .padding(.leading, 10)
             .frame(width: abs(GeometryProxy.size.width-32), alignment: .leading)
@@ -73,7 +104,6 @@ struct SpotDetailView: View {
                       self.dropdownFrame[0] = dropdownGeometryProxy.frame(in: .named("innerSection"))
                     }
                 }
-                
               }
               .frame(width: abs(GeometryProxy.size.width - 200), height: 30.0)
               .padding(.vertical, 6)
@@ -91,16 +121,24 @@ struct SpotDetailView: View {
             }
             .padding(.vertical, 7)
             .padding(.horizontal, 10)
-            presenter.makeSubmitButton(width: abs(GeometryProxy.size.width-52))
+            presenter.makeLeaveReviewButton(width: abs(GeometryProxy.size.width-52))
               .padding(.top, 15)
               .padding(.bottom, 13)
             presenter.buildReviewViewLink(selection: $presenter.navigationTag)
           }
+          .blur(radius: presenter.isBackgroundBlur ? 10 : 0)
+          .disabled(presenter.isBackgroundDisabled)
         }
         .frame(width: abs(GeometryProxy.size.width-32), height: 440)
         .padding(.top, 15)
         Spacer()
+        
+
       }
+      .onAppear() {
+        presenter.getIsReviewSuccess()
+      }
+//
       .coordinateSpace(name: "innerSection")
       .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height)
       .navigationBarBackButtonHidden(true)
@@ -111,7 +149,10 @@ struct SpotDetailView: View {
       })
       .navigationBarTitle("Spot Details")
       .navigationBarTitleDisplayMode(.inline)
-      .background(Color("viewBackground"))
+      .background(
+        Color.white
+          .blur(radius: presenter.isBackgroundBlur ? 10 : 0)
+      )
     }
   }
 }
@@ -119,8 +160,21 @@ struct SpotDetailView: View {
 struct SpotDetailView_Previews: PreviewProvider {
   static var previews: some View {
     let model = SpotModel.sampleModel
+    let userModel = UserLoginModel.sampleModel
+    let reviewModel = ReviewModel.sampleModel
+    let reviewCheckModel = ReviewCheckModel.sampleModel
     let service = SpotReviewService()
-    let interactor = SpotDetailInteractor(model: model, service: service)
+    let buildReviewService = BuildReviewService()
+    let reviewCheckService = ReviewCheckService()
+    let interactor = SpotDetailInteractor(
+      model: model,
+      userModel: userModel,
+      reviewModel: reviewModel,
+      reviewCheckModel: reviewCheckModel,
+      service: service,
+      buildReviewService: buildReviewService,
+      reviewCheckService: reviewCheckService
+    )
     let presenter = SpotDetailPresenter(interactor: interactor)
     return SpotDetailView(presenter: presenter)
   }

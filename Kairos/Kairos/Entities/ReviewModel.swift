@@ -39,14 +39,18 @@ final class ReviewModel {
     print("newReview.chat = \(newReview.chat!)")
     #endif
   }
+  
+  func isReviewSuccess() -> Bool? {
+    return newReview.success
+  }
 
 }
 
-#if DEBUG
+//#if DEBUG
 extension ReviewModel {
   static var sampleModel: ReviewModel {
     let model = ReviewModel()
     return model
   }
 }
-#endif
+//#endif

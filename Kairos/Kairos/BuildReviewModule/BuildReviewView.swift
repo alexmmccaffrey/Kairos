@@ -17,10 +17,16 @@ struct BuildReviewView: View {
   
   @State var dropdownFrame = [CGRect](repeating: .zero, count: 1)
   
+
   var body: some View {
     GeometryReader { GeometryProxy in
       VStack(spacing: 0) {
-        ZStack(alignment: .topLeading) {
+        ZStack(alignment: .top) {
+          if self.presenter.isLoading {
+            LoadingAnimation(isAnimated: $presenter.isLoadingAnimation, overlayHeight: 130, overlayWidth: 130, animationHeight: 100, animationWidth: 100)
+              .zIndex(100)
+              .offset(y: 150)
+          }
           RoundedRectangle(cornerRadius: 15.0)
             .fill(Color.white)
             .shadow(color: Color.black.opacity(0.15), radius: 15, x: 0.0, y: 4.0)
@@ -51,16 +57,16 @@ struct BuildReviewView: View {
                   .padding(.bottom, 6)
               }
               HStack(alignment: .center) {
-                Text("Natural")
+                Text("Dim")
                   .font(.custom("Metropolis Regular", size: presenter.lightSlider < 0.25 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("Bright")
+                Text("Soft")
                   .font(.custom("Metropolis Regular", size: 0.25 < presenter.lightSlider && presenter.lightSlider <= 0.5 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("Low")
+                Text("Bright")
                   .font(.custom("Metropolis Regular", size: 0.5 < presenter.lightSlider && presenter.lightSlider <= 0.75 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("Dim")
+                Text("Vibrant")
                   .font(.custom("Metropolis Regular", size: 0.75 < presenter.lightSlider ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
               }
@@ -81,16 +87,16 @@ struct BuildReviewView: View {
                   .frame(width: abs(GeometryProxy.size.width - 80))
               }
               HStack(alignment: .center) {
-                Text("1")
+                Text("Exclusive")
                   .font(.custom("Metropolis Regular", size: presenter.crowdSlider < 0.25 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("2")
+                Text("Quaint")
                   .font(.custom("Metropolis Regular", size: 0.25 < presenter.crowdSlider && presenter.crowdSlider <= 0.5 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("3")
+                Text("Popular")
                   .font(.custom("Metropolis Regular", size: 0.5 < presenter.crowdSlider && presenter.crowdSlider <= 0.75 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("4")
+                Text("Packed")
                   .font(.custom("Metropolis Regular", size: 0.75 < presenter.crowdSlider ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
               }
@@ -111,16 +117,16 @@ struct BuildReviewView: View {
                   .frame(width: abs(GeometryProxy.size.width - 80))
               }
               HStack(alignment: .center) {
-                Text("Natural")
+                Text("Silent")
                   .font(.custom("Metropolis Regular", size: presenter.chatSlider < 0.25 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("Bright")
+                Text("Talkative")
                   .font(.custom("Metropolis Regular", size: 0.25 < presenter.chatSlider && presenter.chatSlider <= 0.5 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("Low")
+                Text("Poppin'")
                   .font(.custom("Metropolis Regular", size: 0.5 < presenter.chatSlider && presenter.chatSlider <= 0.75 ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
-                Text("Dim")
+                Text("Loud")
                   .font(.custom("Metropolis Regular", size: 0.75 < presenter.chatSlider ? 16.0 : 12.0))
                   .frame(width: abs((GeometryProxy.size.width - 100)/4))
               }
@@ -128,10 +134,32 @@ struct BuildReviewView: View {
             }
             .frame(height: GeometryProxy.size.height >= 682 ? 104 : 74)
             Spacer()
+            /// Submit Button
             VStack(spacing: 0) {
-              presenter.makeSubmitButton(width: abs(GeometryProxy.size.width-62))
+              ZStack {
+                Button(action: {
+                  self.presenter.submitReviewAction() {
+                    DispatchQueue.main.async {
+                      self.mode.wrappedValue.dismiss()
+                    }
+                  }
+                }, label: {
+                  HStack {
+                    Spacer()
+                    Text("Submit")
+                      .font(.custom("Metropolis Semi Bold", size: 15.0))
+                    Spacer()
+                  }
+                  .padding(.vertical, 24)
+                })
+                .frame(width: abs(GeometryProxy.size.width-62), height: 37, alignment: .center)
+                .foregroundColor(.white)
+                .background(Color("appBackground"))
+                .cornerRadius(40)
+              }
               .padding(.bottom, 17)
             }
+            /// End Submit Button
           }
           VStack(alignment: .center, spacing: 0) {
             HStack {
@@ -159,7 +187,7 @@ struct BuildReviewView: View {
           .offset(y: 212)
           if presenter.isDropdown {
             BubbleDropdownUnderlay(dropdownWidth: abs(GeometryProxy.size.width - 80), dropdownHeight: 30.0, expand: $presenter.isDropdown, options: $presenter.timeDropdownOptions, currentOption: $presenter.currentTimeDropdownOption)
-              .offset(x: dropdownFrame[0].minX, y: dropdownFrame[0].minY+30)
+              .offset(x: dropdownFrame[0].minX-25, y: dropdownFrame[0].minY+30)
           }
         }
         .coordinateSpace(name: "innerSection")
@@ -174,7 +202,7 @@ struct BuildReviewView: View {
       })
       .navigationBarTitle("Leave A Review")
       .navigationBarTitleDisplayMode(.inline)
-      .background(Color("viewBackground"))
+      .background(Color.white)
     }
   }
 }
@@ -183,8 +211,13 @@ struct BuildReviewView_Previews : PreviewProvider {
   static var previews: some View {
     let reviewModel = ReviewModel.sampleModel
     let spotModel = SpotModel.sampleModel
+    let userModel = UserLoginModel.sampleModel
     let service = BuildReviewService()
-    let interactor = BuildReviewInteractor(reviewModel: reviewModel, spotModel: spotModel, reviewService: service)
+    let interactor = BuildReviewInteractor(
+      reviewModel: reviewModel,
+      spotModel: spotModel,
+      userModel: userModel,
+      reviewService: service)
     let presenter = BuildReviewPresenter(interactor: interactor)
     return BuildReviewView(presenter: presenter)
       

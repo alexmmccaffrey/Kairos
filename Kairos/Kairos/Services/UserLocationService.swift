@@ -21,7 +21,7 @@ class UserLocationService {
   
   func getUserLocation(data: Data, completion: @escaping (UserLocationResponse) -> Void) {
     
-    let url = URL(string: "https://alexmccaffrey.com/api/create_user")
+    let url = URL(string: "https://alexmccaffrey.com/api/locationdetails")
     var request = URLRequest(url: url!)
     request.httpMethod = "POST"
     request.httpBody = data
@@ -38,9 +38,9 @@ class UserLocationService {
           guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
             throw self.errorHandler()
           }
-          let user: UserLoginData = try decoder.decode(UserLoginData.self, from: data)
-          print(user)
-//          completion(UserLocationResponse.success(user))
+          let location: LocationData = try decoder.decode(LocationData.self, from: data)
+          print(location)
+          completion(UserLocationResponse.success(location))
         } catch (let error) {
           print(error)
           let newerror = self.errorHandler()

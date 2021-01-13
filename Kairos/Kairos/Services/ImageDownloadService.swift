@@ -11,9 +11,10 @@ import SwiftUI
 
 class ImageDownloadService {
   
-  func imageDownload(imageUrl: String, completion: @escaping (ImageDownloadResponse) -> Void) {
+  func imageDownload(imageID: String, completion: @escaping (ImageDownloadResponse) -> Void) {
     
-    let url = URL(string: imageUrl)
+    
+    let url = URL(string: genImageDownloadURL(imageID: imageID))
     var request = URLRequest(url: url!)
     request.httpMethod = "GET"
     
@@ -38,6 +39,13 @@ class ImageDownloadService {
     task.resume()
   }
   
+  func genImageDownloadURL(imageID: String) -> String {
+    let prefix = "https://api.tomtom.com/search/2/poiPhoto?key=B2bpEPbGOGhv6pn3NN0X6P6Sz63BVmf1&id="
+    let suffix = "&height=3000&width=3000"
+    let url = prefix + imageID + suffix
+    return url
+  }
+  
   enum ImageDownloadResponse: Error {
     case success(UIImage)
     case failure(Error)
@@ -53,35 +61,3 @@ class ImageDownloadService {
   }
   
 }
-
-
-//
-//import Foundation
-//import UIKit
-//import Combine
-//
-//enum ImageDownloader {
-//static func download(url: String) {
-//  let url = URL(string: url)
-//
-//  return URLSession.shared.dataTaskPublisher(for: url!)
-//    .tryMap { response -> Data in
-//      guard
-//        let httpURLResponse = response.response as? HTTPURLResponse,
-//        httpURLResponse.statusCode == 200
-//        else {
-//          throw GameError.statusCode
-//      }
-//
-//      return response.data
-//    }
-//    .tryMap { data in
-//      guard let image = UIImage(data: data) else {
-//        throw GameError.invalidImage
-//      }
-//      return image
-//    }
-//    .mapError { GameError.map($0) }
-//    .eraseToAnyPublisher()
-//    }
-//}

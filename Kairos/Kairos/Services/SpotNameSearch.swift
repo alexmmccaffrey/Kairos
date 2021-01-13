@@ -17,6 +17,7 @@ class SpotNameSearch {
     let encodedState = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
     
     let url = URL(string: "https://alexmccaffrey.com/api/spotsearch/\(encodedQuery!)/\(encodedCity!)/\(encodedState!)")
+    print(String(describing: url))
     var request = URLRequest(url: url!)
     request.httpMethod = "GET"
     

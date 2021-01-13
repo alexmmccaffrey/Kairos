@@ -28,6 +28,8 @@ class UserLoginService {
     request.setValue("application/json", forHTTPHeaderField: "Accept")
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
+    print(String(data: request.httpBody!, encoding: .utf8))
+    
     let session = URLSession(configuration: .default)
     
     let task = session.dataTask(with: request) {
@@ -39,6 +41,7 @@ class UserLoginService {
             throw self.errorHandler()
           }
           let user: UserLoginData = try decoder.decode(UserLoginData.self, from: data)
+          print(user)
           completion(UserLoginResponse.success(user))
         } catch {
           let error = self.errorHandler()

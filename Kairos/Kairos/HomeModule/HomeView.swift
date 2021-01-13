@@ -6,7 +6,6 @@
 //  Copyright © 2020 Alex McCaffrey. All rights reserved.
 //
 
-import Combine
 import SwiftUI
 import Sliders
 
@@ -18,10 +17,37 @@ struct HomeView: View {
   
   @State private var screenWidth: CGFloat = UIScreen.main.bounds.width
   
+  @State var isBroken: Bool = true
+  
+  init(presenter: HomePresenter) {
+    self.presenter = presenter
+    UIScrollView.appearance().bounces = false
+  }
+  
   var body: some View {
     NavigationView {
       GeometryReader { GeometryProxy in
         ZStack(alignment: .top) {
+          if self.presenter.isLoading {
+            LoadingAnimation(isAnimated: $presenter.isLoadingAnimation, overlayHeight: 130, overlayWidth: 130, animationHeight: 100, animationWidth: 100)
+              .zIndex(10.0)
+              .offset(y: 100)
+          }
+          if self.presenter.isSearchErrorModal {
+            presenter.makeSearchErrorModal(width: abs(GeometryProxy.size.width-96), height: 165)
+              .zIndex(10.0)
+              .offset(y: 100)
+          }
+          if presenter.isLocationModal {
+            locationModal
+              .zIndex(10.0)
+              .offset(y: 100)
+          }
+          if presenter.isLogoutModal {
+            presenter.makeLogoutModal(width: abs(GeometryProxy.size.width-96), height: 135)
+              .zIndex(10.0)
+              .offset(y: 200)
+          }
           VStack(spacing: 0) {
             ZStack(alignment: .top) {
               if presenter.dropdownIsShowing {
@@ -31,7 +57,7 @@ struct HomeView: View {
                   .frame(height: presenter.dropdownIsShowing ? nil : 60)
                   .transition(.move(edge: .top))
               }
-              VStack {
+              VStack(spacing: 0) {
                 if presenter.dropdownIsShowing {
                   VStack {
                     dropdownView
@@ -61,124 +87,104 @@ struct HomeView: View {
               .padding(.vertical, 18.0)
               .frame(width: abs(GeometryProxy.size.width-32))
             }
-
-            
-            
-            /// GARBAGE
-            Spacer()
-            
-            
-            VStack {
-
-              
-              
-              
-              Text("Search for your favorite Spots and leave a review or...")
-              presenter.logoutButton()
-              presenter.makeSpotFinderSearch()
-              presenter.linkSpotSearchView(selection: $presenter.viewNavigation)
-              presenter.linkDateCriteriaView(selection: $presenter.viewNavigation)
-
-              
-
-              
-              
-              
-              
+            recentlyReviewedSection
+            .padding(.top, 20)
+              .onTapGesture() {
+                self.presenter.interactor.isBroken = false
+                self.presenter.isBroken = false
+                self.isBroken = false
+              }
+            nearbySpotsSection
+            .ignoresSafeArea(edges: .bottom)
+            .onTapGesture() {
+//              print(self.presenter.isLocationApplied)
+              print(self.presenter.interactor.isBroken)
+              print(self.presenter.isBroken)
+              print(self.isBroken)
             }
-            .background(
-              Color.blue
-                .opacity(0.15)
-            )
-            
-            
-            Spacer()
-            /// END GARBAGE
-            
-            
-            
-            VStack {
-              presenter.makeGraySeparatorLineView()
-              Text("Spotlight")
-              SpotlightCell(cellWidth: abs(GeometryProxy.size.width-30), cellHeight: 350)
-                .shadow(radius: 13)
-            }
-            .padding(.bottom, 40)
           }
-          .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height, alignment: .top)
+          .frame(width: GeometryProxy.size.width, alignment: .top)
           .navigationBarBackButtonHidden(true)
           .navigationBarTitle("")
           .navigationBarTitleDisplayMode(.inline)
-          .background(Color.white)
-          .blur(radius: presenter.isLocationModal ? 10 : 0)
-          
-          /// Start Modal
-          
-          if presenter.isLocationModal {
-            ZStack(alignment: .top) {
-              RoundedRectangle(cornerRadius: 15.0)
-                .fill(Color.white)
-                .shadow(radius: 12)
-              RoundedRectangle(cornerRadius: 15.0)
-                .stroke(Color("viewBackground"), lineWidth: 0.5)
-              VStack(spacing: 0) {
-                HStack(spacing: 0) {
-                  Image("locationPinIcon")
-                    .padding(.trailing, 8)
-                  Text("Change Location")
-                    .font(.custom("Metropolis Semi Bold", size: 14.0))
-                    .padding(.leading, 8)
-                  Spacer()
-                  Image("xIcon")
-                    .onTapGesture(count: 1, perform: {
-                      withAnimation(.linear(duration: 0.14)) {
-                        presenter.isLocationModal.toggle()
-                      }
-                    })
-                }
-                .padding(.top, 16)
-                .padding(.horizontal, 20)
-                .padding(.bottom, 20)
-                BubbleTextField(text:  presenter.$interactor.city, textFieldView: cityFieldView, placeholder: "Enter City", placeholderFontColor: Color("placeholderText"), ifBorder: true, borderColor: Color("bubbleTextFieldOutline"), cornerRad: 100.0)
-                  .frame(height: 38)
-                  .padding(.horizontal, 16)
-                  .padding(.bottom, 7)
-                BubbleTextField(text: presenter.$interactor.state, textFieldView: stateFieldView, placeholder: "Enter State", placeholderFontColor: Color("placeholderText"), ifBorder: true, borderColor: Color("bubbleTextFieldOutline"), cornerRad: 100.0)
-                  .frame(height: 38)
-                  .padding(.horizontal, 16)
-                  .padding(.vertical, 7)
-                presenter.makeModalUseLocationButton(width: abs(GeometryProxy.size.width-64))
-                  .padding(.top, 12)
-                  .padding(.bottom, 7)
-                presenter.makeModalApplyButton(width: abs(GeometryProxy.size.width-64))
-                  .padding(.top, 7)
-                  .padding(.bottom, 20)
-              }
-            }
-            .zIndex(10.0)
-            .frame(width: abs(GeometryProxy.size.width-32), height: 250)
-            .offset(y: 100)
-          }
-
-          
-          /// End Modal
+          .blur(radius: presenter.isBackgroundBlur ? 10 : 0)
+          .disabled(presenter.isBackgroundDisabled)
         }
-//        .overlay(ActivityIndicator(isAnimating: .constant(presenter.overlay), style: .large))
-//        .onAppear {
-//          self.presenter.views = .constant(0)
-//          self.presenter.overlay = false
-//          self.presenter.errorMessage = false
-//        }
+        .onAppear() {
+          presenter.checkLocation()
+          presenter.getNearbySpotResults(hasMadeSearch: presenter.didSearchNearbySpots)
+          presenter.getRecentlyReviewedSpotResults(hasMadeSearch: presenter.didSearchRecentlyReviewed)
+        }
+        presenter.linkSpotSearchView(selection: $presenter.viewNavigation)
+        presenter.linkLoginView(selection: $presenter.viewNavigation)
+        presenter.spotDetailLink(selection: $presenter.viewNavigation)
       }
+      .navigationBarItems(leading: userButton.frame(alignment: .leading),
+                          trailing: locationButton.frame(alignment: .trailing))
       .ignoresSafeArea(.keyboard, edges: .bottom)
-      .navigationBarItems(trailing: locationButton)
+      .ignoresSafeArea(edges: .bottom)
     }
+    .ignoresSafeArea(edges: .bottom)
     .zIndex(2.0)
     .navigationBarHidden(true)
+    .background(Color.white)
   }
 }
 
 extension HomeView {
+  
+  private var userButton: some View {
+    Button(action: {
+      if self.presenter.geLoggedInStatus() {
+        if presenter.isLogoutModal {
+          DispatchQueue.main.async {
+            withAnimation(.linear(duration: 0.14)) {
+            presenter.isLogoutModal = false
+            presenter.isBackgroundBlur = false
+            presenter.isBackgroundDisabled = false
+            }
+          }
+        } else {
+          DispatchQueue.main.async {
+            presenter.isLocationModal = false
+            presenter.isSearchErrorModal = false
+            withAnimation(.linear(duration: 0.14)) {
+              presenter.isLogoutModal = true
+              presenter.isBackgroundBlur = true
+              presenter.isBackgroundDisabled = true
+            }
+          }
+        }
+      } else {
+        self.presenter.viewNavigation = 2
+      }
+    }, label: {
+      HStack(spacing: 0) {
+        ZStack() {
+          Circle()
+            .fill(Color.white)
+          Image("logoIcon")
+            .resizable()
+            .renderingMode(.template)
+            .foregroundColor(Color("appBackground"))
+            .aspectRatio(contentMode: .fit)
+            .zIndex(100.0)
+        }
+        .frame(width: 25, height: 25)
+        .padding(.trailing, 6)
+        if self.presenter.geLoggedInStatus() {
+          EmptyView()
+        } else {
+          Text("Login")
+            .font(.custom("Metropolis Medium", size: 16.0))
+            .foregroundColor(.white)
+        }
+        Spacer()
+      }
+      .frame(width: 90, alignment: .leading)
+      .padding(.trailing, 10)
+    })
+  }
   
   private var locationButton: some View {
     presenter.makeLocationButton()
@@ -186,39 +192,52 @@ extension HomeView {
   
   private var searchBarView: some View {
     ZStack(alignment: .trailing) {
-      BubbleTextField(text: $presenter.query, textFieldView: queryFieldView, placeholder: "What are you looking for?", placeholderFontColor: Color.white, ifBorder: false, leadingIconPadding: 14.0, trailingIconPadding: 10.0, cornerRad: 30.0, imageName: "searchIcon")
+      BubbleTextField(text: presenter.textFieldDisabled ? .constant("") : $presenter.query, disabled: $presenter.textFieldDisabled, textFieldView: queryFieldView, placeholder: presenter.textFieldDisabled ? "" : "What are you looking for?", placeholderFontColor: Color.white, ifBorder: false, leadingIconPadding: 14.0, trailingIconPadding: 10.0, cornerRad: 30.0, imageName: "searchIcon")
         .background(
           Color.white
             .opacity(0.15)
         )
         .cornerRadius(30.0)
-      ZStack {
-        RoundedRectangle(cornerRadius: 30.0)
-          .fill(Color.white)
-          .opacity(0.15)
-        Image("filterIcon")
-      }
-      .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
-        withAnimation(.linear(duration: 0.14)) {
-          presenter.dropdownIsShowing.toggle()
+      HStack {
+        if presenter.isFilterSearch {
+          presenter.makeSpotFinderSearchButton()
+            .frame(height: 32)
+            .padding(.leading, 40)
+          Spacer()
         }
-      })
-      .frame(width: 46, height: 32)
+        ZStack {
+          RoundedRectangle(cornerRadius: 30.0)
+            .fill(Color.white)
+            .opacity(0.15)
+          Image("filterIcon")
+        }
+        .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+          withAnimation(.linear(duration: 0.14)) {
+            presenter.dropdownIsShowing.toggle()
+          }
+        })
+        .frame(width: 46, height: 32)
+      }
     }
+  }
+  
+  private var disabledFieldView: some View {
+    TextField("", text: .constant(""))
+      .font(.custom("Metropolis Regular", size: 14.0))
   }
 
   private var cityFieldView: some View {
-    TextField("", text: presenter.$interactor.city)
+    TextField("", text: presenter.$interactor.viewCity)
       .font(.custom("Metropolis Regular", size: 14.0))
   }
   
   private var stateFieldView: some View {
-    TextField("", text: presenter.$interactor.state)
+    TextField("", text: presenter.$interactor.viewState)
       .font(.custom("Metropolis Regular", size: 14.0))
   }
   
   private var queryFieldView: some View {
-    TextField("", text: $presenter.query, onCommit: presenter.isFilterSearch ? presenter.makeSpotFinderSearchAction : presenter.makeSearchAction)
+    TextField("", text: presenter.textFieldDisabled ? .constant("") : $presenter.query, onCommit: presenter.isFilterSearch ? presenter.makeSpotFinderSearchAction : presenter.makeSearchAction)
       .foregroundColor(.white)
       .font(.custom("Metropolis Regular", size: 14.0))
   }
@@ -258,19 +277,19 @@ extension HomeView {
         presenter.makeSlider(binding: $presenter.lightingSlider)
         HStack {
           Spacer()
-          Text("Some")
+          Text("Dim")
             .font(.custom("Metropolis Regular", size: presenter.lightingSlider < 0.25 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Soft")
             .font(.custom("Metropolis Regular", size: 0.25 < presenter.lightingSlider && presenter.lightingSlider <= 0.5 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Bright")
             .font(.custom("Metropolis Regular", size: 0.50 < presenter.lightingSlider && presenter.lightingSlider <= 0.75 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Vibrant")
             .font(.custom("Metropolis Regular", size: 0.75 < presenter.lightingSlider ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
@@ -287,19 +306,19 @@ extension HomeView {
         presenter.makeSlider(binding: $presenter.crowdSlider)
         HStack {
           Spacer()
-          Text("Some")
+          Text("Exclusive")
             .font(.custom("Metropolis Regular", size: presenter.crowdSlider < 0.25 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Quaint")
             .font(.custom("Metropolis Regular", size: 0.25 < presenter.crowdSlider && presenter.crowdSlider <= 0.5 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Popular")
             .font(.custom("Metropolis Regular", size: 0.50 < presenter.crowdSlider && presenter.crowdSlider <= 0.75 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Packed")
             .font(.custom("Metropolis Regular", size: 0.75 < presenter.crowdSlider ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
@@ -316,19 +335,19 @@ extension HomeView {
         presenter.makeSlider(binding: $presenter.chatSlider)
         HStack {
           Spacer()
-          Text("Some")
+          Text("Silent")
             .font(.custom("Metropolis Regular", size: presenter.chatSlider < 0.25 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Talkative")
             .font(.custom("Metropolis Regular", size: 0.25 < presenter.chatSlider && presenter.chatSlider <= 0.5 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Poppin'")
             .font(.custom("Metropolis Regular", size: 0.50 < presenter.chatSlider && presenter.chatSlider <= 0.75 ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
-          Text("Some")
+          Text("Loud")
             .font(.custom("Metropolis Regular", size: 0.75 < presenter.chatSlider ? 16.0 : 12.0))
             .foregroundColor(.white)
           Spacer()
@@ -338,27 +357,139 @@ extension HomeView {
       .padding(.horizontal, 18)
     }
   }
+  
+  private var locationModal: some View {
+    ZStack(alignment: .top) {
+      RoundedRectangle(cornerRadius: 15.0)
+        .fill(Color.white)
+        .shadow(radius: 12)
+      RoundedRectangle(cornerRadius: 15.0)
+        .stroke(Color("viewBackground"), lineWidth: 0.5)
+      VStack(spacing: 0) {
+        HStack(spacing: 0) {
+          Image("locationPinIcon")
+            .padding(.trailing, 8)
+          Text("Change Location")
+            .font(.custom("Metropolis Semi Bold", size: 14.0))
+            .padding(.leading, 8)
+          Spacer()
+          Image("xIcon")
+            .onTapGesture(count: 1, perform: {
+              withAnimation(.linear(duration: 0.14)) {
+                presenter.isLocationModal = false
+                presenter.isBackgroundBlur = false
+                presenter.isBackgroundDisabled = false
+              }
+            })
+        }
+        .padding(.top, 16)
+        .padding(.horizontal, 20)
+        .padding(.bottom, 20)
+        BubbleTextField(text:  presenter.$interactor.viewCity, disabled: .constant(false), textFieldView: cityFieldView, placeholder: "Enter City", placeholderFontColor: Color("placeholderText"), ifBorder: true, borderColor: Color("bubbleTextFieldOutline"), cornerRad: 100.0)
+          .frame(height: 38)
+          .padding(.horizontal, 16)
+          .padding(.bottom, presenter.isLocationCityEmptyError ? 1 : 7)
+        if self.presenter.isLocationCityEmptyError {
+          Text("City field is empty")
+            .font(.custom("Metropolis Semi Bold", size: 12))
+            .foregroundColor(Color.red)
+        }
+        BubbleTextField(text: presenter.$interactor.viewState, disabled: .constant(false), textFieldView: stateFieldView, placeholder: "Enter State", placeholderFontColor: Color("placeholderText"), ifBorder: true, borderColor: Color("bubbleTextFieldOutline"), cornerRad: 100.0)
+          .frame(height: 38)
+          .padding(.horizontal, 16)
+          .padding(.top, presenter.isLocationCityEmptyError ? 1 : 7)
+          .padding(.bottom, presenter.isLocationStateEmptyError ? 1 : 13)
+        if self.presenter.isLocationStateEmptyError {
+          Text("State field is empty")
+            .font(.custom("Metropolis Semi Bold", size: 12))
+            .foregroundColor(Color.red)
+        }
+        presenter.makeModalUseLocationButton(width: abs(screenWidth-64))
+          .padding(.top, 6)
+          .padding(.bottom, 7)
+        presenter.makeModalApplyButton(width: abs(screenWidth-64))
+          .padding(.top, 7)
+          .padding(.bottom, 20)
+      }
+    }
+    .zIndex(10.0)
+    .frame(width: abs(screenWidth-32), height: 250)
+    .offset(y: 100)
+  }
+  
+  private var recentlyReviewedSection: some View {
+    VStack(spacing: 0) {
+      presenter.makeRecentlyReviewedHeader()
+      Group() {
+        if self.presenter.isRecentlyReviewedLoading {
+          LoadingAnimation(isAnimated: $presenter.isRecentlyReviewedLoadingAnimation, overlayHeight: 130, overlayWidth: 130, animationHeight: 100, animationWidth: 100)
+            .zIndex(10.0)
+        } else {
+          if presenter.isRecentlyReviewedResults {
+            presenter.makeRecentlyReviewedSection(cellWidth: abs(screenWidth-160.0))
+          } else {
+//            presenter.makeRecentlyReviewedSection(cellWidth: abs(screenWidth-160.0))
+            presenter.makeRecentlyReviewedSectionZeroState()
+          }
+        }
+      }
+    }
+  }
+  
+  private var nearbySpotsSection: some View {
+    VStack(spacing: 0) {
+      presenter.makeNearbySpotsHeader()
+      Group() {
+        if self.presenter.isNearbySpotsLoading {
+          LoadingAnimation(isAnimated: $presenter.isNearbySpotsLoadingAnimation, overlayHeight: 130, overlayWidth: 130, animationHeight: 100, animationWidth: 100)
+            .zIndex(10.0)
+        } else {
+          if presenter.isNearbySpotsResults {
+            presenter.makeNearbySpotsSection(cellWidth: abs(screenWidth-40.0))
+          } else {
+//            presenter.makeNearbySpotsSection(cellWidth: abs(screenWidth-40.0))
+            presenter.makeNearbySpotsZeroState()
+          }
+        }
+      }
+    }
+    .ignoresSafeArea(edges: .bottom)
+  }
+  
 }
+
+
+
+
+
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     let locationModel = LocationModel()
     let reviewModel = ReviewModel.sampleModel
     let spotModel = SpotModel.sampleModel
+    let recentlyReviewedSpotModel = SpotModel.sampleModel
+    let nearbySpotModel = SpotModel.sampleModel
     let userModel = UserLoginModel.sampleModel
     let imageDownloadService = ImageDownloadService()
     let locationService = UserLocationService()
     let searchService = SpotNameSearch()
     let spotFinderService = SpotFinderSearch()
+    let nearbySpotService = NearbySpots()
+    let recentlyReviewedService = RecentlyReviewedSpots()
     let interactor = HomeInteractor(
       locationModel: locationModel,
       reviewModel: reviewModel,
       spotModel: spotModel,
+      recentlyReviewedSpotModel: recentlyReviewedSpotModel,
+      nearbySpotModel: nearbySpotModel,
       userModel: userModel,
       imageDownloadService: imageDownloadService,
       locationService: locationService,
       searchService: searchService,
-      spotFinderService: spotFinderService)
+      spotFinderService: spotFinderService,
+      nearbySpotService: nearbySpotService,
+      recentlyReviewedService: recentlyReviewedService)
     let presenter = HomePresenter(interactor: interactor)
     return HomeView(presenter: presenter)
   }

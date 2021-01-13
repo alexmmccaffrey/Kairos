@@ -38,8 +38,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
       navBarAppearance.shadowImage = nil // line
       navBarAppearance.shadowColor = .clear // line
-
-//      navBarAppearance.shadowColor = UIColor(named: "appBackground")
       
       UINavigationBar.appearance().standardAppearance = navBarAppearance
       

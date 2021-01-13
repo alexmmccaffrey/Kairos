@@ -9,7 +9,7 @@
 import SwiftUI
 
 enum BuildReviewResponse: Error {
-  case success([Spot])
+  case success
   case failure(BuildReviewError)
 }
 
@@ -30,6 +30,8 @@ class BuildReviewService {
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.setValue(accessToken, forHTTPHeaderField: "Authorization")
     
+    print(String(describing: request))
+    
     let session = URLSession(configuration: .default)
     let task = session.dataTask(with: request) {
       (data, response, error) in
@@ -41,9 +43,10 @@ class BuildReviewService {
           if let response = String(bytes: data, encoding: String.Encoding.utf8) {
             print(response)
           }
+          completion(.success)
         } catch {
           let error = self.errorHandler()
-          completion(BuildReviewResponse.failure(error) )
+          completion(BuildReviewResponse.failure(error))
         }
               }
     }
@@ -55,5 +58,6 @@ class BuildReviewService {
     return error
   }
   
+    
 }
 

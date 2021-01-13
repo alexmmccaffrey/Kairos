@@ -14,11 +14,11 @@ class ServerErrorModel {
 
 }
 
-#if DEBUG
+//#if DEBUG
 extension ServerErrorModel {
   static var sampleModel: ServerErrorModel {
     let model = ServerErrorModel()
     return model
   }
 }
-#endif
+//#endif

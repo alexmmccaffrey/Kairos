@@ -32,9 +32,16 @@ class LoginInteractor {
         switch result {
           case .success(let user):
             self.userModel.user.password = ""
+            self.userModel.user.accessToken = user.accessToken
+            self.userModel.user.refreshToken = user.refreshToken
+            self.userModel.user.userid = user.userid
+            self.userModel.user.username = user.username
+            self.userModel.user.isLoggedIn = true
             self.defaults.set(user.accessToken, forKey: "AccessToken")
             self.defaults.set(user.refreshToken, forKey: "RefreshToken")
+            self.defaults.set(user.userid, forKey: "UserID")
             self.defaults.set(user.username, forKey: "Username")
+            self.defaults.set(true, forKey: "IsLoggedIn")
             success(nil)
           case .failure(let error):
             failure(error)
@@ -56,7 +63,6 @@ class LoginInteractor {
       signUpService.userSignUp(data: signUpData) { (result) in
         switch result {
           case .success(_):
-            print("Got that login boiiiiii")
             self.loginRequest(username: username, password: password) { (result) in
               success(nil)
             } failure: { (error) in

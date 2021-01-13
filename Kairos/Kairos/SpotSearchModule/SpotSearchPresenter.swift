@@ -27,7 +27,9 @@ class SpotSearchPresenter: ObservableObject {
     NavigationLink(
       destination: router.makeSpotDetailView(
         model: interactor.spotModel,
-        timePreference: timePreference),
+        userModel: interactor.userModel,
+        timePreference: timePreference
+      ),
       tag: 1,
       selection: selection
     ) {

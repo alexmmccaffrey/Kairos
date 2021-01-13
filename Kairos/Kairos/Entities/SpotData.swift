@@ -16,7 +16,8 @@ struct Spot: Codable {
   var name: String
   var category: String?
   var address: String?
-  var imageURL: String? = "https://preview.redd.it/rxgonieqaz361.jpg?width=750&auto=webp&s=b6d0aa388438582c093a4aef94bfd34375fd4794"
+//  var imageURL: String? = "https://preview.redd.it/rxgonieqaz361.jpg?width=750&auto=webp&s=b6d0aa388438582c093a4aef94bfd34375fd4794"
+  var imageID: String?
   var image: UIImage?
   var lightTime1: Int?
   var crowdTime1: Int?
@@ -33,7 +34,7 @@ struct Spot: Codable {
   
   
   enum CodingKeys: String, CodingKey {
-    case spotID = "spot_id", placeID = "tomtom_id", name, lightTime1 = "light_time1", crowdTime1 = "crowd_time1", chatTime1 = "chat_time1", lightTime2 = "light_time2", crowdTime2 = "crowd_time2", chatTime2 = "chat_time2", lightTime3 = "light_time3", crowdTime3 = "crowd_time3", chatTime3 = "chat_time3", lightTime4 = "light_time4", crowdTime4 = "crowd_time4", chatTime4 = "chat_time4"
+    case spotID = "spot_id", placeID = "tomtom_id", name, category, address, imageID = "photoId", lightTime1 = "light_time1", crowdTime1 = "crowd_time1", chatTime1 = "chat_time1", lightTime2 = "light_time2", crowdTime2 = "crowd_time2", chatTime2 = "chat_time2", lightTime3 = "light_time3", crowdTime3 = "crowd_time3", chatTime3 = "chat_time3", lightTime4 = "light_time4", crowdTime4 = "crowd_time4", chatTime4 = "chat_time4"
   }
   
   /// spotid set to 0 on init for the moment while I wait for way to determine spotid during review process

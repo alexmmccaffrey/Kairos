@@ -11,6 +11,7 @@ import SwiftUI
 struct BubbleTextField<TextFieldView>: View where TextFieldView: View {
   
   @Binding var text: String
+  @Binding var disabled: Bool
   let textFieldView: TextFieldView
   
   let placeholder: String
@@ -48,6 +49,8 @@ struct BubbleTextField<TextFieldView>: View where TextFieldView: View {
 }
 
 extension BubbleTextField {
+  
+  
   private var outlineView: some View {
     RoundedRectangle(cornerRadius: cornerRad, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
       .strokeBorder(borderColor, lineWidth: 1)
@@ -69,6 +72,7 @@ extension BubbleTextField {
         textFieldView
           .padding(.trailing, 16)
           .padding(.leading, isTextFieldWithIcon ? 0 : 16)
+          .disabled(disabled ? true : false)
       }
     }
   }

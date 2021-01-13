@@ -10,10 +10,12 @@ import Foundation
 
 class SpotSearchInteractor {
   let spotModel: SpotModel
+  let userModel: UserLoginModel
   let service: SpotNameSearch
   
-  init(spotModel: SpotModel, service: SpotNameSearch) {
+  init(spotModel: SpotModel, userModel: UserLoginModel, service: SpotNameSearch) {
     self.spotModel = spotModel
+    self.userModel = userModel
     self.service = service
   }
   

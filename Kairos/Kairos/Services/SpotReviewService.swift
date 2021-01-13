@@ -37,6 +37,8 @@ class SpotReviewService {
     task.resume()
   }
   
+  
+  
   enum SpotReviewResponse: Error {
     case success(Spot)
     case failure(Error)

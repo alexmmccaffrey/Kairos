@@ -33,83 +33,165 @@ final class SpotModel: ObservableObject {
     return self.spot.image
   }
   
+  func getNumberOfSpotsInSearch() -> Int {
+    return self.spots?.count ?? 0
+  }
+  
   func getLightRating(time: Int) -> String {
     if time == 1 {
       let light = spot.lightTime1
-      return "It's \(light))"
+      if light == 1 {
+        return "Dim"
+      } else if light == 2 {
+        return "Soft"
+      } else if light == 3 {
+        return "Bright"
+      } else if light == 4 {
+        return "Vibrant"
+      }
     } else if time == 2 {
       let light = spot.lightTime2
-      return "It's \(light))"
+      if light == 1 {
+        return "Dim"
+      } else if light == 2 {
+        return "Soft"
+      } else if light == 3 {
+        return "Bright"
+      } else if light == 4 {
+        return "Vibrant"
+      }
     } else if time == 3 {
       let light = spot.lightTime3
-      return "It's \(light))"
+      if light == 1 {
+        return "Dim"
+      } else if light == 2 {
+        return "Soft"
+      } else if light == 3 {
+        return "Bright"
+      } else if light == 4 {
+        return "Vibrant"
+      }
     } else if time == 4 {
       let light = spot.lightTime4
-      return "It's \(light))"
-    } else {
-      return "Not Found"
+      if light == 1 {
+        return "Dim"
+      } else if light == 2 {
+        return "Soft"
+      } else if light == 3 {
+        return "Bright"
+      } else if light == 4 {
+        return "Vibrant"
+      }
     }
+    return "N/A"
   }
   
-  func getCrowdRating(time: Int) -> String {
-    if time == 1 {
+  func getCrowdRating(crowd: Int) -> String {
+    if crowd == 1 {
       let crowd = spot.crowdTime1
-      return "It's \(crowd))"
-    } else if time == 2 {
+      if crowd == 1 {
+        return "Exclusive"
+      } else if crowd == 2 {
+        return "Quaint"
+      } else if crowd == 3 {
+        return "Popular"
+      } else if crowd == 4 {
+        return "Packed"
+      }
+    } else if crowd == 2 {
       let crowd = spot.crowdTime2
-      return "It's \(crowd))"
-    } else if time == 3 {
+      if crowd == 1 {
+        return "Exclusive"
+      } else if crowd == 2 {
+        return "Quaint"
+      } else if crowd == 3 {
+        return "Popular"
+      } else if crowd == 4 {
+        return "Packed"
+      }
+    } else if crowd == 3 {
       let crowd = spot.crowdTime3
-      return "It's \(crowd))"
-    } else if time == 4 {
+      if crowd == 1 {
+        return "Exclusive"
+      } else if crowd == 2 {
+        return "Quaint"
+      } else if crowd == 3 {
+        return "Popular"
+      } else if crowd == 4 {
+        return "Packed"
+      }
+    } else if crowd == 4 {
       let crowd = spot.crowdTime4
-      return "It's \(crowd))"
-    } else {
-      return "Not Found"
+      if crowd == 1 {
+        return "Exclusive"
+      } else if crowd == 2 {
+        return "Quaint"
+      } else if crowd == 3 {
+        return "Popular"
+      } else if crowd == 4 {
+        return "Packed"
+      }
     }
+    return "N/A"
   }
   
-  func getChatRating(time: Int) -> String {
-    if time == 1 {
+  func getChatRating(chat: Int) -> String {
+    if chat == 1 {
       let chat = spot.chatTime1
-      return "It's \(chat))"
-    } else if time == 2 {
+      if chat == 1 {
+        return "Silent"
+      } else if chat == 2 {
+        return "Talkative"
+      } else if chat == 3 {
+        return "Poppin'"
+      } else if chat == 4 {
+        return "Loud"
+      }
+    } else if chat == 2 {
       let chat = spot.chatTime2
-      return "It's \(chat))"
-    } else if time == 3 {
+      if chat == 1 {
+        return "Silent"
+      } else if chat == 2 {
+        return "Talkative"
+      } else if chat == 3 {
+        return "Poppin'"
+      } else if chat == 4 {
+        return "Loud"
+      }
+    } else if chat == 3 {
       let chat = spot.chatTime3
-      return "It's \(chat))"
-    } else if time == 4 {
+      if chat == 1 {
+        return "Silent"
+      } else if chat == 2 {
+        return "Talkative"
+      } else if chat == 3 {
+        return "Poppin'"
+      } else if chat == 4 {
+        return "Loud"
+      }
+    } else if chat == 4 {
       let chat = spot.chatTime4
-      return "It's \(chat))"
-    } else {
-      return "Not Found"
+      if chat == 1 {
+        return "Silent"
+      } else if chat == 2 {
+        return "Talkative"
+      } else if chat == 3 {
+        return "Poppin'"
+      } else if chat == 4 {
+        return "Loud"
+      }
     }
+    return "N/A"
   }
-  
-}
-
-extension SpotModel {
-  
-  enum CrowdRating: String {
-    case Low = "Low"
-    case Medium = "Medium"
-    case High = "High"
-    case VeryHigh = "Very High"
-    
-    
-  }
-  
   
   
 }
 
-
-#if DEBUG
+//#if DEBUG
 extension SpotModel {
   static var sampleModel: SpotModel {
     let model = SpotModel(spot: Spot())
     return model
   }
 }
-#endif
+//#endif
