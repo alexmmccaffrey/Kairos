@@ -40,7 +40,7 @@ struct SpotSearchView: View {
               Image("arrowIconLeft")
           })
           .navigationBarTitle("Spot Search")
-          .navigationBarTitleDisplayMode(.inline)
+//          .navigationBarTitleDisplayMode(.inline)
         }
       }
       .edgesIgnoringSafeArea(.bottom)

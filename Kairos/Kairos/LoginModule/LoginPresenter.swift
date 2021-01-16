@@ -14,9 +14,9 @@ class LoginPresenter: ObservableObject {
   let router = LoginRouter()
   @Published var isFromHome: Bool
   
-  @Published var username: String = "amcctesting"
+  @Published var username: String = ""
   @Published var email: String = ""
-  @Published var password: String = "password"
+  @Published var password: String = ""
   @Published var confirmPassword: String = ""
   @Published var isSignUp: Bool = false
   @Published var viewNavigation: Int? = nil
@@ -96,7 +96,9 @@ class LoginPresenter: ObservableObject {
   
   func makeLoginTabButton() -> some View {
     Button(action: {
-      self.isSignUp = false
+      DispatchQueue.main.async {
+        self.isSignUp = false
+      }
     }, label: {
       Text("LOGIN")
         .foregroundColor(Color(isSignUp ? "placeholderText" : "loginSelection"))
@@ -106,7 +108,9 @@ class LoginPresenter: ObservableObject {
   
   func makeSignUpTabButton() -> some View {
     Button(action: {
-      self.isSignUp = true
+      DispatchQueue.main.async {
+        self.isSignUp = true
+      }
     }, label: {
       Text("SIGN UP")
         .foregroundColor(Color(isSignUp ? "loginSelection" : "placeholderText"))

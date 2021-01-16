@@ -19,6 +19,12 @@ struct HomeView: View {
   
   @State var isBroken: Bool = true
   
+  @State var city: String = ""
+  @State var state: String = ""
+  @State var viewCity: String = ""
+  @State var viewState: String = ""
+  @State var query: String = ""
+  
   init(presenter: HomePresenter) {
     self.presenter = presenter
     UIScrollView.appearance().bounces = false
@@ -95,7 +101,7 @@ struct HomeView: View {
                 self.isBroken = false
               }
             nearbySpotsSection
-            .ignoresSafeArea(edges: .bottom)
+//            .ignoresSafeArea(edges: .bottom)
             .onTapGesture() {
 //              print(self.presenter.isLocationApplied)
               print(self.presenter.interactor.isBroken)
@@ -112,8 +118,8 @@ struct HomeView: View {
         }
         .onAppear() {
           presenter.checkLocation()
-          presenter.getNearbySpotResults(hasMadeSearch: presenter.didSearchNearbySpots)
-          presenter.getRecentlyReviewedSpotResults(hasMadeSearch: presenter.didSearchRecentlyReviewed)
+//          presenter.getNearbySpotResults(hasMadeSearch: presenter.didSearchNearbySpots)
+//          presenter.getRecentlyReviewedSpotResults(hasMadeSearch: presenter.didSearchRecentlyReviewed)
         }
         presenter.linkSpotSearchView(selection: $presenter.viewNavigation)
         presenter.linkLoginView(selection: $presenter.viewNavigation)
@@ -124,7 +130,7 @@ struct HomeView: View {
       .ignoresSafeArea(.keyboard, edges: .bottom)
       .ignoresSafeArea(edges: .bottom)
     }
-    .ignoresSafeArea(edges: .bottom)
+//    .ignoresSafeArea(edges: .bottom)
     .zIndex(2.0)
     .navigationBarHidden(true)
     .background(Color.white)
@@ -198,6 +204,7 @@ extension HomeView {
             .opacity(0.15)
         )
         .cornerRadius(30.0)
+//      TextField("", text: $query)
       HStack {
         if presenter.isFilterSearch {
           presenter.makeSpotFinderSearchButton()
@@ -453,7 +460,7 @@ extension HomeView {
         }
       }
     }
-    .ignoresSafeArea(edges: .bottom)
+//    .ignoresSafeArea(edges: .bottom)
   }
   
 }

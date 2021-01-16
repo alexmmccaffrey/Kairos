@@ -57,21 +57,21 @@ struct LoginView: View {
                 VStack {
                   ZStack {
                     presenter.makeLoginTabButton()
-                      .offset(x: -GeometryProxy.size.width/5)
+                      .offset(x: -screenWidth/5)
                     presenter.makeSignUpTabButton()
-                      .offset(x: GeometryProxy.size.width/5)
+                      .offset(x: screenWidth/5)
                   }
                   ZStack {
                     underlineView
-                      .frame(width: abs(GeometryProxy.size.width-70))
+                      .frame(width: abs(screenWidth-70))
                     if presenter.isSignUp == true {
                       signUpSelection
                         .frame(width: 30)
-                        .offset(x: GeometryProxy.size.width/5)
+                        .offset(x: screenWidth/5)
                     } else {
                       signUpSelection
                         .frame(width: 30)
-                        .offset(x: -GeometryProxy.size.width/5)
+                        .offset(x: -screenWidth/5)
                     }
                   }
                 }
@@ -80,9 +80,9 @@ struct LoginView: View {
               }
             Spacer()
           }
-          .frame(width: abs(GeometryProxy.size.width-6))
+          .frame(width: abs(screenWidth-6))
           .padding(.top, 75)
-          /// Navigation
+            /// Navigation
           presenter.linkHomeView(selection: $presenter.viewNavigation)
         }
       }

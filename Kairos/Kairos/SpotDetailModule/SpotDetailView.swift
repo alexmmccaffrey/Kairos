@@ -148,7 +148,7 @@ struct SpotDetailView: View {
           Image("arrowIconLeft")
       })
       .navigationBarTitle("Spot Details")
-      .navigationBarTitleDisplayMode(.inline)
+//      .navigationBarTitleDisplayMode(.inline)
       .background(
         Color.white
           .blur(radius: presenter.isBackgroundBlur ? 10 : 0)

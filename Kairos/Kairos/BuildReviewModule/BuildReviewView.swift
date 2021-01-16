@@ -201,7 +201,7 @@ struct BuildReviewView: View {
           Image("arrowIconLeft")
       })
       .navigationBarTitle("Leave A Review")
-      .navigationBarTitleDisplayMode(.inline)
+//      .navigationBarTitleDisplayMode(.inline)
       .background(Color.white)
     }
   }
